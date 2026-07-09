@@ -40,6 +40,14 @@
       "customer": "pilot-bank-b",
       "summary": "Tool-call timeout leaves task in unknown state.",
       "impact": "Operator must inspect logs and restart the run manually."
+    },
+    {
+      "id": "T-1006",
+      "severity": "high",
+      "area": "billing",
+      "customer": "pilot-bank-c",
+      "summary": "Payment processing fails intermittently for premium-tier customers; additionally, customer reports confusing UI labels on the same checkout page.",
+      "impact": "Revenue loss for premium accounts (estimated 15 affected transactions). UI confusion is non-blocking but generates support volume."
     }
   ]
 }
