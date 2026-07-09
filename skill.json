@@ -1,0 +1,12 @@
+{
+  "id": "agent-readiness-eval",
+  "name": "Agent Readiness Eval",
+  "version": "3.0.0",
+  "description": "Portable question-pack skill for native harness execution and offline answer review.",
+  "entrypoints": {
+    "skill": "SKILL.md"
+  },
+  "tasks": [
+    "task-001"
+  ]
+}
