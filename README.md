@@ -17,11 +17,12 @@ agent-readiness-eval/
 ├── README.md
 ├── skill.json
 ├── tasks/
-│   └── task-001/
-│       ├── task.md
-│       ├── inputs/
-│       │   └── data.json
-│       └── output-requirements.md
+│   ├── task-001/          # Customer Ticket Triage
+│   ├── task-002/          # AI Platform Incident Investigation
+│   ├── task-003/          # Policy Compliance Check
+│   ├── task-004/          # Cross-System Data Reconciliation
+│   ├── task-005/          # Conflicting Requirements Resolution
+│   └── task-006/          # Multi-Source Report Synthesis
 ├── templates/
 │   ├── run-metadata.json
 │   └── completion-summary.md
@@ -44,7 +45,18 @@ Install this Skill in a compatible harness. Send one message:
 评测
 ```
 
-The harness should read `tasks/task-001/`, solve it using its own native tools, and write an answer directory under `runs/`.
+The harness should read `tasks/task-<N>/`, solve it using its own native tools, and write an answer directory under `runs/`.
+
+## Task Catalog
+
+| Task | Domain | Difficulty | Key Capability |
+|------|--------|------------|----------------|
+| 001 — Customer Ticket Triage | Financial Services | Basic | Single-source info extraction, risk sorting |
+| 002 — AI Platform Incident Investigation | Technical Operations | Intermediate | Multi-file correlation, confidence estimation |
+| 003 — Policy Compliance Check | Enterprise Compliance | Intermediate | Conditional reasoning, edge case handling |
+| 004 — Cross-System Data Reconciliation | Finance / Operations | Advanced | Heterogeneous source alignment, discrepancy detection |
+| 005 — Conflicting Requirements Resolution | Project Management | Intermediate | Ambiguity resolution, constraint-based decision making |
+| 006 — Multi-Source Report Synthesis | Business Intelligence | Advanced | Multi-source synthesis, critical data evaluation |
 
 ## Answer Directory
 
