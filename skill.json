@@ -7,6 +7,11 @@
     "skill": "SKILL.md"
   },
   "tasks": [
-    "task-001"
+    "task-001",
+    "task-002",
+    "task-003",
+    "task-004",
+    "task-005",
+    "task-006"
   ]
 }
