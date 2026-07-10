@@ -4,3 +4,5 @@ runs/
 .worktrees/
 .superpowers/
 .DS_Store
+.omo/
+dist/
