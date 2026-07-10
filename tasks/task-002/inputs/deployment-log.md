@@ -16,9 +16,9 @@
 ### 11:30 UTC — Deploy agent-runtime v2.3.2 (hotfix)
 
 **Change log:**
-- Reverted async completion reporting optimization
-- Fixed race condition where task status was set to 'completed' before the output artifact write confirmed
-- Added explicit write-acknowledgement step before status transition
+- Rolled back async completion reporting changes from v2.3.1
+- Restored previous task completion flow
+- Updated internal sequencing to match v2.3.0 behavior
 
 **Scope:** agent-runtime service (production), all 8 nodes
 **Duration:** 6 minutes rolling update
@@ -28,7 +28,7 @@
 
 - All nodes healthy
 - Error rate returned to baseline
-- Three sample agent runs confirmed: status transitions correctly after write confirmation
+- Three sample agent runs confirmed: all phases completed successfully with expected outputs
 
 ---
 

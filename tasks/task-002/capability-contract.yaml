@@ -1,0 +1,34 @@
+task_id: task-002
+task_version: "2.0.0"
+environment_type: static_files
+environment_version: not_applicable
+adapter_contract_version: "1.0.0"
+
+primary_capabilities:
+  - directory_discovery
+  - multi_file_correlation
+  - timeline_construction
+  - evidence_evaluation
+  - distractor_exclusion
+  - confidence_estimation
+
+required_environment:
+  - file_read
+  - file_write
+
+required_evidence:
+  - task_id_file
+  - final_answer
+  - investigation_summary_json
+  - run_metadata
+
+comparison_modes:
+  - same_harness_different_model
+  - same_harness_model_variant
+  - same_model_controlled_harness
+  - same_model_native_harness
+
+not_measured:
+  - code_execution
+  - web_research
+  - stateful_tools

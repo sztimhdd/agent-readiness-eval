@@ -1,0 +1,33 @@
+task_id: task-001
+task_version: "2.0.0"
+environment_type: static_files
+environment_version: not_applicable
+adapter_contract_version: "1.0.0"
+
+primary_capabilities:
+  - single_source_extraction
+  - instruction_following
+  - structured_output
+  - edge_case_handling
+
+required_environment:
+  - file_read
+  - file_write
+
+required_evidence:
+  - task_id_file
+  - final_answer
+  - triage_summary_json
+  - run_metadata
+
+comparison_modes:
+  - same_harness_different_model
+  - same_harness_model_variant
+  - same_model_controlled_harness
+  - same_model_native_harness
+
+not_measured:
+  - multi_file_correlation
+  - code_execution
+  - web_research
+  - stateful_tools

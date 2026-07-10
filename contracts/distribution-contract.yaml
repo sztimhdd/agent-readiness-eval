@@ -20,6 +20,14 @@ default_excludes:
   - .gitignore
   - AGENTS.md
   - opencode.json
+  - contracts/**
+  - scripts/**
+  - tests/**
+  - docs/superpowers/**
+  - tasks/*/task-design-note.md
+  - docs/task-*
+  - docs/benchmark-*
+  - docs/opencode-full-*
 
 # Agent-visible package: what the agent sees at runtime
 agent_package:
@@ -36,7 +44,6 @@ agent_package:
     - tasks/*/profiles/*/profile-contract.yaml
     - tasks/*/environment-contract.yaml
     - templates/**
-    - docs/OFFLINE-SCORING-GUIDE.md
   exclude:
     - tasks/*/evaluator-notes/**
     - tasks/*/evaluator-private/**
@@ -66,4 +73,7 @@ evaluator_only:
     - tasks/*/evaluator-notes/**
     - tasks/*/evaluator-private/**
     - docs/OFFLINE-SCORING-GUIDE.md
+    - docs/INSTALL-*.md
+    - docs/PRD_core_v2.md
+    - docs/TDD_core_v2.md
   exclude: []
