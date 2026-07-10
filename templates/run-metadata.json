@@ -19,5 +19,6 @@
   "tool_calls": "UNAVAILABLE",
   "run_status": "completed",
   "abort_reason": "UNAVAILABLE",
-  "web_activity_evidence": "UNAVAILABLE"
+  "web_activity_evidence": "UNAVAILABLE",
+  "web_activity_evidence_unavailable_reason": "UNAVAILABLE"
 }
