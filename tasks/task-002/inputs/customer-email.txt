@@ -1,0 +1,25 @@
+From: compliance-officer@pilot-bank-a.com
+To: support@agentia-platform.com
+Subject: URGENT: Empty AI agent reports — compliance risk
+Date: 2025-06-12 10:45 UTC
+
+Dear Agentia Support,
+
+This is an urgent escalation regarding our AI agent deployments on your platform.
+
+Since around 08:00 this morning, several of our automated compliance review agents have been producing reports that show as "completed" in the dashboard but contain no actual data. Our compliance team has identified at least 8 such empty reports so far. These were fed into our downstream audit pipeline before we caught the issue.
+
+This is a regulatory compliance concern. We need:
+
+1. An immediate root-cause analysis
+2. Confirmation that no customer data was exposed or misrouted
+3. A timeline of which reports are affected
+4. Assurance that this will not recur
+
+Our contract SLA requires 99.95% task completion reliability. We need to understand whether this incident constitutes an SLA breach.
+
+Please escalate this to your engineering team immediately.
+
+Best regards,
+Sarah Chen
+VP Compliance, Pilot Bank A

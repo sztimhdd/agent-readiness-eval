@@ -1,0 +1,37 @@
+{
+  "dataset_id": "incident_investigation_001",
+  "tickets": [
+    {
+      "id": "T-2001",
+      "severity": "high",
+      "area": "agent-runtime",
+      "reported_at": "2025-06-12T09:30:00Z",
+      "summary": "Agent task reports 'completed' before writing requested artifact to storage.",
+      "impact": "Operator approved an agent run that produced no output. Required manual re-run."
+    },
+    {
+      "id": "T-2002",
+      "severity": "medium",
+      "area": "agent-runtime",
+      "reported_at": "2025-06-12T10:00:00Z",
+      "summary": "Batch of 12 agent tasks all show 'completed' status but only 4 have output artifacts.",
+      "impact": "Team unable to determine which runs need to be re-triggered without manual log inspection."
+    },
+    {
+      "id": "T-2003",
+      "severity": "critical",
+      "area": "agent-runtime",
+      "reported_at": "2025-06-12T10:15:00Z",
+      "summary": "Pilot-bank-a compliance team flagged 8 agent reports that were accepted as complete but contained no data. Customer escalation active.",
+      "impact": "Account-level escalation. Compliance review triggered. Potential SLA violation."
+    },
+    {
+      "id": "T-2004",
+      "severity": "low",
+      "area": "dashboard",
+      "reported_at": "2025-06-12T11:00:00Z",
+      "summary": "Task history page shows 'completed' status for tasks that are still in the write phase.",
+      "impact": "Status display is misleading but task execution is unaffected once the underlying runtime issue is resolved."
+    }
+  ]
+}

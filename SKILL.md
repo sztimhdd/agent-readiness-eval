@@ -8,7 +8,6 @@ tags:
   - question-pack
   - vitaclaw
 version: 3.0.0
-allowed-tools: []
 ---
 
 # Agent Readiness Eval v3
@@ -21,7 +20,8 @@ This Skill is a question pack, not an execution engine. It gives tasks and an an
 
 ## Trigger
 
-When the user says `评测`, run the first task under `tasks/` unless the user names a specific task.
+When the user says `评测 task-001` (or names another registered task), run that task.
+When the user says only `评测`, run `task-001`.
 
 ## Required Flow
 
