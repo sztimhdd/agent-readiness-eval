@@ -2,4 +2,5 @@ __pycache__/
 *.pyc
 runs/
 .worktrees/
+.superpowers/
 .DS_Store
