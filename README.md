@@ -65,7 +65,7 @@ For a leakage-free, repeatable Codex installation and comparison procedure, see
 ## Answer Directory
 
 ```text
-runs/<task-id>-<harness-name>-<model-name>/
+runs/<task-id>-<harness-name>-<model-name>-<run-id>/
 ├── task-id.txt
 ├── final-answer.md
 ├── artifacts/

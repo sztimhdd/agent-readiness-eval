@@ -72,6 +72,7 @@ class V3ContractTests(unittest.TestCase):
         skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         self.assertNotIn("allowed-tools: []", skill)
         self.assertIn("评测 task-001", skill)
+        self.assertIn("<run-id>", skill)
 
     def test_codex_install_guide_documents_the_leakage_free_projection(self) -> None:
         guide = (ROOT / "docs" / "INSTALL-CODEX.md").read_text(encoding="utf-8")
