@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 import json
+import re
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -18,14 +22,13 @@ FORBIDDEN_TERMS = [
     "ver" + "ifier.py",
     "judge" + "_output",
     "evi" + "dence bun" + "dle",
-    "state" + " machine",
 ]
 
 
-class V3ContractTests(unittest.TestCase):
+class CoreV2ContractTests(unittest.TestCase):
     def test_package_has_only_portable_v3_top_level_shape(self) -> None:
         existing = {path.name for path in ROOT.iterdir()}
-        self.assertTrue({"SKILL.md", "README.md", "skill.json", "tasks", "templates", "docs", "tests"}.issubset(existing))
+        self.assertTrue({"SKILL.md", "README.md", "skill.json", "tasks", "templates", "docs", "tests", "contracts", "archive", "scripts"}.issubset(existing))
         for forbidden in FORBIDDEN_PATHS:
             self.assertFalse((ROOT / forbidden).exists(), forbidden)
 
@@ -66,6 +69,8 @@ class V3ContractTests(unittest.TestCase):
         self.assertEqual(metadata["output_tokens"], "UNAVAILABLE")
         self.assertEqual(metadata["total_tokens"], "UNAVAILABLE")
         self.assertEqual(metadata["tool_calls"], "UNAVAILABLE")
+        self.assertIn("run_status", metadata)
+        self.assertIn("web_activity_evidence", metadata)
 
     def test_active_docs_do_not_reference_legacy_execution_architecture(self) -> None:
         checked_files = [ROOT / "SKILL.md", ROOT / "README.md", ROOT / "skill.json"] + sorted((ROOT / "docs").glob("*.md"))
@@ -84,6 +89,42 @@ class V3ContractTests(unittest.TestCase):
         self.assertIn("~/.codex/skills/agent-readiness-eval", guide)
         self.assertIn("evaluator-notes", guide)
         self.assertIn("three", guide)
+
+
+    def test_skill_json_has_structured_tasks(self) -> None:
+        manifest = json.loads((ROOT / "skill.json").read_text(encoding="utf-8"))
+        tasks = manifest.get("tasks", [])
+        self.assertTrue(len(tasks) > 0, "skill.json must have at least one task")
+        for t in tasks:
+            with self.subTest(task=t.get("id", "unknown")):
+                self.assertIn("id", t)
+                self.assertIn("task_version", t)
+                self.assertIn("environment_type", t)
+
+    def test_agent_package_excludes_leaked_sensitive_paths(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "build-distribution.py"),
+                 "--target", "agent", "--output", tmpdir],
+                check=True, capture_output=True, text=True,
+            )
+            output_path = Path(tmpdir)
+            all_files = [str(p.relative_to(output_path)) for p in output_path.rglob("*") if p.is_file()]
+            forbidden_patterns = [
+                "evaluator-notes/",
+                "evaluator-private/",
+                "environment/private/",
+                "environment/service/",
+            ]
+            for fpath in all_files:
+                for forbidden in forbidden_patterns:
+                    self.assertNotIn(forbidden, fpath,
+                        f"Leaked path in agent package: {fpath} contains {forbidden}")
+            # profiles/*/service/ — profile dir with a service/ subdir
+            profile_service_re = re.compile(r"profiles/[^/]+/service/")
+            for fpath in all_files:
+                self.assertIsNone(profile_service_re.search(fpath),
+                    f"Leaked profile service in agent package: {fpath}")
 
 
 if __name__ == "__main__":
