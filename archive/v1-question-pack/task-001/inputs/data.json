@@ -1,0 +1,53 @@
+{
+  "dataset_id": "support_triage_v3_static_001",
+  "tickets": [
+    {
+      "id": "T-1001",
+      "severity": "high",
+      "area": "authentication",
+      "customer": "pilot-bank-a",
+      "summary": "Admins intermittently cannot log in after password reset.",
+      "impact": "Tenant admins blocked from approving agent access for 42 minutes."
+    },
+    {
+      "id": "T-1002",
+      "severity": "medium",
+      "area": "billing",
+      "customer": "pilot-bank-b",
+      "summary": "Usage export has duplicate rows for retried jobs.",
+      "impact": "Finance team manually deduplicates daily report."
+    },
+    {
+      "id": "T-1003",
+      "severity": "critical",
+      "area": "agent-runtime",
+      "customer": "pilot-bank-a",
+      "summary": "Long-running agent task reports success before writing requested artifact.",
+      "impact": "Reviewer accepted an empty report during UAT."
+    },
+    {
+      "id": "T-1004",
+      "severity": "low",
+      "area": "dashboard",
+      "customer": "pilot-bank-c",
+      "summary": "Tenant list filter resets after browser refresh.",
+      "impact": "Minor operator inconvenience."
+    },
+    {
+      "id": "T-1005",
+      "severity": "high",
+      "area": "agent-runtime",
+      "customer": "pilot-bank-b",
+      "summary": "Tool-call timeout leaves task in unknown state.",
+      "impact": "Operator must inspect logs and restart the run manually."
+    },
+    {
+      "id": "T-1006",
+      "severity": "high",
+      "area": "billing",
+      "customer": "pilot-bank-c",
+      "summary": "Payment processing fails intermittently for premium-tier customers; additionally, customer reports confusing UI labels on the same checkout page.",
+      "impact": "Revenue loss for premium accounts (estimated 15 affected transactions). UI confusion is non-blocking but generates support volume."
+    }
+  ]
+}

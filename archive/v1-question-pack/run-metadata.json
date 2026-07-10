@@ -1,0 +1,15 @@
+{
+  "task_id": "",
+  "harness_name": "",
+  "harness_version": "UNAVAILABLE",
+  "model_name": "",
+  "model_provider": "UNAVAILABLE",
+  "started_at": "UNAVAILABLE",
+  "finished_at": "UNAVAILABLE",
+  "elapsed_seconds": "UNAVAILABLE",
+  "input_tokens": "UNAVAILABLE",
+  "output_tokens": "UNAVAILABLE",
+  "total_tokens": "UNAVAILABLE",
+  "tool_calls": "UNAVAILABLE",
+  "final_status": "completed"
+}

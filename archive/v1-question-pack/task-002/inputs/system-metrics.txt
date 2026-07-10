@@ -1,0 +1,43 @@
+Agentia AI Platform — System Metrics Summary
+Date: 2025-06-12
+Source: aggregated metrics (Prometheus), sampled every 5 minutes
+
+=== Task Completion Metrics ===
+
+ metric: agent.tasks.completed
+ tags: status=success
+ 08:00-09:00 avg 24/min (baseline)
+ 09:00-09:15 avg 22/min
+ 09:15-09:30 avg 27/min (post-deployment flush)
+ 09:30-10:00 avg 31/min (suspicious: unusually high completion rate)
+ 10:00-10:30 avg 33/min (peak anomaly)
+ 10:30-11:00 avg 28/min
+ 11:00-11:30 avg 25/min
+ 11:30-12:00 avg 23/min  (post-hotfix, returning to baseline)
+
+ metric: agent.tasks.completed_without_artifact
+ tags: status=anomaly
+ 08:00-09:15 avg 0.2/min (normal false positives)
+ 09:15-09:30 avg 1.1/min (starts rising)
+ 09:30-10:00 avg 4.8/min (alert threshold breached)
+ 10:00-10:30 avg 6.2/min (peak)
+ 10:30-11:00 avg 5.1/min
+ 11:00-11:30 avg 3.2/min
+ 11:30-12:00 avg 0.3/min (post-hotfix, returned to baseline)
+
+ metric: agent.tasks.write_confirmation_latency_p99
+ tags: unit=ms
+ 08:00-09:15 avg 312ms
+ 09:15-09:30 avg 890ms (spike after deployment)
+ 09:30-10:00 avg 1450ms
+ 10:00-10:30 avg 2100ms (peak)
+ 10:30-11:00 avg 1800ms
+ 11:00-11:30 avg 950ms  (partial recovery? or queue draining)
+ 11:30-12:00 avg 340ms  (post-hotfix)
+
+=== Alert History ===
+
+ 09:28 — CRITICAL: agent.tasks.completed_without_artifact > 3.0/min
+ 09:28 — WARN: agent.tasks.write_confirmation_latency_p99 > 1000ms
+ 11:32 — OK: agent.tasks.completed_without_artifact returned to baseline
+ 11:32 — OK: agent.tasks.write_confirmation_latency_p99 returned to baseline

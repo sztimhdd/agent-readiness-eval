@@ -1,0 +1,21 @@
+{
+  "period": "2025-Q4",
+  "generated": "2025-11-01",
+  "metrics": {
+    "total_revenue_q4_to_date": 8800000,
+    "revenue_by_week": [2100000, 2300000, 2000000, 2400000],
+    "enterprise_revenue_share_pct": 68,
+    "total_active_accounts": 248,
+    "enterprise_accounts": 42,
+    "professional_accounts": 89,
+    "starter_accounts": 117,
+    "net_new_accounts_q4": 18,
+    "churned_accounts_q4": 4,
+    "net_revenue_retention_pct": 104,
+    "average_time_to_onboard_days": {
+      "enterprise": 42,
+      "professional": 14,
+      "starter": 5
+    }
+  }
+}
