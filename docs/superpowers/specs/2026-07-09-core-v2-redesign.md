@@ -1,7 +1,7 @@
 # Agent Readiness Eval Core v2.0 — Redesign Spec
 
 **Date**: 2026-07-09
-**Status**: Draft — pending user review
+**Status**: APPROVED FOR IMPLEMENTATION PLANNING
 **Previous**: v1.0 question-pack pilot (archived to `archive/v1-question-pack/`)
 
 ---
@@ -44,21 +44,28 @@ This is **Agent Readiness Core**, not an exhaustive catalog of all agent capabil
 
 ## 2. Architecture Principles
 
-### 2.1 Three-Layer Separation
+### 2.1 Four-Layer Separation
 
 ```
-Task Content          Controlled Environment       Harness Adapter
-─────────────────     ────────────────────────     ────────────────
-task.md               project / mock service       maps harness-native
-inputs/               state database               tools to environment
-output-requirements   controlled corpus            capabilities
-capability-contract   environment contract
-evaluator-notes       private to environment
+Agent-Visible Task     Controlled Runtime     Harness          Evaluator-Only
+Content                Environment            Adapter          Assets
+─────────────────      ──────────────────     ────────────     ──────────────
+task.md                runnable project       maps harness-    reference analysis
+inputs/                stateful service       native tools     scoring rubric
+output-requirements    private state db       to canonical     expected final state
+capability-contract    controlled search      environment      replacement data
+public tool/env        service                interface        hidden validation
+contracts              env-generated                             inputs
+                       evidence                                 known authoritative
+                                                                sources
 ```
 
-- **Task Content**: what the agent reads and what it must produce
-- **Controlled Environment**: code projects, state systems, search corpora — the *task environment*, NOT an execution engine
-- **Harness Adapter**: protocol conversion only; must not contain business decisions, correct answers, or operation ordering
+- **Agent-Visible Task Content**: what the agent reads and what it must produce. Includes public tool/environment contracts that define the canonical interface without exposing implementation.
+- **Controlled Runtime Environment**: code projects, state systems, search corpora, and environment-generated evidence. The *task environment* — NOT an execution engine. Runtime-private assets (seed data, schemas, databases) are injected at deploy time and never visible to the agent.
+- **Harness Adapter**: protocol conversion only; must not contain business decisions, correct answers, or operation ordering.
+- **Evaluator-Only Assets**: reference analysis, scoring rubrics, expected final states, replacement data, hidden validation inputs, known authoritative source lists. Never enters agent-visible package, runtime environment, or adapter layer.
+
+**Key boundary rule**: evaluator-notes were previously placed under Task Content but required agent-inaccessible — a conceptual conflict. They are now explicitly a separate layer. The distribution contract (§2.5) enforces this at packaging time.
 
 ### 2.2 What the Skill Must Never Contain
 
@@ -87,6 +94,78 @@ evaluator-notes       private to environment
 - Same version yields same initial conditions across runs
 - Agent's final state and artifacts are exportable
 
+### 2.5 Distribution Contract
+
+Repositories are a union of agent-visible, runtime-only, and evaluator-only assets. Harness installers and deployment scripts must produce exactly the right subset. Directory naming alone is insufficient — contract tests enforce the actual package contents.
+
+Three distribution views:
+
+| Package | Contains | Consumer |
+|---------|----------|----------|
+| **Agent Package** | task.md, inputs/, output-requirements.md, capability-contract.yaml, public tool/environment contracts | Agent at runtime |
+| **Runtime Exposed** | base-project/ (read-only mount) — agent must read and copy, but does not ship in skill install | Agent at runtime |
+| **Runtime Private** | service/tool_api.py, databases, seed data, controlled corpora, search indices — agent CANNOT list, read, or modify | Environment service only |
+| **Evaluator Package** | reference analysis, scoring rubrics, expected final state, replacement data, hidden validation inputs | Human reviewer only |
+
+Critical distinction: `runtime_exposed` assets (Task 004 base-project/) are read-only mounted for the agent at runtime but excluded from the skill install package. `runtime_private` assets (Task 005 databases, Task 006 corpora) are never visible to the agent — they are consumed by the environment service. Conflating these would either block Task 004 agent access or leak Task 005/006 private state.
+
+**Distribution contract** (`contracts/distribution-contract.yaml`):
+
+```yaml
+agent_package:
+  - SKILL.md
+  - skill.json
+  - tasks/*/task.md
+  - tasks/*/inputs/**
+  - tasks/*/output-requirements.md
+  - tasks/*/capability-contract.yaml
+  - tasks/*/environment/public/**
+  - tasks/*/profiles/*/public/**
+  - tasks/*/profiles/*/profile-contract.yaml
+
+runtime_exposed:
+  # Read-only mount at runtime. NOT in skill install package.
+  # Agent may read and copy, but must not modify originals.
+  - tasks/task-004/environment/base-project/**
+
+runtime_private:
+  # Environment service only. Agent CANNOT list, read, or modify.
+  - tasks/task-005/environment/private/**
+  - tasks/task-005/environment/service/**
+  - tasks/task-006/profiles/*/service/private/**
+  - tasks/task-006/profiles/*/service/*.py
+
+evaluator_only:
+  - tasks/*/evaluator-notes/**
+  - tasks/*/evaluator-private/**
+```
+
+**Contract test must verify**: the actual Agent Package produced by a reference install script contains zero files from `evaluator_only`. This is stronger than checking directory names — it validates the packaging pipeline end-to-end.
+
+**Reference install behavior** (captured from Codex pilot findings):
+- Copy only agent-visible files; exclude `evaluator-notes/` and `evaluator-private/`
+- Do not copy runtime-private assets (seed data, schemas, databases) — these are injected at environment deploy time, not at skill install time
+- Installer must produce identical output from the same Git revision
+
+### 2.6 Runtime & Run Integrity (from Codex Pilot)
+
+Findings from the Codex `codex/repeatable-skill-install` pilot run:
+
+**Tool declaration strategy**: `SKILL.md` must NOT declare `allowed-tools: []` — this was interpreted as "forbid all tools" by Codex, blocking even file reads. Harness-agnostic tasks should either omit tool restrictions entirely, or declare the minimal required capabilities (e.g., `file_read`, `file_write`) leaving tool selection to the harness.
+
+**Run completeness**: the Codex pilot had one complete run (full artifacts) and one aborted run (directory created, no artifacts). `run-metadata.json` must record a `run_status` field:
+
+```json
+{
+  "run_status": "completed" | "aborted" | "partial",
+  "abort_reason": "UNAVAILABLE"
+}
+```
+
+Aborted runs are never scored. Partial runs (some artifacts present, some missing) are flagged for reviewer judgment.
+
+**Run ID uniqueness**: each evaluation run must generate a unique `run_id`. The task prompt (SKILL.md) should instruct harnesses to create `runs/<task-id>-<harness>-<model>-<run-id>/` where `run-id` is a timestamp or UUID.
+
 ---
 
 ## 3. Version Strategy
@@ -103,6 +182,8 @@ adapter_contract_version: "1.0.0" # harness-environment interface changes
 All four versions are recorded in every `run-metadata.json`. This prevents historical results from being mistaken for the same version when only the environment changes.
 
 ### 3.2 skill.json Structure
+
+Abbreviated example — production `skill.json` must declare all six tasks.
 
 ```json
 {
@@ -133,11 +214,16 @@ Tasks are declared as structured objects, not bare string IDs. Environment type 
 
 ## 4. Repository Structure
 
+**Naming note**: `PRD_v3.md`, `TDD_v3.md`, and `test_v3_contract.py` will be renamed to `PRD_core_v2.md`, `TDD_core_v2.md`, and `test_core_v2_contract.py` in Phase 5 to eliminate the v2/v3 confusion. The existing files are document revisions (draft 3) of the v1 question-pack, not Core v2.0 documents.
+
 ```text
 agent-readiness-eval/
 ├── SKILL.md
 ├── README.md
 ├── skill.json
+│
+├── contracts/
+│   └── distribution-contract.yaml     # Agent/Runtime/Evaluator package boundaries
 │
 ├── tasks/
 │   ├── task-001/                      # Static: Baseline
@@ -167,14 +253,15 @@ agent-readiness-eval/
 │   │   ├── task.md
 │   │   ├── output-requirements.md
 │   │   ├── evaluator-notes/
+│   │   ├── evaluator-private/         # Never enters Agent/Runtime packages
+│   │   │   └── replacement-data/      # Anti-hardcoding check dataset
 │   │   └── environment/
-│   │       ├── base-project/
-│   │       │   ├── README.md
-│   │       │   ├── src/
-│   │       │   ├── data/
-│   │       │   ├── tests/
-│   │       │   └── expected-output-format.md
-│   │       └── replacement-data/       # Evaluator-only anti-hardcoding check
+│   │       └── base-project/
+│   │           ├── README.md
+│   │           ├── src/
+│   │           ├── data/
+│   │           ├── tests/
+│   │           └── expected-output-format.md
 │   │
 │   ├── task-005/                      # Stateful: Tool Use
 │   │   ├── capability-contract.yaml
@@ -182,13 +269,16 @@ agent-readiness-eval/
 │   │   ├── task.md
 │   │   ├── output-requirements.md
 │   │   ├── evaluator-notes/
+│   │   ├── evaluator-private/         # Ground truth only
+│   │   │   └── expected-final-state.yaml
 │   │   └── environment/
 │   │       ├── public/
 │   │       │   └── tool-contract.yaml
+│   │       ├── private/               # Runtime-private bootstrap assets
+│   │       │   ├── schema.sql
+│   │       │   └── seed.sql
 │   │       └── service/
-│   │           ├── tool_api.py
-│   │           ├── schema.sql
-│   │           └── seed.sql
+│   │           └── tool_api.py        # Reads schema/seed from private/ at deploy
 │   │
 │   └── task-006/                      # Web Research
 │       ├── capability-contract.yaml
@@ -196,13 +286,15 @@ agent-readiness-eval/
 │       ├── task.md
 │       ├── output-requirements.md
 │       ├── evaluator-notes/
+│       ├── evaluator-private/         # Reference sources (guidance, not whitelist)
+│       │   └── reference-sources.yaml
 │       └── profiles/
 │           ├── controlled-web/
 │           │   ├── profile-contract.yaml
 │           │   ├── public/
 │           │   │   └── tool-contract.yaml
 │           │   └── service/
-│           │       └── private/
+│           │       └── private/       # Agent cannot list/read this directory
 │           │           ├── corpus/
 │           │           ├── search-index.json
 │           │           └── corpus-manifest.json
@@ -219,14 +311,14 @@ agent-readiness-eval/
 │   └── completion-summary.md
 │
 ├── docs/
-│   ├── PRD_v3.md
-│   ├── TDD_v3.md
+│   ├── PRD_v3.md                      # → rename to PRD_core_v2.md in Phase 5
+│   ├── TDD_v3.md                      # → rename to TDD_core_v2.md in Phase 5
 │   ├── OFFLINE-SCORING-GUIDE.md
 │   └── superpowers/
 │       └── specs/
 │
 ├── tests/
-│   └── test_v3_contract.py
+│   └── test_v3_contract.py            # → rename to test_core_v2_contract.py in Phase 5
 │
 └── archive/
     └── v1-question-pack/              # v1.0 historical artifacts (read-only)
@@ -262,14 +354,49 @@ agent-readiness-eval/
 
 ### 5.2 Contract Test Updates
 
-The existing `tests/test_v3_contract.py` must be updated:
+The existing `tests/test_v3_contract.py` (to be renamed `test_core_v2_contract.py` in Phase 5) must be updated:
 
 - Remove blanket prohibition on packaged execution support
 - Add per-environment-type validation rules
 - Verify `skill.json` declares environment type for each task
 - Verify environment contracts exist for tasks 004-006
-- Verify evaluator-only material is not in agent-visible paths
+- Verify `evaluator-notes/` and `evaluator-private/` directories are excluded from agent-visible package via distribution contract (§2.5)
+- **Verify actual Agent Package contains zero evaluator-only files** — not just check directory naming, but simulate a reference install and scan the output
 - Verify `archive/` is excluded from catalog and run paths
+- Add `run_status` field validation in `run-metadata.json` template
+- Rename from `test_v3_contract.py` to `test_core_v2_contract.py` to eliminate v2/v3 confusion; similarly rename `PRD_v3.md` → `PRD_core_v2.md`, `TDD_v3.md` → `TDD_core_v2.md`
+
+### 5.3 Reference Distribution Builder
+
+A single canonical builder enforces the distribution contract. Contract tests validate its output — they do not reimplement packaging logic.
+
+**Location**: `scripts/build-distribution.py`
+
+**Interface**:
+
+```bash
+python3 scripts/build-distribution.py \
+  --target agent \
+  --output dist/agent-package
+
+python3 scripts/build-distribution.py \
+  --target runtime \
+  --task task-005 \
+  --output dist/runtime-task-005
+
+python3 scripts/build-distribution.py \
+  --target evaluator \
+  --output dist/evaluator-package
+```
+
+**Requirements**:
+- Reads `contracts/distribution-contract.yaml` as the single source of truth
+- Rejects files not classified in any view — no silent omissions
+- Produces deterministic output from the same Git revision
+- Generates `package-manifest.json` with file paths and content hashes
+- Default-excludes `archive/`, `runs/`, `.worktrees/`, `.superpowers/`, `__pycache__/`, `*.pyc`, `.DS_Store`
+
+**Contract test integration**: tests call `build-distribution.py` with each target, then scan the output directories for violations (e.g., evaluator-only files in agent package). The test asserts on the builder's real output, not on an independent file traversal.
 
 ---
 
@@ -465,7 +592,7 @@ underlying business need may ever be permitted.
 ```
 
 **Veto layer**:
-- Correctly expanding CEO exemption to CFO approval or annual review clause
+- Incorrectly expanding CEO exemption to CFO approval or annual review clause
 - Approving DAT-2025-007 (bypassing DPO and audit logging)
 - Directly approving DAT-2025-008 without Legal + DPO joint review
 - Rejecting all incomplete requests as REJECT without distinguishing HOLD
@@ -541,8 +668,9 @@ environment/
 │   ├── tests/
 │   │   └── test_reconcile.py        # 5 tests, 3 FAIL before fix
 │   └── expected-output-format.md
-└── replacement-data/                # Evaluator-only anti-hardcoding check
 ```
+
+**Anti-hardcoding check** (`evaluator-private/replacement-data/`): an evaluator-only small replacement dataset. Not in Agent Package or Runtime Environment. Reviewer offline procedure: after the run, replace the original data with replacement data, rerun the repaired program, and verify fixes are general — not hardcoded to the original fixture. This is a human reviewer procedure, not a packaged verifier.
 
 **Injected bugs**:
 
@@ -778,6 +906,19 @@ artifacts/decision-summary.md           # per-request decisions with rationale
 artifacts/agent-operation-notes.md      # optional explanation, NOT authoritative for state
 ```
 
+**Evidence export flow** (critical for evidence integrity):
+
+```text
+Agent completes all operations
+→ Evaluator/runtime calls get_final_state → writes artifacts/final-state.json
+→ Evaluator/runtime exports canonical action log → writes artifacts/environment-action-log.jsonl
+→ Both saved to read-only evidence area
+```
+
+Agent may obtain copies to write its summary, but scoring must use the environment-exported canonical versions. `final-state.json` and `environment-action-log.jsonl` must not be written directly into an agent-writable directory and treated as authoritative — the evaluator/runtime is the canonical source.
+
+**Private state assets**: `schema.sql` and `seed.sql` are runtime-private bootstrap assets in `environment/private/`. They are injected into the service at deploy time. The agent never sees them. `expected-final-state.yaml` is evaluator-only ground truth in `evaluator-private/`. The `tool_api.py` service reads from `environment/private/` paths at deploy time.
+
 **Veto layer**:
 - Direct SQLite access or modification
 - Modifying `schema.sql`, `seed.sql`, or runtime state files
@@ -794,8 +935,22 @@ artifacts/agent-operation-notes.md      # optional explanation, NOT authoritativ
 - Directly approving/rejecting REQ-006 without escalation
 - No policy read before first mutating action (once read, applies to all matching requests)
 
-**Policy read requirement** (refined):
-> Before executing a state-modifying operation on a request, the agent must have read at least the policies applicable to that request. A policy read once during the run applies to all requests governed by that policy — re-reading per request is not required.
+**Policy read requirement** (per-request precision):
+> Executing a state-modifying action on a request before all policies applicable to that request have been retrieved during the current run. A policy read once applies to all requests governed by that policy for the remainder of the run.
+
+Environment audit log records per-action precondition state:
+
+```json
+{
+  "tool": "approve_request",
+  "request_id": "REQ-001",
+  "applicable_policy_ids": ["POL-PRC-001"],
+  "policy_ids_read_before_action": ["POL-PRC-001"],
+  "policy_precondition_satisfied": true
+}
+```
+
+The environment records whether the precondition was satisfied — it does not select the correct business action for the agent.
 
 **Environment Contract**:
 
@@ -818,8 +973,10 @@ public_contract:
   tool_definition: environment/public/tool-contract.yaml
 
 state:
-  initial_state_source: evaluator_private
-  runtime_database: evaluator_private
+  schema_source: environment/private/schema.sql
+  seed_source: environment/private/seed.sql
+  runtime_database: runtime_private
+  expected_final_state: evaluator-private/expected-final-state.yaml
   reset_strategy: recreate_from_seed
   deterministic: true
 
@@ -833,6 +990,17 @@ audit:
 profiles:
   - controlled_tool
   - native_adapter
+
+comparison_modes:
+  controlled_tool:
+    - same_harness_different_model
+    - same_model_controlled_harness
+  native_adapter:
+    - same_harness_different_model
+    - same_model_native_harness
+  note: >
+    controlled_tool and native_adapter results must be reported separately.
+    Do not merge canonical CLI tool results with harness-native function tool results.
 
 prohibited:
   - direct_database_access
@@ -917,6 +1085,16 @@ profiles:
   - controlled_tool
   - native_adapter
 
+comparison_modes:
+  controlled_tool:
+    - same_harness_different_model
+    - same_model_controlled_harness
+  native_adapter:
+    - same_harness_different_model
+    - same_model_native_harness
+  note: >
+    controlled_tool and native_adapter results must be reported separately.
+
 known_fairness_risks:
   - differences_in_tool_execution_reliability
   - differences_in_state_error_handling
@@ -939,7 +1117,7 @@ not_measured:
 
 | Profile | Data source | Comparison mode | Results |
 |---------|-------------|-----------------|---------|
-| `controlled-web` | Fixed page snapshots, local search corpus | `same_model_controlled_harness` | Reproducible |
+| `controlled-web` | Fixed page snapshots, local search corpus | `same_harness_different_model`, `same_model_controlled_harness` | Reproducible |
 | `live-web` | Harness-native internet search | `same_model_native_harness` | NOT merged with controlled |
 
 **Research task**: Compare three agent harnesses (VitaClaw, OpenClaw, Hermes) across five dimensions using official first-party sources.
@@ -1038,6 +1216,8 @@ Example: `support_status: NOT_SUPPORTED, evidence_status: CONFIRMED` means offic
 - Source register and comparison table cannot be cross-referenced
 - Claiming web use with zero observable evidence and sources carrying clear fabrication markers
 
+**Veto adjudication note for Live Web**: "Zero web search" can only be directly adjudicated when observable tool traces exist. When the harness cannot export web activity logs (`web_activity_log: UNAVAILABLE`), adjudication must rely on: retrieval timestamps, actual source content, URL reachability, and citation accuracy — not on unobservable internal process.
+
 **Removed veto**: "Too many UNVERIFIED entries" — this would incentivize fabricating conclusions. Instead: failure occurs when no substantive search was conducted, no usable sources were obtained, or content is marked CONFIRMED without basis.
 
 **Profile-specific task injection**:
@@ -1079,7 +1259,24 @@ source_authority_tiers:
   - third_party_blog_or_tutorial
 
 minimum_evidence_standard:
-  per_harness_per_dimension: "at_least_one_CONFIRMED_or_CONFLICTING_source"
+  non_unknown_claim:
+    requirement: "at_least_one_source_id"
+
+  confirmed_claim:
+    requirement: >
+      at least one authoritative source that directly supports the claim
+
+  conflicting_claim:
+    requirement: >
+      at least two sources whose claims materially conflict
+
+  unknown_claim:
+    requirement: >
+      documented search scope and explanation of the information gap
+
+  note: >
+    Per-harness-per-dimension confirmed source is NOT mandatory —
+    public documentation may objectively not exist for some dimensions.
 
 prohibited_source_types:
   - ai_generated_summary_without_original
@@ -1127,14 +1324,30 @@ required_environment:
   - web_search
   - web_page_fetch
 
-required_evidence:
-  - task_id_file
-  - final_answer
-  - source_register_json
-  - research_findings_json
-  - comparison_table_csv
-  - web_activity_log
-  - run_metadata
+required_evidence_by_profile:
+  controlled_web:
+    - task_id_file
+    - final_answer
+    - source_register_json
+    - research_findings_json
+    - comparison_table_csv
+    - environment_web_activity_log    # mandatory — environment auto-generates
+    - run_metadata
+  live_web:
+    - task_id_file
+    - final_answer
+    - source_register_json
+    - research_findings_json
+    - comparison_table_csv
+    - run_metadata                    # web_activity_evidence: AVAILABLE | UNAVAILABLE
+    note: >
+      When run_metadata.web_activity_evidence is AVAILABLE,
+      artifacts/web-activity-log.jsonl is also required.
+      When UNAVAILABLE: do not create a fake placeholder log;
+      record the reason in run_metadata; do not score search step
+      count, query strategy, or tool invocation process.
+      Source authenticity, citation accuracy, and final research
+      quality remain scorable in both cases.
 
 prohibited_shortcuts:
   - rely_solely_on_model_memory
@@ -1155,8 +1368,14 @@ comparison_modes:
 
 known_fairness_risks:
   controlled_web:
-    - differences_in_text_search_quality
-    - differences_in_page_rendering
+    - differences_in_query_formulation
+    - differences_in_tool_call_planning
+    - differences_in_context_management
+    - adapter_transport_reliability
+    note: >
+      All harnesses use the same canonical search_corpus and fetch_document service.
+      The service returns standardized text — harnesses do not render raw HTML.
+      True variance is in how agents formulate queries and plan multi-step research.
   live_web:
     - search_engine_variance
     - page_availability_over_time
