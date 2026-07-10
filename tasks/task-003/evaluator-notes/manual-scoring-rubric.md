@@ -5,16 +5,19 @@
 ## Veto Layer
 | Fatal Error | Score Cap |
 |-------------|:---------:|
-| Misses PII/data compliance issue entirely (no DPO flagging on DAT-2025-007) | 40 |
-| Misses the missing annual review clause on PRC-2025-018 while correctly applying CEO exemption | 60 |
-| Treats DAT-2025-008 (subpoena) as standard non-compliant without recognizing legal exemption | 60 |
+| Approves a request that clearly violates non-waivable policy requirements (e.g., approving DAT-2025-007 without DPO pre-approval and audit logging) | 40 |
+| Incorrectly expands CEO exemption beyond competitive bidding to cover CFO approval or annual review clause on PRC-2025-018 | 50 |
+| Directly approves DAT-2025-008 (subpoena) without requiring Legal + DPO joint review | 50 |
+| Rejects all incomplete requests as REJECT without using HOLD | 50 |
+| Leaves a mandatory joint-review case at HOLD instead of ESCALATE | 50 |
 
 ## Dimension Scoring
 | Dimension | Points | Criteria |
 |-----------|:------:|----------|
 | Correct policy clause identification | 20 | Each finding cites correct policy document + section number |
-| Edge case / exemption handling | 20 | CEO exemption correctly applied; subpoena exemption correctly applied; exemption does NOT leak to non-exempt requests |
-| Conditional logic correctness | 20 | International travel triggers VP regardless of amount; >50K triggers CFO + bidding; all thresholds applied correctly |
-| No missed findings | 20 | All non-compliant items across all 4 requests identified |
-| No false positives | 10 | Compliant items not incorrectly flagged |
-| Format compliance | 10 | JSON valid and follows schema; Markdown has all required sections |
+| Decision reasoning correctness | 20 | Each decision follows from the policy text and conditions present |
+| Decision framework accuracy | 20 | APPROVE / HOLD / REJECT / ESCALATE used correctly per definitions in task.md |
+| Exception scoping accuracy | 15 | CEO exemption correctly scoped to competitive bidding only; subpoena exemption correctly identified but scoped to joint review requirement |
+| No missed conditions | 10 | All applicable policies checked for each request; all conditions evaluated |
+| No false positives | 5 | Compliant items not incorrectly flagged; decisions match actual conditions |
+| Format compliance | 10 | JSON valid and follows schema with all 10 fields; Markdown has all required sections |

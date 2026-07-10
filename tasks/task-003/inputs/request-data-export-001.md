@@ -20,3 +20,4 @@
 
 ## Notes
 This is a bulk export (>100 records). Report delivery date is 2025-04-15.
+The requester has requested an exemption from DPO pre-approval and audit logging requirements, citing tight reporting deadlines. No override authorization is attached.

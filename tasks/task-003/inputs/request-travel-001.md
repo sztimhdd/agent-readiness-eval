@@ -17,7 +17,7 @@
 
 ## Approvals
 - Manager: Approved (Zhang Wei, 2025-02-20)
-- VP: Pending
+- VP: Approved (Zhao Wen, 2025-03-05)
 - CEO: N/A
 
 ## Notes
