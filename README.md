@@ -1,13 +1,6 @@
-# Agent Readiness Eval v3
+# Agent Readiness Eval Core v2.0
 
-`agent-readiness-eval` is a portable question-pack Skill. It issues tasks and defines the answer format. It does not execute, grade, sanitize, package, or certify results.
-
-The design follows the useful split from SecPriv Skill, Harbor, Terminal-Bench, and Meta-Harness:
-
-- Skill content is portable.
-- Harness execution remains native.
-- Dataset/task, harness, model, and scoring are separate variables.
-- Offline reviewers score answer artifacts after the run.
+`agent-readiness-eval` is a portable agent evaluation suite. Six tasks across four capability tracks. It defines task content and answer formats; execution, scoring, and packaging belong to each harness or a separate offline review layer.
 
 ## Package Shape
 
@@ -16,26 +9,33 @@ agent-readiness-eval/
 ├── SKILL.md
 ├── README.md
 ├── skill.json
+├── contracts/
+│   └── distribution-contract.yaml
+├── scripts/
+│   └── build-distribution.py
 ├── tasks/
-│   ├── task-001/          # Customer Ticket Triage
-│   ├── task-002/          # AI Platform Incident Investigation
-│   ├── task-003/          # Policy Compliance Check
-│   ├── task-004/          # Cross-System Data Reconciliation
-│   ├── task-005/          # Conflicting Requirements Resolution
-│   └── task-006/          # Multi-Source Report Synthesis
+│   ├── task-001/          # Baseline Delivery (static)
+│   ├── task-002/          # Multi-Source Investigation (static)
+│   ├── task-003/          # Policy-Constrained Decision (static)
+│   ├── task-004/          # Coding & Repair (runnable project)
+│   ├── task-005/          # Stateful Tool Use (stateful service)
+│   └── task-006/          # Web Research (web profiles)
+├── adapters/
+│   ├── vitaclaw/
+│   ├── openclaw/
+│   └── hermes/
 ├── templates/
 │   ├── run-metadata.json
 │   └── completion-summary.md
 ├── docs/
-│   ├── PRD_v3.md
-│   ├── TDD_v3.md
-│   ├── INSTALL-VITACLAW.md
-│   ├── INSTALL-OPENCLAW.md
-│   ├── INSTALL-HERMES.md
-│   ├── INSTALL-CODEX.md
+│   ├── PRD_core_v2.md
+│   ├── TDD_core_v2.md
+│   ├── INSTALL-*.md
 │   └── OFFLINE-SCORING-GUIDE.md
-└── tests/
-    └── test_v3_contract.py
+├── tests/
+│   └── test_core_v2_contract.py
+└── archive/
+    └── v1-question-pack/   # v1.0 historical (read-only)
 ```
 
 ## How to Run
@@ -46,21 +46,28 @@ Install this Skill in a compatible harness. Send one message:
 评测
 ```
 
-The harness should read `tasks/task-<N>/`, solve it using its own native tools, and write an answer directory under `runs/`.
+The harness reads `tasks/task-001/`, solves it using its own native tools, and writes an answer directory under `runs/`.
 
-For a leakage-free, repeatable Codex installation and comparison procedure, see
-[`docs/INSTALL-CODEX.md`](docs/INSTALL-CODEX.md).
+For specific tasks or profiles:
+
+```text
+评测 task-004
+评测 task-005 controlled_tool
+评测 task-006 controlled_web
+```
+
+For a leakage-free, repeatable installation procedure, see `docs/INSTALL-CODEX.md`.
 
 ## Task Catalog
 
-| Task | Domain | Difficulty | Key Capability |
-|------|--------|------------|----------------|
-| 001 — Customer Ticket Triage | Financial Services | Basic | Single-source info extraction, risk sorting |
-| 002 — AI Platform Incident Investigation | Technical Operations | Intermediate | Multi-file correlation, confidence estimation |
-| 003 — Policy Compliance Check | Enterprise Compliance | Intermediate | Conditional reasoning, edge case handling |
-| 004 — Cross-System Data Reconciliation | Finance / Operations | Advanced | Heterogeneous source alignment, discrepancy detection |
-| 005 — Conflicting Requirements Resolution | Project Management | Intermediate | Ambiguity resolution, constraint-based decision making |
-| 006 — Multi-Source Report Synthesis | Business Intelligence | Advanced | Multi-source synthesis, critical data evaluation |
+| Task | Track | Environment | Difficulty | Key Capability |
+|------|-------|-------------|------------|----------------|
+| 001 — Baseline Delivery | reading_and_delivery | static_files | basic | Single-source extraction, instruction following, edge case handling |
+| 002 — Multi-Source Investigation | investigation_and_judgment | static_files | intermediate | Multi-file correlation, evidence evaluation, distractor exclusion |
+| 003 — Policy-Constrained Decision | rules_and_safety | static_files | intermediate | Rule application, exception scoping, escalation boundary detection |
+| 004 — Coding & Repair | coding_and_execution | runnable_project | advanced | Code execution, bug diagnosis, repair, result verification |
+| 005 — Stateful Tool Use | stateful_tool_use | stateful_service | advanced | State reading, policy lookup, sequential operation, safety stop |
+| 006 — Web Research | web_research | web_research | advanced | Proactive search, source verification, citation accuracy |
 
 ## Answer Directory
 
@@ -72,10 +79,47 @@ runs/<task-id>-<harness-name>-<model-name>-<run-id>/
 └── run-metadata.json
 ```
 
+## Run Status
+
+Every `run-metadata.json` records a `run_status`:
+
+| Status | Meaning |
+|--------|---------|
+| `completed` | All required artifacts produced |
+| `partial` | Some artifacts present, some missing — flagged for reviewer judgment |
+| `aborted` | Directory created, no artifacts — never scored |
+
 Use `UNAVAILABLE` for metadata the harness cannot observe. Do not estimate token usage.
+
+## Distribution
+
+Three distribution views are enforced by `contracts/distribution-contract.yaml`:
+
+| Package | Contains | Consumer |
+|---------|----------|----------|
+| **Agent** | task.md, inputs/, output-requirements, capability contracts, public tool contracts | Agent at runtime |
+| **Runtime** | base-project (004), databases (005), corpora (006) | Environment service |
+| **Evaluator** | reference analysis, scoring rubrics, expected final state, replacement data | Human reviewer |
+
+Build packages with `scripts/build-distribution.py`.
+
+## Architecture
+
+Four-layer separation:
+- **Agent-Visible Task Content**: what the agent reads and produces
+- **Controlled Runtime Environment**: code projects, state systems, search corpora
+- **Harness Adapter**: protocol conversion only — no business decisions
+- **Evaluator-Only Assets**: reference analysis, scoring rubrics, expected final states
 
 ## What This Package Does Not Include
 
-This package has no packaged execution engine, grading engine, child-agent control layer, result packaging pipeline, privacy scrubber, integrity manifest, or answer key.
+This package has no execution engine, grading engine, child-agent control layer, result packaging pipeline, privacy scrubber, or answer key. Those concerns belong to each harness or to a separate offline review layer.
 
-Those concerns belong to each harness or to a separate offline review layer.
+## Versioning
+
+| Layer | Version |
+|-------|---------|
+| Suite | 2.0.0 |
+| Tasks | 2.0.0 |
+| Environment | 1.0.0 |
+| Adapter Contract | 1.0.0 |

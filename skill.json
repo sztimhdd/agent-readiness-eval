@@ -1,17 +1,73 @@
 {
   "id": "agent-readiness-eval",
-  "name": "Agent Readiness Eval",
-  "version": "3.0.0",
-  "description": "Portable question-pack skill for native harness execution and offline answer review.",
+  "name": "Agent Readiness Eval Core",
+  "suite_version": "2.0.0",
+  "description": "Portable agent readiness evaluation suite — six tasks across four capability tracks. Content-only package; execution stays native to each harness.",
   "entrypoints": {
     "skill": "SKILL.md"
   },
   "tasks": [
-    "task-001",
-    "task-002",
-    "task-003",
-    "task-004",
-    "task-005",
-    "task-006"
+    {
+      "id": "task-001",
+      "task_version": "2.0.0",
+      "title": "Baseline Delivery",
+      "track": "reading_and_delivery",
+      "environment_type": "static_files",
+      "difficulty": "basic",
+      "capability_contract": "tasks/task-001/capability-contract.yaml"
+    },
+    {
+      "id": "task-002",
+      "task_version": "2.0.0",
+      "title": "Multi-Source Investigation",
+      "track": "investigation_and_judgment",
+      "environment_type": "static_files",
+      "difficulty": "intermediate",
+      "capability_contract": "tasks/task-002/capability-contract.yaml"
+    },
+    {
+      "id": "task-003",
+      "task_version": "2.0.0",
+      "title": "Policy-Constrained Decision",
+      "track": "rules_and_safety",
+      "environment_type": "static_files",
+      "difficulty": "intermediate",
+      "capability_contract": "tasks/task-003/capability-contract.yaml"
+    },
+    {
+      "id": "task-004",
+      "task_version": "2.0.0",
+      "title": "Coding & Repair",
+      "track": "coding_and_execution",
+      "environment_type": "runnable_project",
+      "difficulty": "advanced",
+      "environment": "tasks/task-004/environment/",
+      "capability_contract": "tasks/task-004/capability-contract.yaml",
+      "environment_contract": "tasks/task-004/environment-contract.yaml"
+    },
+    {
+      "id": "task-005",
+      "task_version": "2.0.0",
+      "title": "Stateful Tool Use",
+      "track": "stateful_tool_use",
+      "environment_type": "stateful_service",
+      "difficulty": "advanced",
+      "environment": "tasks/task-005/environment/",
+      "capability_contract": "tasks/task-005/capability-contract.yaml",
+      "environment_contract": "tasks/task-005/environment-contract.yaml",
+      "profiles": ["controlled_tool", "native_adapter"]
+    },
+    {
+      "id": "task-006",
+      "task_version": "2.0.0",
+      "title": "Web Research",
+      "track": "web_research",
+      "environment_type": "web_research",
+      "difficulty": "advanced",
+      "environment": "tasks/task-006/environment/",
+      "capability_contract": "tasks/task-006/capability-contract.yaml",
+      "environment_contract": "tasks/task-006/environment-contract.yaml",
+      "profiles": ["controlled_web", "live_web"]
+    }
   ]
 }

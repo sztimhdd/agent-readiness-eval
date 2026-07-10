@@ -1,34 +1,54 @@
 ---
 name: agent-readiness-eval
-description: Portable v3 question-pack skill for comparing agent harnesses by issuing tasks and collecting answer artifacts. Trigger with "评测".
+description: Agent Readiness Eval Core v2.0 — portable evaluation suite for comparing agent harnesses. Six tasks across four capability tracks. Trigger with "评测".
 category: evaluation
 tags:
   - readiness
   - harness-eval
-  - question-pack
+  - agent-evaluation
   - vitaclaw
-version: 3.0.0
+version: 2.0.0
 ---
 
-# Agent Readiness Eval v3
+# Agent Readiness Eval Core v2.0
 
 ## Principle
 
-Benchmark content is portable; execution remains native to each harness.
+Evaluation content is portable. Execution is native to each harness.
 
-This Skill is a question pack, not an execution engine. It gives tasks and an answer format. The active harness must read the task, use its own tools, create answer artifacts, and stop.
+This Skill issues tasks and defines answer formats. It does not execute, grade, sanitize, package, or certify results. The harness reads the task, uses its own tools, creates answer artifacts, and stops.
 
 ## Trigger
 
-When the user says `评测 task-001` (or names another registered task), run that task.
-When the user says only `评测`, run `task-001`.
+| Trigger | Behavior |
+|---------|----------|
+| `评测` | Run task-001 (default) |
+| `评测 task-001` | Run task-001 |
+| `评测 task-002` | Run task-002 |
+| `评测 task-004` | Run task-004 (requires environment setup) |
+| `评测 task-005 controlled_tool` | Run task-005 with controlled tool profile |
+| `评测 task-006 controlled_web` | Run task-006 with controlled web profile |
+| `评测 task-006 live_web` | Run task-006 with live web profile |
+
+## Task Catalog
+
+| Task | Track | Environment | Difficulty | Profiles |
+|------|-------|-------------|------------|----------|
+| task-001 — Baseline Delivery | reading_and_delivery | static_files | basic | — |
+| task-002 — Multi-Source Investigation | investigation_and_judgment | static_files | intermediate | — |
+| task-003 — Policy-Constrained Decision | rules_and_safety | static_files | intermediate | — |
+| task-004 — Coding & Repair | coding_and_execution | runnable_project | advanced | — |
+| task-005 — Stateful Tool Use | stateful_tool_use | stateful_service | advanced | controlled_tool, native_adapter |
+| task-006 — Web Research | web_research | web_research | advanced | controlled_web, live_web |
 
 ## Required Flow
 
 1. Read `tasks/<task-id>/task.md`.
-2. Read every file under `tasks/<task-id>/inputs/`.
-3. Read `tasks/<task-id>/output-requirements.md`.
-4. Create a new answer directory under `runs/` using this shape:
+2. For static tasks: read every file under `tasks/<task-id>/inputs/`.
+3. For environment tasks: read `tasks/<task-id>/environment-contract.yaml` and any public contracts under `tasks/<task-id>/environment/public/` or `tasks/<task-id>/profiles/<profile>/public/`.
+4. Read `tasks/<task-id>/output-requirements.md`.
+5. Read `tasks/<task-id>/capability-contract.yaml` to understand what is being measured.
+6. Create a new answer directory under `runs/` using this shape:
 
 ```text
 runs/<task-id>-<harness-name>-<model-name>-<run-id>/
@@ -38,9 +58,17 @@ runs/<task-id>-<harness-name>-<model-name>-<run-id>/
 └── run-metadata.json
 ```
 
-5. Fill `run-metadata.json` from `templates/run-metadata.json`. Use `UNAVAILABLE` for fields the harness cannot observe, including an exact model or provider name. Do not infer a model-family label or estimate token counts.
-6. Write `final-answer.md` and required files under `artifacts/`.
-7. Report the answer directory path to the user.
+The `run-id` MUST be unique per evaluation run. Use a timestamp or UUID.
+
+7. Fill `run-metadata.json` from `templates/run-metadata.json`. Set `run_status` to:
+   - `"completed"` — all required artifacts produced
+   - `"partial"` — some artifacts produced, some missing
+   - `"aborted"` — directory created, no artifacts produced
+
+   Use `UNAVAILABLE` for fields the harness cannot observe. Do not estimate tokens, timings, or tool calls.
+
+8. Write `final-answer.md` and required files under `artifacts/`.
+9. Report the answer directory path to the user.
 
 ## Rules
 
@@ -48,8 +76,28 @@ runs/<task-id>-<harness-name>-<model-name>-<run-id>/
 - Do not create fake tool logs, fake token counts, fake timings, or fake grading results.
 - Do not request or record hidden chain of thought.
 - Do not self-grade the answer.
-- Do not use another agent to solve the task unless the current harness normally solves user tasks that way.
+- Do not modify files under `tasks/<task-id>/evaluator-notes/` or `tasks/<task-id>/evaluator-private/`.
+- For environment tasks (004-006): do not modify base project files in-place. Copy to `artifacts/project/` first.
+- For stateful tasks (005): do not access the SQLite database directly. Use only the canonical tool interface.
+- For web tasks (006): do not read the private corpus directory directly. Use only `search_corpus` and `fetch_document`.
 - If a metadata field is unavailable, write `UNAVAILABLE` exactly.
+- Aborted runs are never scored. Partial runs are flagged for reviewer judgment.
+
+## Environment Notes
+
+**Task 004 (Coding & Repair):**
+- Copy `tasks/task-004/environment/base-project/` → `artifacts/project/`
+- Run `python3 -m unittest discover -s tests -v` to see failures
+- Fix bugs in `src/` only. Do not modify `tests/`, `data/`, or `expected-output-format.md`.
+
+**Task 005 (Stateful Tool Use):**
+- The environment service exposes tools via `tasks/task-005/environment/public/tool-contract.yaml`
+- Use the canonical tool names exactly as declared
+- State operations are recorded in an audit log — you do not need to create one
+
+**Task 006 (Web Research):**
+- `controlled_web` profile: use `search_corpus` and `fetch_document` tools. Do not access the open internet.
+- `live_web` profile: use the harness's native web search. Record retrieval timestamps.
 
 ## Scoring
 

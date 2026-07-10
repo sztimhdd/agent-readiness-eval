@@ -1,0 +1,69 @@
+# Distribution Contract — Agent Readiness Eval Core v2.0
+# Single source of truth for build-distribution.py.
+# All file classification occurs here.
+
+version: "2.0.0"
+
+# Default excludes (applied to all targets)
+default_excludes:
+  - archive/**
+  - runs/**
+  - .worktrees/**
+  - .superpowers/**
+  - .omo/**
+  - __pycache__/**
+  - "*.pyc"
+  - .DS_Store
+  - dist/**
+  - .git/**
+  - .codegraph/**
+  - .gitignore
+  - AGENTS.md
+  - opencode.json
+
+# Agent-visible package: what the agent sees at runtime
+agent_package:
+  include:
+    - SKILL.md
+    - skill.json
+    - README.md
+    - tasks/*/task.md
+    - tasks/*/inputs/**
+    - tasks/*/output-requirements.md
+    - tasks/*/capability-contract.yaml
+    - tasks/*/environment/public/**
+    - tasks/*/profiles/*/public/**
+    - tasks/*/profiles/*/profile-contract.yaml
+    - tasks/*/environment-contract.yaml
+    - templates/**
+    - docs/OFFLINE-SCORING-GUIDE.md
+  exclude:
+    - tasks/*/evaluator-notes/**
+    - tasks/*/evaluator-private/**
+    - tasks/*/environment/private/**
+    - tasks/*/environment/service/**
+    - tasks/*/profiles/*/service/**
+    - tasks/*/profiles/*/service
+
+# Runtime-exposed assets: read-only mount at deploy time, NOT in skill install
+runtime_exposed:
+  include:
+    - tasks/task-004/environment/base-project/**
+  exclude: []
+
+# Runtime-private assets: environment service only, agent CANNOT access
+runtime_private:
+  include:
+    - tasks/task-005/environment/private/**
+    - tasks/task-005/environment/service/**
+    - tasks/task-006/profiles/*/service/private/**
+    - tasks/task-006/profiles/*/service/*.py
+  exclude: []
+
+# Evaluator-only: human reviewer only, never enters agent/runtime packages
+evaluator_only:
+  include:
+    - tasks/*/evaluator-notes/**
+    - tasks/*/evaluator-private/**
+    - docs/OFFLINE-SCORING-GUIDE.md
+  exclude: []

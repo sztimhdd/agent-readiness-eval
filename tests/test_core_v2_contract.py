@@ -10,7 +10,7 @@ ALL_TASKS = sorted(
     d for d in (ROOT / "tasks").iterdir()
     if d.is_dir() and d.name.startswith("task-")
 )
-FORBIDDEN_PATHS = ["run" + "ner", "sco" + "rer", "schemas", "scripts", "task", "taskpacks", ".vitaclaw_eval" + "_runs"]
+FORBIDDEN_PATHS = ["run" + "ner", "sco" + "rer", "schemas", "task", "taskpacks", ".vitaclaw_eval" + "_runs"]
 FORBIDDEN_TERMS = [
     "Local" + "Executor",
     "run_readiness" + "_eval",
@@ -46,7 +46,12 @@ class V3ContractTests(unittest.TestCase):
 
     def test_skill_json_tasks_match_on_disk_directories(self) -> None:
         manifest = json.loads((ROOT / "skill.json").read_text(encoding="utf-8"))
-        declared = set(manifest.get("tasks", []))
+        tasks = manifest.get("tasks", [])
+        # v2 tasks are structured objects with "id" field
+        if tasks and isinstance(tasks[0], dict):
+            declared = {t["id"] for t in tasks}
+        else:
+            declared = set(tasks)
         on_disk = {d.name for d in ALL_TASKS}
         missing_from_manifest = on_disk - declared
         extra_in_manifest = declared - on_disk
