@@ -17,6 +17,7 @@
 - No push, no force-push, no credential changes. Branch: `core-v2-implementation`.
 - All commits atomic, conventional format.
 - `dist/` directory gitignored.
+- No commit leaves a known failing test in the repo. `python3 -m unittest discover tests -v` must exit 0 after every commit.
 - Contract tests must pass after every wave.
 - LSP diagnostics clean on all changed files.
 - Tasks 001-003 are complete except the three uncommitted UAT refinements in Wave 0.
@@ -96,6 +97,8 @@ Expected: 7/7 pass.
 ## Wave 1: Contract Test Preparation
 
 Before deleting legacy task content (tasks 004-006 v1 files), the contract tests must be updated to validate v2 boundaries. This prevents a regression window where tests pass but the package shape or boundary rules are wrong.
+
+**No-red-commit rule:** Wave 1 commits only tests that pass against the current repo state (distribution, metadata, general boundaries). Assertions that require task-004/005/006 environment directories are paired with their respective implementation commits in Wave 2. Do not use `skip`, `expectedFailure`, or temporary assertion weakening to get a green commit. May stage future tests in working tree during Wave 1, but must not commit known-red state.
 
 ### Task 1.1: Read-only goal review of contract test upgrade scope
 
@@ -177,29 +180,32 @@ ACCEPTANCE CRITERIA: A concrete action list the implementation subagent can exec
 ```
 TASK: Rewrite tests/test_core_v2_contract.py to validate v2 boundaries per the goal review findings.
 
-EXPECTED OUTCOME: Updated test file with 12+ passing tests that validate all v2 package boundaries and distribution contract enforcement.
+EXPECTED OUTCOME: Updated test file that passes against current repo state. Environment-specific assertions (requiring task-004/005/006 environment directories) are staged for Wave 2 commits but not included in this Wave 1 commit.
 
 REQUIRED TOOLS: Read, apply_patch, bash (to run tests).
 
 MUST DO:
 - Keep the existing test structure (V3ContractTests class, but rename the class to CoreV2ContractTests).
 - Add assertions that call build-distribution.py and scan agent package output.
-- Add per-environment-type validation (skill.json declares environment_type, environment-contract.yaml exists for types runnable_project/stateful_service/web_research).
-- Add run_status field validation (template has run_status, abort_reason, web_activity_evidence).
-- Verify archive/ is excluded from catalog and run paths.
+- Add per-environment-type validation: write the test but guard it — environment-contract.yaml will not exist until Wave 2 for tasks 004-006. The test must be staged in working tree during Wave 1 but committed with the Wave 2 task that creates the file.
+- Add run_status field validation (template has run_status, abort_reason, web_activity_evidence) — these can pass now against current templates.
+- Verify archive/ is excluded from catalog and run paths — can pass now.
 - Remove "state machine" from FORBIDDEN_TERMS — it may now exist in environment contracts.
-- Add evaluator-notes/ and evaluator-private/ exclusion verification via distribution builder.
+- Add evaluator-notes/ and evaluator-private/ exclusion verification via distribution builder — can pass now.
 - Keep backward-compat: test_skill_does_not_disable_file_tools, test_codex_install_guide must still pass.
-- For test_each_task_has_question_pack_shape: after tasks 004-006 are rewritten, they will NOT have inputs/ directories (they use environment/ or profiles/ instead). This test must be updated to check per environment_type: static_files tasks have inputs/, others have environment-contract.yaml.
+- For test_each_task_has_question_pack_shape: update to check per environment_type (static_files tasks have inputs/, others have environment-contract.yaml) — this can pass for static tasks 001-003 now; the environment-type-specific branches for 004-006 stage with Wave 2.
 - Remove FORBIDDEN_PATHS entries that are no longer relevant ("schemas" is now legitimately under runtime-private, "taskpacks" was never in this repo).
-- Add test verifying the distribution builder rejects unclassified files.
+- Add test verifying the distribution builder rejects unclassified files — can pass now.
 
 MUST NOT DO:
 - Do not touch skill.json or templates/run-metadata.json.
 - Do not add scoring logic or grading infrastructure.
 - Do not delete existing valid tests.
+- Do not use skip, expectedFailure, or temporary assertion weakening to achieve green.
+- Do not commit known-red state. Staging future tests in working tree is fine; committing them is not.
 
 CONTEXT:
+- No-red-commit rule: every commit must leave `python3 -m unittest discover tests -v` exiting 0.
 - The existing test file is at tests/test_core_v2_contract.py (90 lines, 7 tests)
 - Distribution builder: scripts/build-distribution.py — call via subprocess
 - Contract template: contracts/distribution-contract.yaml
@@ -209,16 +215,15 @@ CONTEXT:
 
 ACCEPTANCE CRITERIA:
 - All existing valid tests still pass
-- New tests pass for distribution builder integration (agent package contains no evaluator files)
-- New tests pass for per-environment-type validation
-- New tests pass for run_status fields
-- `python3 -m unittest discover tests -v` exits 0
+- New tests that can pass against current state (distribution, metadata, archive, evaluator-exclusion) all pass
+- Tests requiring task-004/005/006 environment files are staged in working tree but not committed in this wave
+- `python3 -m unittest discover tests -v` exits 0 after Wave 1 commit
 ```
 
 - [ ] **Run updated contract tests to verify they pass**
 
 Run: `python3 -m unittest discover tests -v`
-Expected: All tests pass. Note: this will run against current v1 content for tasks 004-006, which still have inputs/ directories. The per-environment-type tests for tasks 004-006 will fail because environment-contract.yaml does not exist yet. That is expected — they will pass after Wave 2.
+Expected: All tests pass against current repo state (distribution, metadata, general boundaries, archive exclusion, evaluator-only exclusion). Assertions that require task-004/005/006 environment directories are staged in working tree but not included in this commit — they will be committed with their respective implementation in Wave 2.
 
 - [ ] **Commit**
 
@@ -226,6 +231,8 @@ Expected: All tests pass. Note: this will run against current v1 content for tas
 git add tests/test_core_v2_contract.py
 git commit -m "test: upgrade contract tests for v2 distribution contract and per-task environment validation"
 ```
+
+Then verify: `python3 -m unittest discover tests -v` exits 0.
 
 ---
 
@@ -343,7 +350,7 @@ VERIFY THE PROJECT WORKS:
 ```bash
 mkdir -p /tmp/t004-smoke/project && cp -r tasks/task-004/environment/base-project/* /tmp/t004-smoke/project/ && cd /tmp/t004-smoke/project && python3 -m unittest discover -s tests -v 2>&1
 ```
-Expected: 3 FAIL (test_id_mapping, test_amount_comparison, test_missing_value_handling), 2 OK (test_complete_reconciliation, test_output_format). No ERRORS (failures only, no errors).
+Expected: Exactly 3 intended non-passing tests (2 FAIL + optionally 1 ERROR when the ERROR is the real null-bug evidence from `status.lower()` on None) and 2 passing tests. No unrelated failures or infrastructure errors (import errors, missing modules, timeout, segfault).
 
 MUST NOT DO:
 - Do not modify the contract tests or any file outside tasks/task-004/.
@@ -355,11 +362,13 @@ MUST NOT DO:
 CONTEXT:
 - Spec: docs/superpowers/specs/2026-07-09-core-v2-redesign.md §6.4
 - The base-project is runtime-exposed (read-only mount at runtime). Agent copies it to artifacts/project/.
-- Test failures must be FAILURES, not ERRORS. Errors would indicate broken tests.
+- The null-bug (calling `.lower()` on None) may surface as an ERROR in pytest/unittest terminology. This is the correct, expected behavior — do not suppress it to achieve "0 ERRORS". What matters is: exactly 3 intended non-passing results and 2 passing results, with no unrelated infrastructure failures.
 - Replacement data is evaluator-only. It tests whether fixes are general, not hardcoded to the fixture.
 
 ACCEPTANCE CRITERIA:
-- `python3 -m unittest discover -s tests -v` produces exactly 3 FAIL and 2 OK.
+- `python3 -m unittest discover -s tests -v` produces exactly 3 non-passing results (FAIL or ERROR) and 2 OK.
+- The 3 non-passing results correspond to the 3 intended bugs (test_id_mapping, test_amount_comparison, test_missing_value_handling).
+- Zero unrelated failures (import errors, missing modules, timeout, segfault).
 - `python3 src/reconcile.py` crashes or produces wrong output (before fix).
 - After fixing all 3 bugs: `python3 -m unittest discover -s tests -v` produces 5 OK.
 - `python3 src/reconcile.py` after fix produces valid reconciliation-report.json.
@@ -441,6 +450,7 @@ git commit -m "feat(task-004): add coding & repair task with bug-injected Python
 
 **Binding decisions:**
 - Task 005 modes are `controlled_tool` and `native_adapter` (as declared in skill.json). These are profile names, not directories — profile-contract.yaml lives at the profile level only if there are profile-specific contracts. For this version, the environment-contract.yaml already declares the profiles inline.
+- **native_adapter profile: `implementation_status: planned`, `runnable: false`.** Core v2.0 currently ships the `controlled_tool` profile only. The `native_adapter` profile exists in the catalog and contracts for forward compatibility but is not implemented in this release. README, SKILL.md, UAT reports, and plan must not claim native_adapter is complete or runnable.
 - The tool_api.py must enforce state transitions, failed-call audit logging, policy-read precondition evidence, and terminal-state guards. It must NOT contain expected final states, business decision logic, or auto-solving.
 - There are exactly 11 agent-visible public tools: `list_requests`, `get_request`, `list_policies`, `get_policy`, `get_approval_status`, `request_information`, `approve_request`, `reject_request`, `escalate_request`, `get_final_state`, `get_action_log`. These are documented in `environment/public/tool-contract.yaml` and counted as the 11 public tools.
 - `reset` is a private runtime/test-only administrative CLI command used for deterministic setup. It must NOT appear in `environment/public/tool-contract.yaml`, must not be available to the evaluated agent, and must not be counted among the 11 public tools. It exists only as a CLI implementation detail in `tool_api.py`.
@@ -517,40 +527,51 @@ MUST DO:
     - POL-PRC-001 (procurement policy): <5000 auto-approve, >5000 requires CFO, bidding >10000
     - POL-PRC-002 (SaaS policy): annual review clause for renewals, CEO can exempt bidding but not annual review
     - POL-PRC-003 (cross-department policy): joint review required for cross-dept budget allocation
-11. Create environment/service/tool_api.py as a Python script with:
-    - SQLite3 database initialized from schema+seed on first run
+11. Create environment/service/tool_api.py as a Python script with **per-run_id isolated state**:
+
+    - State storage: `runtime-state/<run_id>/state.db` (SQLite, created at first operation for the run_id)
+    - Action log: `runtime-state/<run_id>/action-log.jsonl` (appended per action)
+    - Service receives run identity via either `--run-id <run_id>` CLI arg or `AGENT_EVAL_RUN_ID` env var.
+    - Each run_id gets independent initialization from schema.sql + seed.sql on first access.
     - The 11 public tools (list_requests, get_request, list_policies, get_policy, get_approval_status, request_information, approve_request, reject_request, escalate_request, get_final_state, get_action_log) as command-line commands — exactly those declared in tool-contract.yaml
-    - An additional private admin-only command `reset` (reinitializes database from seed) used for deterministic setup — must NOT appear in tool-contract.yaml, must NOT be documented in agent-visible contracts or task.md, and must NOT be counted among the 11 public tools
+    - An additional private admin-only command `reset --run-id <run_id>` (reinitializes only the specified run_id's database from seed) — must NOT appear in tool-contract.yaml, must NOT be documented in agent-visible contracts or task.md, and must NOT be counted among the 11 public tools
     - State machine enforcement: no operations on terminal states, no duplicate approvals
     - Policy-read precondition recording in audit log per action
     - reject_request requires reason, escalate_request requires body
     - All calls (success/failure) enter audit log with structured error on illegal calls
     - MUST NOT contain expected final states, business decision logic, or auto-solving
-    - Interface: `python3 tool_api.py <command> [args...]` returns JSON
-    - Or use stdin/stdout JSON-RPC-like protocol — choose one and document in tool-contract.yaml
+    - Service rejects empty run_id or implicit state reuse (must error if no run_id provided and no AGENT_EVAL_RUN_ID set)
+    - Evidence export (get_final_state, get_action_log) binds to the same run_id
+    - Interface: `python3 tool_api.py --run-id <id> <command> [args...]` returns JSON
+    - Or use stdin/stdout JSON-RPC-like protocol with run_id in each request — choose one and document in tool-contract.yaml and environment-contract.yaml
 
 AFTER CREATION:
 - Run lsp_diagnostics on tool_api.py and all Python files.
-- Verify seeds are inserted correctly.
+- Verify seeds are inserted correctly per run_id.
 
 SMOKE TEST:
 ```bash
 cd tasks/task-005/environment/service
-# Initialize (or auto-init on first call)
-python3 tool_api.py list_requests
-python3 tool_api.py get_request REQ-001
-python3 tool_api.py list_policies
-python3 tool_api.py get_policy POL-PRC-001
+# Initialize with run-id
+python3 tool_api.py --run-id smoke-test-1 list_requests
+python3 tool_api.py --run-id smoke-test-1 get_request REQ-001
+python3 tool_api.py --run-id smoke-test-1 list_policies
+python3 tool_api.py --run-id smoke-test-1 get_policy POL-PRC-001
 # Verify state enforcement
-python3 tool_api.py approve_request REQ-001  # should work, all conditions met
-python3 tool_api.py approve_request REQ-001  # should fail (already terminal — no-op with error)
+python3 tool_api.py --run-id smoke-test-1 approve_request REQ-001  # should work, all conditions met
+python3 tool_api.py --run-id smoke-test-1 approve_request REQ-001  # should fail (already terminal — no-op with error)
 # Verify audit log
-python3 tool_api.py get_action_log
+python3 tool_api.py --run-id smoke-test-1 get_action_log
 # Verify final state export
-python3 tool_api.py get_final_state
-# Reset for test
-python3 tool_api.py reset
-python3 tool_api.py get_final_state  # should show all pending
+python3 tool_api.py --run-id smoke-test-1 get_final_state
+# Verify cross-contamination: a second run_id starts clean
+python3 tool_api.py --run-id smoke-test-2 list_requests  # should return 6 pending despite smoke-test-1 having mutations
+python3 tool_api.py --run-id smoke-test-2 get_final_state  # all pending
+# Reset only smoke-test-1
+python3 tool_api.py --run-id smoke-test-1 reset
+python3 tool_api.py --run-id smoke-test-1 get_final_state  # should show all pending
+# Clean up test state
+rm -rf runtime-state/smoke-test-1 runtime-state/smoke-test-2
 ```
 
 MUST NOT DO:
@@ -558,19 +579,24 @@ MUST NOT DO:
 - Do not create profile directories — modes are declared in contracts, not directories.
 - Do not create adapter implementations for vitaclaw/openclaw/hermes.
 - Do not add any hidden answer files.
+- Do not use a shared `state.db` in the repo — every run_id gets independent initialization.
 
 CONTEXT:
+- State path: `runtime-state/<run_id>/state.db` — created at first operation for that run_id.
+- Action log: `runtime-state/<run_id>/action-log.jsonl` — appended per action.
 - This is runtime-private. Agent cannot list/read files under environment/private/ or environment/service/.
 - Tool API is a CLI tool — not a long-running server. Each invocation is a stateless call that opens the DB, performs the operation, and returns.
 - The audit log is environment-generated — it is NOT agent-writable. Agent must not modify it.
 - Policy-read precondition: for each mutating action, the API checks how many policies applicable to that request have been read during this run session. Records in audit log.
 
 ACCEPTANCE CRITERIA:
-- `python3 tool_api.py list_requests` returns 6 requests with status "pending"
+- `python3 tool_api.py --run-id test list_requests` returns 6 requests with status "pending"
 - Each tool call returns valid JSON with the expected fields
 - State machine enforcement: no operations on terminal states return structured errors
-- `python3 tool_api.py get_action_log` returns a non-empty log after operations
-- `python3 tool_api.py get_final_state` returns current state of all 6 requests
+- `python3 tool_api.py --run-id test get_action_log` returns a non-empty log after operations
+- `python3 tool_api.py --run-id test get_final_state` returns current state of all 6 requests
+- A second run_id starts with all 6 pending (no cross-contamination)
+- Service rejects empty run_id with structured error
 - No v1 legacy inputs/ directory exists under tasks/task-005/
 ```
 
@@ -721,14 +747,14 @@ MUST DO:
    a. profile-contract.yaml declaring corpus_version, search_index_version, network_required: false, reset_strategy: static_corpus.
    b. public/tool-contract.yaml declaring search_corpus(query: string) → [{doc_id, title, snippet, score}] and fetch_document(doc_id: string) → {doc_id, title, content, url, source, retrieved_at}.
    c. service/search_service.py: Python stdlib search service. Loads search-index.json into memory at startup. search_corpus does basic term matching on the index (word tokenization, lowercase, term frequency scoring). fetch_document reads the corpus file for the given doc_id. Both return JSON via stdout. Interface: `python3 search_service.py search_corpus "query terms"` and `python3 search_service.py fetch_document DOC-001`.
-   d. service/private/corpus/: HTML/text snapshot files. One per document. At minimum, cover 3 harnesses × 5 dimensions with 1-2 documents each (15-30 documents). Documents can be synthesized Markdown or text files that resemble official documentation covers:
-      - Skill Installation (VitaClaw, OpenClaw, Hermes)
-      - Tool Invocation (VitaClaw, OpenClaw, Hermes)
-      - Sandbox (VitaClaw, OpenClaw, Hermes)
-      - Licensing (VitaClaw, OpenClaw, Hermes)
-      - Offline Deployment (VitaClaw, OpenClaw, Hermes)
-   e. service/private/search-index.json: JSON object mapping terms → [{doc_id, score}]. Generate from the corpus files by tokenizing and computing simple TF scores.
-   f. service/private/corpus-manifest.json: JSON object with document count, last_updated, and list of {doc_id, title, source, dimension}.
+    d. service/private/corpus/: HTML/text snapshot files from real first-party sources. One per document. At minimum cover 3 harnesses × 5 dimensions with 1-2 documents each (15-30 documents). Source types:
+       - Official documentation pages (harness docs site)
+       - Official GitHub repository README, LICENSE files
+       - Official release notes or changelog entries
+       - Published official materials (blog posts, whitepapers from the official project)
+      Each document records in corpus-manifest.json: canonical URL, snapshot date, content hash (SHA-256), publisher, authority tier, commit/tag/version (when obtainable). Community discussion (forum posts, third-party blogs) is allowed as distractor/conflict material but must be explicitly flagged with authority_tier: community_discussion and labeled non-official in the source metadata.
+    e. service/private/search-index.json: JSON object mapping terms → [{doc_id, score}]. Generate from the corpus files by tokenizing and computing simple TF scores.
+    f. service/private/corpus-manifest.json: JSON object with document count, last_updated, and list of {doc_id, title, source, dimension, canonical_url, snapshot_date, content_hash, authority_tier}.
 
 9. Create profiles/live-web/profile-contract.yaml with network_required: true, determinism: non_deterministic_by_nature, freshness_requirement: sources_must_be_retrieved_during_run.
 
@@ -748,16 +774,20 @@ python3 search_service.py search_corpus "sandbox Docker"
 ```
 
 MUST NOT DO:
-- Do not create real web scraping or live internet access code.
+- Do not create real web scraping or live internet access code at runtime.
 - Do not create adapter implementations.
 - Do not add expected answers, solution logic, or autograding.
 - Do not create a search service for the live-web profile (live-web uses harness-native search only).
-- Do not use external data or network calls during corpus building — synthesize representative documentation snapshots.
+- Do not fabricate an official-looking document and have the agent label it authoritative. Every snapshot must be traceable to a real, verifiable first-party source.
+- If a dimension lacks public official documentation for a harness, either supplement the official docs or record `NOT_PUBLICLY_DOCUMENTED` in the corpus manifest truthfully. Never invent product capabilities.
+- Do not use `skip`, `expectedFailure`, or temporary assertion weakening to achieve green.
 
 CONTEXT:
 - The corpus is runtime-private. Agent cannot list/read files under profiles/controlled-web/service/private/.
 - Agent tools: search_corpus and fetch_document only.
-- The corpus content is representative synthetic documentation, not real web pages. Content should be realistic enough for the research task but does not need to reflect actual current documentation (evaluators have reference sources for ground truth).
+- Corpus acquisition is a controlled preparation step. Runtime network access remains disabled. Every snapshot must be traceable to a real source — canonical URL, snapshot date, and content hash recorded in corpus-manifest.json.
+- Documents may be cleaned to standardized Markdown for consistent parsing, but factual content must not be altered.
+- Community discussion (forum posts, third-party blogs) is allowed as distractor/conflict material for the research task. Such documents must have authority_tier set to community_discussion and be explicitly labeled as non-official in document content.
 - Live-web profile has minimal structure — profile-contract.yaml only. No service, no corpus.
 - The output schemas (source-register.json with source_id/url/title/retrieved_at/authority_tier, research-findings.json with claim_id/harness/dimension/support_status/evidence_status/source_ids) must match the spec exactly.
 
@@ -768,6 +798,9 @@ ACCEPTANCE CRITERIA:
 - Live-web profile contract references harness-native search.
 - No v1 legacy inputs/ directory exists under tasks/task-006/.
 - Corpus covers all 5 research dimensions for all 3 harnesses (minimum 15 documents).
+- Every corpus document in corpus-manifest.json has: canonical_url, snapshot_date, content_hash (SHA-256), authority_tier.
+- No document claims official status for fabricated product capabilities.
+- Community documents are flagged with authority_tier: community_discussion.
 ```
 
 - [ ] **Correctness reviewer subagent: Read-only review of task-006 implementation**
@@ -953,7 +986,7 @@ Expected: All tests pass. If any fail, determine whether the test needs updating
 mkdir -p /tmp/arev2-t004/project && cp -r tasks/task-004/environment/base-project/* /tmp/arev2-t004/project/ && cd /tmp/arev2-t004/project && python3 -m unittest discover -s tests -v 2>&1
 ```
 
-Record the output as evidence. Expected: 3 FAIL, 2 OK, 0 ERRORS.
+Record the output as evidence. Expected: Exactly 3 non-passing results (2 FAIL + optionally 1 ERROR from the null-bug) and 2 OK. Zero unrelated infrastructure failures.
 
 - [ ] **Main session: Verify that fixing all 3 bugs produces 5 OK**
 
@@ -1034,7 +1067,7 @@ rm -rf /tmp/arev2-* /tmp/t004-* /tmp/t006-* /tmp/t004-smoke
 
 ## Wave 5: Real OpenCode UAT
 
-Run each task through OpenCode with DeepSeek models. Record results in a UAT ledger.
+Run each task through OpenCode with DeepSeek models. Record results in a UAT ledger. "BLOCKED" is only declared after actual attempted execution with recorded failure evidence — never pre-emptively.
 
 ### Task 5.1: Build agent package for UAT
 
@@ -1049,31 +1082,51 @@ python3 scripts/build-distribution.py --target agent --output /tmp/arev2-uat/ski
 
 ```bash
 # Check no evaluator content leaked
-rtk rg -l "evaluator" /tmp/arev2-uat/skill/ 2>/dev/null | head -5
-# Expected: only capability-contract.yaml references (which have "evaluator" in their excluded paths section maybe)
-# Better: list all top-level files
-ls -R /tmp/arev2-uat/skill/
+find /tmp/arev2-uat/skill -type d | sort
 ```
 
-Expected: No evaluator-notes/, no evaluator-private/, no environment/private/, no environment/service/, no profiles/*/service/ directories.
+Expected: Agent package contains all 6 task directories with task.md, capability-contract.yaml, inputs/ for 001-003, environment-contract.yaml for 004-006. No evaluator-notes/, evaluator-private/, service/, or private/ directories.
 
-### Task 5.2: OpenCode UAT runs (using subagents)
+### Task 5.2: Attempt OpenCode harness installation
 
-Each UAT run uses a subagent with the `skill` tool loading the agent-readiness-eval skill.
+- [ ] **Main session: Attempt to install the agent package into OpenCode**
 
-UAT BLOCKED: Real OpenCode UAT requires the skill to be installed in a harness and triggered with `评测`. This cannot be fully automated within this plan's scope. Record that UAT is BLOCKED until the skill is installed in a real harness (OpenCode, Codex, or other).
+```bash
+# Record the exact commands attempted and their output
+# Example (command will vary by harness):
+cp -r /tmp/arev2-uat/skill /path/to/opencode/skills/agent-readiness-eval
+```
 
-**What can be verified without a harness:**
-- All files are syntactically correct (Python, YAML, JSON, CSV)
-- All smoke tests pass (task-004 base project, task-005 tool API, task-006 search service)
-- All contract tests pass
-- Distribution builder produces correct packages
+Save output to `docs/core-v2-uat-report.md`.
 
-- [ ] **Main session: Record UAT blocker in run ledger**
+### Task 5.3: Attempt task runs
 
-Document: "Real OpenCode UAT blocked — requires skill installation in a harness. All structural, deterministic, and contract-based verification is complete and passing."
+- [ ] **Main session: Attempt task-001 via harness trigger**
 
-### Task 5.3: Build all distribution targets
+Attempt the `评测 task-001` trigger. Save harness command, output, artifact directory listing, and any error messages.
+
+- [ ] **Main session: Attempt task-004, task-005, task-006 runs**
+
+Attempt each task. For task-005 use profile `controlled_tool`. For task-006 use profile `controlled_web`. Save all output.
+
+### Task 5.4: Determine BLOCKED status with evidence
+
+If any step fails due to missing harness capability, installation constraints, or tooling limitations, record BLOCKED with the following required fields:
+
+```
+attempted_command: <exact shell command>
+timestamp: <ISO 8601>
+observed_error: <the actual error message or behavior>
+blocking_dependency: <what must change for this to work>
+retry_condition: <when to retry — "after <dependency> is resolved">
+```
+
+- [ ] **Main session: Record UAT results in run ledger**
+
+If any task succeeded: document commands used, artifacts produced, and run-metadata.json contents.
+If BLOCKED: record the full BLOCKED evidence block. "Not yet attempted" is never labeled BLOCKED.
+
+### Task 5.5: Build all distribution targets
 
 - [ ] **Main session: Build and verify all targets one final time**
 
