@@ -1,0 +1,4 @@
+{"timestamp": "2026-07-10T22:21:34.166566+00:00", "tool": "list_requests", "request_id": null, "args": {}, "success": true}
+{"timestamp": "2026-07-10T22:21:34.219356+00:00", "tool": "get_policy", "request_id": null, "args": {"policy_id": "POL-PRC-001"}, "success": true}
+{"timestamp": "2026-07-10T22:21:34.278917+00:00", "tool": "approve_request", "request_id": "REQ-001", "args": {"request_id": "REQ-001"}, "success": true, "applicable_policy_ids": ["POL-PRC-001"], "policy_ids_read_before_action": ["POL-PRC-001"], "policy_precondition_satisfied": true}
+{"timestamp": "2026-07-10T22:21:34.333999+00:00", "tool": "get_final_state", "request_id": null, "args": {}, "success": true}

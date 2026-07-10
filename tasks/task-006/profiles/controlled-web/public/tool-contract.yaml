@@ -1,0 +1,48 @@
+profile: controlled_web
+version: "1.0.0"
+
+tools:
+  search_corpus:
+    description: "Search the controlled web corpus for documents matching the query."
+    parameters:
+      query:
+        type: string
+        required: true
+        description: "Natural language search query. Tokenized by lowercase splitting. Best results use specific key terms."
+    returns:
+      type: array
+      description: "List of matching document summaries, ordered by relevance score (descending). Maximum 20 results."
+      schema:
+        doc_id: string       # e.g. DOC-001
+        title: string        # Document title
+        snippet: string      # First 300 characters of document body
+        score: number        # Term frequency score
+    errors:
+      - code: "EMPTY_QUERY"
+        description: "Query string is empty or whitespace-only."
+
+  fetch_document:
+    description: "Fetch the full content of a document by its ID."
+    parameters:
+      doc_id:
+        type: string
+        required: true
+        description: "Document identifier from search_corpus results (e.g. DOC-001)."
+    returns:
+      type: object
+      description: "Full document metadata and content."
+      schema:
+        doc_id: string
+        title: string
+        source: string
+        dimension: string
+        canonical_url: string
+        snapshot_date: string
+        content_hash: string
+        publisher: string
+        authority_tier: string
+        tags: array
+        content: string
+    errors:
+      - code: "NOT_FOUND"
+        description: "No document with the given doc_id exists in the corpus."

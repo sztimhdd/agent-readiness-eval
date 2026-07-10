@@ -1,0 +1,40 @@
+task_id: task-004
+task_version: "2.0.0"
+environment_type: runnable_project
+environment_version: "1.0.0"
+adapter_contract_version: "1.0.0"
+
+primary_capabilities:
+  - repository_understanding
+  - code_execution
+  - test_failure_diagnosis
+  - bug_localization
+  - code_repair
+  - result_verification
+
+required_environment:
+  - file_read
+  - file_write
+  - process_execution_python3
+
+required_evidence:
+  - task_id_file
+  - final_answer
+  - artifacts_project_copy
+  - artifacts_test_before
+  - artifacts_test_after
+  - artifacts_change_summary
+  - artifacts_reconciliation_report
+  - run_metadata
+
+comparison_modes:
+  - same_harness_different_model
+  - same_harness_model_variant
+  - same_model_controlled_harness
+  - same_model_native_harness
+
+not_measured:
+  - web_research
+  - stateful_tools
+  - policy_enforcement
+  - safety_stop_decision

@@ -14,6 +14,7 @@ ALL_TASKS = sorted(
     d for d in (ROOT / "tasks").iterdir()
     if d.is_dir() and d.name.startswith("task-")
 )
+NON_STATIC = {"task-004", "task-005", "task-006"}
 FORBIDDEN_PATHS = ["run" + "ner", "sco" + "rer", "schemas", "task", "taskpacks", ".vitaclaw_eval" + "_runs"]
 FORBIDDEN_TERMS = [
     "Local" + "Executor",
@@ -37,8 +38,9 @@ class CoreV2ContractTests(unittest.TestCase):
             with self.subTest(task=task_dir.name):
                 self.assertTrue((task_dir / "task.md").is_file(),
                     f"{task_dir.name}: missing task.md")
-                self.assertTrue((task_dir / "inputs").is_dir(),
-                    f"{task_dir.name}: missing inputs/")
+                if task_dir.name not in NON_STATIC:
+                    self.assertTrue((task_dir / "inputs").is_dir(),
+                        f"{task_dir.name}: missing inputs/")
                 self.assertTrue((task_dir / "output-requirements.md").is_file(),
                     f"{task_dir.name}: missing output-requirements.md")
                 forbidden_names = {"ver" + "ifier.py", "solution.py", "answer.json", "ground_truth.json"}

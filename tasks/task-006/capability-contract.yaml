@@ -1,0 +1,103 @@
+task_id: task-006
+task_version: "2.0.0"
+track: web_research
+
+environment_type: web_research
+environment_version: "1.0.0"
+adapter_contract_version: "1.0.0"
+
+profiles:
+  controlled_web:
+    profile_version: "1.0.0"
+    corpus_version: "1.0.0"
+    search_index_version: "1.0.0"
+  live_web:
+    profile_version: "1.0.0"
+
+primary_capabilities:
+  - proactive_search
+  - source_discovery
+  - original_page_retrieval
+  - authority_assessment
+  - multi_source_cross_referencing
+  - claim_verification
+  - uncertainty_labeling
+  - citation_accuracy
+
+secondary_capabilities:
+  - structured_output
+  - comparative_analysis
+  - artifact_delivery
+
+required_environment:
+  - file_read
+  - file_write
+  - web_search
+  - web_page_fetch
+
+required_evidence_by_profile:
+  controlled_web:
+    - task_id_file
+    - final_answer
+    - source_register_json
+    - research_findings_json
+    - comparison_table_csv
+    - environment_web_activity_log    # mandatory — environment auto-generates
+    - run_metadata
+  live_web:
+    artifacts:
+      - task_id_file
+      - final_answer
+      - source_register_json
+      - research_findings_json
+      - comparison_table_csv
+      - run_metadata
+    web_activity_evidence: "AVAILABLE or UNAVAILABLE"
+    note: >
+      When run_metadata.web_activity_evidence is AVAILABLE,
+      artifacts/web-activity-log.jsonl is also required.
+      When UNAVAILABLE: do not create a fake placeholder log;
+      record the reason in run_metadata; do not score search step
+      count, query strategy, or tool invocation process.
+      Source authenticity, citation accuracy, and final research
+      quality remain scorable in both cases.
+
+prohibited_shortcuts:
+  - rely_solely_on_model_memory
+  - cite_search_snippets_as_primary_evidence
+  - fabricate_source_urls
+  - misrepresent_source_authority
+  - claim_not_supported_from_absence_of_evidence
+  - bypass_controlled_search_interface
+  - misrepresent_snapshot_content_as_live_retrieval
+
+comparison_modes:
+  controlled_web:
+    - same_harness_different_model
+    - same_model_controlled_harness
+  live_web:
+    - same_model_native_harness
+  note: "controlled-web and live-web results must not be merged or directly compared"
+
+known_fairness_risks:
+  controlled_web:
+    factors:
+      - differences_in_query_formulation
+      - differences_in_tool_call_planning
+      - differences_in_context_management
+      - adapter_transport_reliability
+    note: >
+      All harnesses use the same canonical search_corpus and fetch_document service.
+      The service returns standardized text — harnesses do not render raw HTML.
+      True variance is in how agents formulate queries and plan multi-step research.
+  live_web:
+    - search_engine_variance
+    - page_availability_over_time
+    - rate_limiting_differences
+    - network_permission_policies
+    - source_changes_between_runs
+
+not_measured:
+  - browser_gui_interaction
+  - code_execution
+  - stateful_business_tools

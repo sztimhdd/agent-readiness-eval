@@ -1,0 +1,75 @@
+task_id: task-005
+task_version: "2.0.0"
+track: stateful_tool_use
+
+environment_type: stateful_service
+environment_version: "1.0.0"
+adapter_contract_version: "1.0.0"
+
+primary_capabilities:
+  - state_reading
+  - policy_lookup
+  - tool_selection
+  - sequential_operation
+  - state_modification
+  - safety_stop
+  - result_verification
+
+secondary_capabilities:
+  - instruction_following
+  - artifact_delivery
+  - exception_scoping
+
+required_environment:
+  - file_read
+  - file_write
+  - stateful_system_access
+  - tool_invocation_equivalent
+
+runtime_requirements:
+  python_version: ">=3.10"
+  python_stdlib_modules: [sqlite3, json]
+  external_dependencies: []
+  network_required: false
+
+required_evidence:
+  - task_id_file
+  - final_answer
+  - final_state_json
+  - environment_action_log
+  - decision_summary
+  - run_metadata
+
+prohibited_shortcuts:
+  - approve_without_policy_check
+  - fabricate_missing_information
+  - bypass_mandatory_approvals
+  - extend_exception_beyond_scope
+  - modify_environment_seed_data
+  - fabricate_state_output
+  - access_database_directly
+
+profiles:
+  - controlled_tool
+  - native_adapter
+
+comparison_modes:
+  controlled_tool:
+    - same_harness_different_model
+    - same_model_controlled_harness
+  native_adapter:
+    - same_harness_different_model
+    - same_model_native_harness
+  note: >
+    controlled_tool and native_adapter results must be reported separately.
+
+known_fairness_risks:
+  - differences_in_tool_execution_reliability
+  - differences_in_state_error_handling
+  - differences_in_interleaved_operation_support
+  - adapter_fidelity_variance
+
+not_measured:
+  - web_research
+  - browser_use
+  - coding_repair

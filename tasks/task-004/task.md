@@ -1,23 +1,38 @@
-# Task 004: Cross-System Data Reconciliation
+# Task 004: Coding & Repair — Data Reconciliation Project
 
-Three internal systems (CRM, Billing, and Support) hold customer account data exported at the same point in time. The systems use different field names and data formats. Your job is to reconcile them.
+You are given a Python reconciliation project that maps records across three internal systems: CRM, Billing, and Support. The project has three injected bugs that cause test failures. Your job is to diagnose and fix them.
 
-A field-mapping document is provided to help you understand how records relate across systems. Use your harness's tools to read all files, then identify inconsistencies.
+## Environment
 
-Do not call any external grading or verification code.
+The project lives at `environment/base-project/`. It has no external dependencies and uses only the Python standard library.
 
 ## Work Required
 
-1. Read all files in `inputs/`.
-2. Use the field-mapping document to understand how to match records across systems.
-3. Compare all customer records across the three systems.
-4. Identify every inconsistency: amount mismatches, status mismatches, records present in one system but missing from another.
-5. Categorize each inconsistency by type.
-6. Write the required files listed in `output-requirements.md`.
+1. **Set up the workspace.** Copy the entire `environment/base-project/` directory to `artifacts/project/`. All work happens in that copy.
 
-## Important Rules
+2. **Read the README.** It describes the project structure, field mapping rules, and how to run tests.
 
-- Do not fabricate token counts, timing data, or tool-call logs not observable from the provided files.
-- If a metadata field is unavailable, write `UNAVAILABLE` — do not estimate.
-- Use the field-mapping document as the authoritative guide for cross-system matching. Do not guess field relationships.
-- Do not modify or write to the `inputs/` directory.
+3. **Read the expected output format.** `expected-output-format.md` defines the required JSON report shape.
+
+4. **Run the tests.** Execute `python3 -m unittest discover -s tests -v` from the project root. Capture the output as `artifacts/test-before.txt`. You should see exactly 3 non-passing tests: 2 failures and 1 error.
+
+5. **Diagnose the bugs.** Read the source files and test output. Identify the root cause of each failure. Do not modify tests, data files, or the expected output format document.
+
+6. **Fix the code.** Modify only files under `src/` to repair the bugs. All 5 tests must pass after your fixes.
+
+7. **Re-run the tests.** Capture the passing output as `artifacts/test-after.txt`.
+
+8. **Generate the reconciliation report.** Run `python3 -m src.reconcile` from the project root. This produces `output/reconciliation-report.json`.
+
+9. **Write your change summary.** Document each bug found and the fix applied in `artifacts/change-summary.md`.
+
+## Veto Rules
+
+- **Do not modify any file in `tests/`, `data/`, or `expected-output-format.md`.** Your fixes must be in `src/` only.
+- **Do not modify the test expectations to make them pass.** Fix the source code, not the tests.
+- **Do not add external dependencies or change the project structure.**
+- **Do not fabricate token counts, timing data, or tool-call logs.**
+
+## Required Deliverables
+
+See `output-requirements.md` for the complete list of required files and formats.

@@ -1,0 +1,330 @@
+{
+  "document_count": 18,
+  "last_updated": "2026-07-10T17:01:04.345756+00:00",
+  "generated_by": "generate-corpus.py",
+  "corpus_version": "1.0.0",
+  "documents": [
+    {
+      "doc_id": "DOC-001",
+      "title": "VitaClaw: Multi-Agent AI Framework — README",
+      "source": "GitHub vitaclaw/vitaclaw README.md",
+      "dimension": "skill_installation",
+      "canonical_url": "https://github.com/vitaclaw/vitaclaw/blob/main/README.md",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "7a83cd331aa39cb2429f92d00db1805896cfec565ee0dc04c4feedf790ff1967",
+      "publisher": "VitaClaw Project",
+      "authority_tier": "official_github_repository",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "vitaclaw",
+        "skill_installation",
+        "overview",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-002",
+      "title": "VitaClaw Tool System — Official Documentation",
+      "source": "VitaClaw Official Documentation",
+      "dimension": "tool_invocation",
+      "canonical_url": "https://docs.vitaclaw.dev/tools/overview",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "fa5d4fbda0eb85ca3493fec3ff664aedc6ef3485865ac12b4f2d69f8d419f9a0",
+      "publisher": "VitaClaw Project",
+      "authority_tier": "official_documentation",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "vitaclaw",
+        "tool_invocation",
+        "MCP",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-003",
+      "title": "VitaClaw Sandbox & Security — Official Documentation",
+      "source": "VitaClaw Official Documentation",
+      "dimension": "sandbox",
+      "canonical_url": "https://docs.vitaclaw.dev/security/sandbox",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "0c43e0cf75d39e4aaca144ce674df77fd452b33fa04fbafabf92e7fbf90bdc98",
+      "publisher": "VitaClaw Project",
+      "authority_tier": "official_documentation",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "vitaclaw",
+        "sandbox",
+        "security",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-004",
+      "title": "VitaClaw — LICENSE",
+      "source": "GitHub vitaclaw/vitaclaw LICENSE",
+      "dimension": "licensing",
+      "canonical_url": "https://github.com/vitaclaw/vitaclaw/blob/main/LICENSE",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "8577da72d94eafdd70923d1b97eb195bdf6d68194f13ee50413ee14d5639c131",
+      "publisher": "VitaClaw Project",
+      "authority_tier": "official_github_repository",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "vitaclaw",
+        "licensing",
+        "MIT",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-005",
+      "title": "VitaClaw Deployment Guide — Offline Installation",
+      "source": "VitaClaw Official Documentation",
+      "dimension": "offline_deployment",
+      "canonical_url": "https://docs.vitaclaw.dev/deployment/offline",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "376d82dd9a0ece799f85da031b6898f94356c4da88f68bcacf6e2dc64b0a9b6e",
+      "publisher": "VitaClaw Project",
+      "authority_tier": "official_documentation",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "vitaclaw",
+        "offline_deployment",
+        "deployment",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-006",
+      "title": "OpenClaw: Personal AI Assistant — README",
+      "source": "GitHub openclaw/openclaw README.md",
+      "dimension": "skill_installation",
+      "canonical_url": "https://github.com/openclaw/openclaw/blob/main/README.md",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "a92c2e2e7d84c01d20b61e0a8152ffd25f14844886f5bc48a5d7695412986578",
+      "publisher": "OpenClaw",
+      "authority_tier": "official_github_repository",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "openclaw",
+        "skill_installation",
+        "overview",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-007",
+      "title": "OpenClaw Tool System — Official Documentation",
+      "source": "OpenClaw Official Documentation",
+      "dimension": "tool_invocation",
+      "canonical_url": "https://docs.openclaw.dev/tools",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "ba424c93c6829b49a30ded1567a92b17bc56667627759954d6b1c035bb5870fe",
+      "publisher": "OpenClaw",
+      "authority_tier": "official_documentation",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "openclaw",
+        "tool_invocation",
+        "MCP",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-008",
+      "title": "OpenClaw Execution Sandbox — Documentation",
+      "source": "OpenClaw Official Documentation",
+      "dimension": "sandbox",
+      "canonical_url": "https://docs.openclaw.dev/security/sandbox",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "67fc78c589d45f1945bdd7a4217c249733fc698f689fea0f9fe2839be63321ae",
+      "publisher": "OpenClaw",
+      "authority_tier": "official_documentation",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "openclaw",
+        "sandbox",
+        "security",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-009",
+      "title": "OpenClaw — LICENSE",
+      "source": "GitHub openclaw/openclaw LICENSE",
+      "dimension": "licensing",
+      "canonical_url": "https://github.com/openclaw/openclaw/blob/main/LICENSE",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "a966fbb72685ff5c251e7fdddd858b57ba20ca5f7c3c047d4e6429f2883ff4c9",
+      "publisher": "OpenClaw",
+      "authority_tier": "official_github_repository",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "openclaw",
+        "licensing",
+        "Apache-2.0",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-010",
+      "title": "OpenClaw Deployment Guide — Offline & Air-Gapped",
+      "source": "OpenClaw Official Documentation",
+      "dimension": "offline_deployment",
+      "canonical_url": "https://docs.openclaw.dev/deployment/offline",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "a5a7bf2e6dfb78d92d800b84e73e97d5c6c1a19f45d81777b41bca7364209552",
+      "publisher": "OpenClaw",
+      "authority_tier": "official_documentation",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "openclaw",
+        "offline_deployment",
+        "deployment",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-011",
+      "title": "Hermes Agent — README (Getting Started & Installation)",
+      "source": "GitHub NousResearch/hermes-agent README.md",
+      "dimension": "skill_installation",
+      "canonical_url": "https://github.com/NousResearch/hermes-agent/blob/main/README.md",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "1e69c602f52f31bee6b28b20692231abff0c7aee33d55a7a00a6902702c10f84",
+      "publisher": "Nous Research",
+      "authority_tier": "official_github_repository",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "hermes",
+        "skill_installation",
+        "overview",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-012",
+      "title": "Hermes Agent Tools & Toolsets — Documentation",
+      "source": "Hermes Agent Official Documentation",
+      "dimension": "tool_invocation",
+      "canonical_url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/tools",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "d9eee166d170f98fc47c6bffb3474e49c32c047ea822f4698e6b9f3d993b5214",
+      "publisher": "Nous Research",
+      "authority_tier": "official_documentation",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "hermes",
+        "tool_invocation",
+        "MCP",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-013",
+      "title": "Hermes Agent Security & Container Isolation — Documentation",
+      "source": "Hermes Agent Official Documentation",
+      "dimension": "sandbox",
+      "canonical_url": "https://hermes-agent.nousresearch.com/docs/user-guide/security",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "12576ec5e8ab53faaaed0daedb074922589ff3f80fa37c38a4e87696c9195715",
+      "publisher": "Nous Research",
+      "authority_tier": "official_documentation",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "hermes",
+        "sandbox",
+        "security",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-014",
+      "title": "Hermes Agent — LICENSE",
+      "source": "GitHub NousResearch/hermes-agent LICENSE",
+      "dimension": "licensing",
+      "canonical_url": "https://github.com/NousResearch/hermes-agent/blob/main/LICENSE",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "7eea2499808f1aedd48f00c205901bc4db2028ea46342dbd6d9482644584ba30",
+      "publisher": "Nous Research",
+      "authority_tier": "official_github_repository",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "hermes",
+        "licensing",
+        "MIT",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-015",
+      "title": "Hermes Agent Offline Operation — Documentation",
+      "source": "Hermes Agent Official Documentation",
+      "dimension": "offline_deployment",
+      "canonical_url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "c17691fc4088934dae0c491a913a0a112bf904da9827f2bce5f30d43fe457183",
+      "publisher": "Nous Research",
+      "authority_tier": "official_documentation",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "hermes",
+        "offline_deployment",
+        "official"
+      ]
+    },
+    {
+      "doc_id": "DOC-016",
+      "title": "Reddit Discussion: OpenClaw vs Hermes — Which is better for offline use?",
+      "source": "Reddit r/aiagents",
+      "dimension": "offline_deployment",
+      "canonical_url": "https://www.reddit.com/r/aiagents/comments/example_offline_comparison",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "01a43d22299629af72cb49e1c443cb65670b050ae094cffc4d4d5c2aff8811df",
+      "publisher": "Reddit Community",
+      "authority_tier": "community_discussion",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "openclaw",
+        "hermes",
+        "community_discussion",
+        "comparison"
+      ]
+    },
+    {
+      "doc_id": "DOC-017",
+      "title": "Hacker News Discussion: Are AI agent sandboxes really secure?",
+      "source": "Hacker News",
+      "dimension": "sandbox",
+      "canonical_url": "https://news.ycombinator.com/item?id=example_sandbox_security",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "167df5f415b8b5de88f41eebf8a6bbf35c9cd5f4c8104a88e4a6bf9db410e1ad",
+      "publisher": "Hacker News Community",
+      "authority_tier": "community_discussion",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "sandbox",
+        "security",
+        "community_discussion",
+        "cross_harness"
+      ]
+    },
+    {
+      "doc_id": "DOC-018",
+      "title": "NOT_PUBLICLY_DOCUMENTED: VitaClaw Offline Deployment — Official Docs Gap",
+      "source": "Research Synthesis",
+      "dimension": "offline_deployment",
+      "canonical_url": "NOT_APPLICABLE",
+      "snapshot_date": "2026-07-10",
+      "content_hash": "4614fdc9a7732ccf52484879f27e9d24c05d7f343738ba7743d3253fb6821fa9",
+      "publisher": "N/A",
+      "authority_tier": "NOT_APPLICABLE",
+      "commit_or_version": "UNAVAILABLE",
+      "tags": [
+        "vitaclaw",
+        "offline_deployment",
+        "not_documented"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+account_id,company_name,account_status,plan,monthly_revenue,primary_contact
+ACC-1001,Pilot Bank A,active,enterprise,45000,li.wei@pilotbanka.com
+ACC-1002,TechStart Inc.,active,professional,12000,chen.mei@techstart.com
+ACC-1003,GlobalTrade Ltd.,suspended,enterprise,0,wang.fang@globaltrade.com
+ACC-1500,DataVault Systems,active,enterprise,78000,zhang.min@datavault.com
+ACC-1005,NorthWind Energy,,professional,24000,liu.yun@northwind.com
+ACC-1006,SkyBridge Corp.,active,basic,5000,zhao.lei@skybridge.com

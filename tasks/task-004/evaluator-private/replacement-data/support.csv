@@ -1,0 +1,5 @@
+ticket_id,customer_ref,issue_type,status,priority,opened_date
+ST-6001,ACC-2001,integration,resolved,medium,2025-07-05
+ST-6002,ACC-2002,account,open,low,2025-07-08
+ST-6004,ACC-2500,security,open,critical,2025-06-28
+ST-6005,ACC-2005,infrastructure,in_progress,high,2025-07-01

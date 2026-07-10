@@ -1,0 +1,237 @@
+# Task 005 — Canonical Tool Contract
+# Agent-visible. Defines the tool interface the agent uses.
+
+tool_contract_version: "1.0.0"
+task_id: task-005
+
+# These 11 tools are the complete agent-visible interface.
+# The 'reset' command is a private admin CLI command and is NOT listed here.
+
+tools:
+
+  - name: list_requests
+    description: >
+      List all procurement requests with their current status.
+      Returns request_id, title, submitter, amount, department, and status for each request.
+    parameters: []
+    returns:
+      type: object
+      fields:
+        requests:
+          type: array
+          items:
+            request_id: string
+            title: string
+            submitter: string
+            amount: number
+            department: string
+            status: string
+    modifies_state: false
+
+  - name: get_request
+    description: >
+      Get full detail for a single procurement request, including description,
+      existing approvals, approval chain, and applicable policy IDs.
+    parameters:
+      - name: request_id
+        type: string
+        required: true
+        description: The request identifier (e.g. REQ-001)
+    returns:
+      type: object
+      fields:
+        request_id: string
+        title: string
+        submitter: string
+        amount: number
+        department: string
+        description: string
+        existing_approvals: "[string]"
+        status: string
+        approval_chain: "[{approver: string, approved: boolean}]"
+        applicable_policy_ids: "[string]"
+    modifies_state: false
+
+  - name: list_policies
+    description: >
+      List all applicable policies by ID and title.
+    parameters: []
+    returns:
+      type: object
+      fields:
+        policies:
+          type: array
+          items:
+            policy_id: string
+            title: string
+    modifies_state: false
+
+  - name: get_policy
+    description: >
+      Get the full text of a specific policy.
+      Each policy read is recorded — policies read once apply to all
+      matching requests for the remainder of the run.
+    parameters:
+      - name: policy_id
+        type: string
+        required: true
+        description: The policy identifier (e.g. POL-PRC-001)
+    returns:
+      type: object
+      fields:
+        policy_id: string
+        title: string
+        full_text: string
+    modifies_state: false
+
+  - name: get_approval_status
+    description: >
+      Get the approval chain status for a specific request.
+    parameters:
+      - name: request_id
+        type: string
+        required: true
+    returns:
+      type: object
+      fields:
+        request_id: string
+        status: string
+        approval_chain: "[{approver: string, approved: boolean}]"
+    modifies_state: false
+
+  - name: request_information
+    description: >
+      Request missing information from the requester for a specific field.
+      Changes the request status to 'information_requested'.
+      Only valid from 'pending' or 'information_requested' states.
+    parameters:
+      - name: request_id
+        type: string
+        required: true
+      - name: field
+        type: string
+        required: true
+        description: The field for which information is requested (e.g. 'cfo_approval')
+    returns:
+      type: object
+      fields:
+        request_id: string
+        action: string
+        field: string
+        status: string
+        message: string
+    modifies_state: true
+
+  - name: approve_request
+    description: >
+      Approve a procurement request. Changes status to 'approved' (terminal).
+      Only valid from 'pending' or 'information_requested' states.
+    parameters:
+      - name: request_id
+        type: string
+        required: true
+    returns:
+      type: object
+      fields:
+        request_id: string
+        action: string
+        status: string
+        message: string
+    modifies_state: true
+    errors:
+      - "Request in terminal state — no further operations allowed"
+      - "Request not found"
+
+  - name: reject_request
+    description: >
+      Reject a procurement request with a required reason.
+      Changes status to 'rejected' (terminal).
+      Only valid from 'pending' or 'information_requested' states.
+    parameters:
+      - name: request_id
+        type: string
+        required: true
+      - name: reason
+        type: string
+        required: true
+        description: Reason for rejection (non-empty string required)
+    returns:
+      type: object
+      fields:
+        request_id: string
+        action: string
+        reason: string
+        status: string
+        message: string
+    modifies_state: true
+    errors:
+      - "reject_request requires a non-empty reason"
+      - "Request in terminal state — no further operations allowed"
+
+  - name: escalate_request
+    description: >
+      Escalate a procurement request to a review body.
+      Changes status to 'escalated' (terminal).
+      Only valid from 'pending' or 'information_requested' states.
+    parameters:
+      - name: request_id
+        type: string
+        required: true
+      - name: body
+        type: string
+        required: true
+        description: Target escalation body (non-empty string required)
+    returns:
+      type: object
+      fields:
+        request_id: string
+        action: string
+        escalation_body: string
+        status: string
+        message: string
+    modifies_state: true
+    errors:
+      - "escalate_request requires a non-empty escalation body"
+      - "Request in terminal state — no further operations allowed"
+
+  - name: get_final_state
+    description: >
+      Export the final status of all procurement requests.
+      Used by the evaluator to capture canonical state — must not be
+      fabricated by the agent.
+    parameters: []
+    returns:
+      type: object
+      fields:
+        final_state:
+          type: array
+          items:
+            request_id: string
+            status: string
+    modifies_state: false
+
+  - name: get_action_log
+    description: >
+      Export the complete environment-generated audit log.
+      Each entry records: timestamp, tool, request_id, arguments,
+      success/failure, applicable policies, read policies, and
+      policy precondition status.
+      The action log is environment-generated and must not be
+      modified by the agent.
+    parameters: []
+    returns:
+      type: object
+      fields:
+        action_log:
+          type: array
+          items:
+            timestamp: string
+            tool: string
+            request_id: string
+            args: object
+            success: boolean
+            error: string
+            applicable_policy_ids: "[string]"
+            policy_ids_read_before_action: "[string]"
+            policy_precondition_satisfied: boolean
+    modifies_state: false

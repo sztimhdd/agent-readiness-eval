@@ -1,0 +1,14 @@
+profile_id: controlled_web
+profile_version: "1.0.0"
+corpus_version: "1.0.0"
+search_index_version: "1.0.0"
+network_required: false
+determinism: "same_corpus_same_results"
+reset_strategy: "static_corpus"
+service_interface:
+  language: python3
+  stdlib_only: true
+  tools:
+    - search_corpus
+    - fetch_document
+  tool_contract: "tasks/task-006/profiles/controlled-web/public/tool-contract.yaml"

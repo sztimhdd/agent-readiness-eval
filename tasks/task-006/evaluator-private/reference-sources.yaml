@@ -1,0 +1,107 @@
+# evaluator-private/reference-sources.yaml — Known Authoritative Sources for Task 006
+
+# REVIEWER GUIDANCE ONLY. This is NOT a whitelist.
+# Agents are not penalized for discovering sources outside this list.
+# Use this to calibrate scoring: an agent discovering these sources demonstrates
+# strong research capability, but missing one while finding equally authoritative
+# alternatives is not a deduction.
+
+# Each entry records: harness, dimension, source_type, url_pattern, notes
+# url_pattern uses * as wildcard
+
+sources:
+  - harness: VitaClaw
+    dimension: skill_installation
+    source_type: official_documentation
+    url_pattern: "*/vitaclaw-site/*/README.md"
+    notes: "VitaClaw site README covers skill installation. GitHub repo README also relevant."
+
+  - harness: VitaClaw
+    dimension: skill_installation
+    source_type: official_github_repository
+    url_pattern: "*/vitaclaw-saas/*"
+    notes: "VitaClaw SaaS monorepo contains build/install documentation."
+
+  - harness: VitaClaw
+    dimension: tool_invocation
+    source_type: official_documentation
+    url_pattern: "*/vitaclaw-saas/*/tool*"
+    notes: "Tool invocation patterns in SaaS codebase. MCP support in service manifests."
+
+  - harness: VitaClaw
+    dimension: sandbox
+    source_type: official_documentation
+    url_pattern: "*/vitaclaw-saas/*/sandbox*"
+    notes: "Sandbox configuration in deployment scripts. Docker-based isolation."
+
+  - harness: VitaClaw
+    dimension: licensing
+    source_type: official_github_repository
+    url_pattern: "*/vitaclaw-site/LICENSE*"
+    notes: "LICENSE file at repo root. Check per-component licenses in monorepo."
+
+  - harness: VitaClaw
+    dimension: offline_deployment
+    source_type: official_documentation
+    url_pattern: "*/vitaclaw-saas/deployment/*"
+    notes: "Deployment docs cover offline staging of Docker images and models."
+
+  - harness: OpenClaw
+    dimension: skill_installation
+    source_type: official_documentation
+    url_pattern: "*/openclaw/*/installation*"
+    notes: "OpenClaw official docs cover package manager, local directory, and workspace installation."
+
+  - harness: OpenClaw
+    dimension: tool_invocation
+    source_type: official_documentation
+    url_pattern: "*/openclaw/*/tools*"
+    notes: "OpenClaw native tool schema, MCP support, and shell execution documented."
+
+  - harness: OpenClaw
+    dimension: sandbox
+    source_type: official_documentation
+    url_pattern: "*/openclaw/*/sandbox*"
+    notes: "Sandbox docs cover Docker isolation, workspace mount modes, network restrictions."
+
+  - harness: OpenClaw
+    dimension: licensing
+    source_type: official_github_repository
+    url_pattern: "*/openclaw/LICENSE*"
+    notes: "LICENSE file at repo root. Check for dual licensing or per-module licenses."
+
+  - harness: OpenClaw
+    dimension: offline_deployment
+    source_type: official_documentation
+    url_pattern: "*/openclaw/*/deployment*"
+    notes: "Deployment docs cover offline model staging and air-gapped installation."
+
+  - harness: Hermes
+    dimension: skill_installation
+    source_type: official_documentation
+    url_pattern: "*/hermes/*/installation*"
+    notes: "Hermes docs cover skill installation via package manager and directory mount."
+
+  - harness: Hermes
+    dimension: tool_invocation
+    source_type: official_documentation
+    url_pattern: "*/hermes/*/tools*"
+    notes: "Hermes tool schema, extension API, and permission model documented."
+
+  - harness: Hermes
+    dimension: sandbox
+    source_type: official_documentation
+    url_pattern: "*/hermes/*/sandbox*"
+    notes: "Hermes sandboxing covers process-level isolation and filesystem restrictions."
+
+  - harness: Hermes
+    dimension: licensing
+    source_type: official_github_repository
+    url_pattern: "*/hermes/LICENSE*"
+    notes: "MIT or Apache-2.0. Check LICENSE file for exact terms."
+
+  - harness: Hermes
+    dimension: offline_deployment
+    source_type: official_documentation
+    url_pattern: "*/hermes/*/deployment*"
+    notes: "Offline deployment mode documented. Check for cloud API dependencies."

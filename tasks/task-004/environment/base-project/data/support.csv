@@ -1,0 +1,5 @@
+ticket_id,customer_ref,issue_type,status,priority,opened_date
+ST-5001,ACC-1001,performance,resolved,medium,2025-06-10
+ST-5002,ACC-1002,billing,open,high,2025-06-14
+ST-5004,ACC-1500,onboarding,open,low,2025-06-01
+ST-5005,ACC-1005,infrastructure,open,critical,2025-06-20

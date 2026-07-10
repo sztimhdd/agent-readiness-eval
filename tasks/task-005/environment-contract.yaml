@@ -1,0 +1,66 @@
+environment_type: stateful_service
+environment_version: "1.0.0"
+adapter_contract_version: "1.0.0"
+
+backend:
+  type: sqlite
+  agent_direct_access: false
+
+service:
+  implementation: python_stdlib
+  entrypoint: environment/service/tool_api.py
+  external_dependencies: []
+  network_required: false
+
+public_contract:
+  tool_definition: environment/public/tool-contract.yaml
+
+state:
+  schema_source: environment/private/schema.sql
+  seed_source: environment/private/seed.sql
+  runtime_database: runtime_private
+  expected_final_state: evaluator-private/expected-final-state.yaml
+  reset_strategy: recreate_from_seed
+  deterministic: true
+
+audit:
+  environment_generated: true
+  agent_modifiable: false
+  export:
+    - final-state.json
+    - environment-action-log.jsonl
+
+profiles:
+  - controlled_tool
+  - native_adapter
+
+comparison_modes:
+  controlled_tool:
+    - same_harness_different_model
+    - same_model_controlled_harness
+  native_adapter:
+    - same_harness_different_model
+    - same_model_native_harness
+  note: >
+    controlled_tool and native_adapter results must be reported separately.
+    Do not merge canonical CLI tool results with harness-native function tool results.
+
+prohibited:
+  - direct_database_access
+  - seed_modification
+  - schema_modification
+  - audit_log_modification
+  - state_change_outside_tool_api
+
+adapter_constraints:
+  adapter_must:
+    - preserve_tool_name
+    - preserve_arguments
+    - preserve_return_value
+    - preserve_error_semantics
+    - preserve_call_order
+  adapter_must_not:
+    - infer_business_decisions
+    - alter_request_state_without_agent_call
+    - retry_with_modified_arguments
+    - suppress_failed_calls

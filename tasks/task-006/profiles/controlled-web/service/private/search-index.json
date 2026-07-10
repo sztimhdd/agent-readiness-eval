@@ -1,0 +1,11680 @@
+{
+  "override": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "supports": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "scripts": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "mit": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "tools": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 10
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "placing": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "standard": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "ai": [
+    {
+      "doc_id": "DOC-001",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "organized": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "name": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "structure": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "vitaclawskillsskillname": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "methods": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "and": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 7
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "with": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "be": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "automatically": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "agentskillsio": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    }
+  ],
+  "in": [
+    {
+      "doc_id": "DOC-001",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "installation": [
+    {
+      "doc_id": "DOC-001",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "by": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 3
+    }
+  ],
+  "file": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "open": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    }
+  ],
+  "openclaw": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 7
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "can": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "mcp": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 7
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "tool": [
+    {
+      "doc_id": "DOC-001",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 11
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 9
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "imported": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "from": [
+    {
+      "doc_id": "DOC-001",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 3
+    }
+  ],
+  "domain": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "skillmd": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "executable": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "registry": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "vitaclawskills": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "them": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "plain": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "each": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    }
+  ],
+  "metadata": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "multiagent": [
+    {
+      "doc_id": "DOC-001",
+      "score": 3
+    }
+  ],
+  "are": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "license": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 9
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 5
+    }
+  ],
+  "triggers": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "no": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 6
+    }
+  ],
+  "agent": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "cached": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "40": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "markdown": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    }
+  ],
+  "using": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "startup": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "browser": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "thirdparty": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "via": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "automation": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "an": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "local": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "architecture": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "contain": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "details": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "released": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "package": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "workspace": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "vitaclaw": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 3
+    }
+  ],
+  "tasks": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "provides": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "opensource": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "schema": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "that": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "mount": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "through": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "formats": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "same": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "directory": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "scope": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "shell": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "invocation": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "covering": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "required": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 4
+    }
+  ],
+  "directories": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "locally": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "the": [
+    {
+      "doc_id": "DOC-001",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 14
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 7
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 7
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 13
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 6
+    }
+  ],
+  "skill": [
+    {
+      "doc_id": "DOC-001",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 7
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "orchestrates": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "community": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "workspacevitaclawskills": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "restart": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "readme": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "additions": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "agents": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "domainspecific": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "skillname": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "text": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "specialized": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "skills": [
+    {
+      "doc_id": "DOC-001",
+      "score": 9
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 10
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "format": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "must": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "native": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "global": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "under": [
+    {
+      "doc_id": "DOC-001",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "use": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "other": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "hermes": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 12
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "executes": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "loads": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "import": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "optional": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "skillsskillname": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "search": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    }
+  ],
+  "see": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "instructions": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "framework": [
+    {
+      "doc_id": "DOC-001",
+      "score": 4
+    }
+  ],
+  "metajson": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "frameworks": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "install": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    }
+  ],
+  "workspacescoped": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "builtin": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "place": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "declarations": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    }
+  ],
+  "for": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 7
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 4
+    }
+  ],
+  "to": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "files": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "web": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "is": [
+    {
+      "doc_id": "DOC-001",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 3
+    }
+  ],
+  "at": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "skillbased": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "integration": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "execution": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    }
+  ],
+  "discovers": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "operations": [
+    {
+      "doc_id": "DOC-001",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "background": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "delegation": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "category": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "support": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "ask": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "deny": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "declares": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "firstclass": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "api": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "mkdir": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "bash": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "model": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "defines": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "always": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "grep": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "reads": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "eg": [
+    {
+      "doc_id": "DOC-002",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "todowrite": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "chaining": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "control": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "code": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "never": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "writes": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "custom": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 3
+    }
+  ],
+  "timeout": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "read": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "transports": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "glob": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "write": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "delete": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "resource": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "default": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "destructive": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "available": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 4
+    }
+  ],
+  "sse": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "approval": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "has": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "permissions": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "capability": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "persistent": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "return": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "callers": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "task": [
+    {
+      "doc_id": "DOC-002",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "autodiscovered": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "capture": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "truncation": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "explore": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "official": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "edit": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "working": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "types": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "alongside": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "extensions": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "node": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "output": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "prompt": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "registered": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "skillmcp": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "discovered": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "user": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "pertool": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "multilevel": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "websearch": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "set": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "configuration": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "codegraph": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "count": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "system": [
+    {
+      "doc_id": "DOC-002",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "backgroundtasks": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "configurable": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "reading": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "git": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "supported": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "both": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    }
+  ],
+  "automatic": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "server": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "mcpservers": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "120s": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "type": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "its": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "management": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "json": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "description": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "stdio": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "per": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "protocol": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "connect": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "plugin": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "categories": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "commands": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "specification": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "autoapprove": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "command": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 3
+    }
+  ],
+  "features": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    }
+  ],
+  "webfetch": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "session": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "or": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 9
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 3
+    }
+  ],
+  "exec": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "any": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 3
+    }
+  ],
+  "constraints": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "overridden": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "globally": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "declarative": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "interactivebash": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "context": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "parameters": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "playwright": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "allowed": [
+    {
+      "doc_id": "DOC-002",
+      "score": 2
+    }
+  ],
+  "resources": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    }
+  ],
+  "documentation": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "runtime": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "intelligence": [
+    {
+      "doc_id": "DOC-002",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "configured": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "all": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "docker": [
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "users": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "workspacemount": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "ephemeral": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "yaml": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "enabled": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "containerbased": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "explicit": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "sandbox": [
+    {
+      "doc_id": "DOC-003",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 6
+    }
+  ],
+  "inside": [
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "domainsips": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "traversal": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "workload": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "network": [
+    {
+      "doc_id": "DOC-003",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 7
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 14
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "none": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "artifacts": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "not": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 6
+    }
+  ],
+  "cannot": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "mounted": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "unless": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "paths": [
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "filesystem": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 4
+    }
+  ],
+  "engine": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "volume": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "enforcement": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "only": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "cpu": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "sandboxing": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "true": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "when": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "memory": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "host": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "etcpasswd": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "tmp": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "on": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "specific": [
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "groups": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "opt": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "restricted": [
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "alloweddomains": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "githubcom": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "granted": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "separate": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "container": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 7
+    }
+  ],
+  "allow": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "isolation": [
+    {
+      "doc_id": "DOC-003",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 7
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 3
+    }
+  ],
+  "changes": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "path": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "security": [
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 3
+    }
+  ],
+  "restrictions": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "sanitized": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "absolute": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "addition": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "state": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "access": [
+    {
+      "doc_id": "DOC-003",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "process": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "blacklisted": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "writeablepaths": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "readonly": [
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "prevention": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "limits": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "ssh": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "discarded": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "mounts": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "subprocess": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "processlevel": [
+    {
+      "doc_id": "DOC-003",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "pypiorg": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "dockerbased": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "exits": [
+    {
+      "doc_id": "DOC-003",
+      "score": 1
+    }
+  ],
+  "damages": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "notice": [
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 3
+    }
+  ],
+  "components": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "including": [
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    }
+  ],
+  "particular": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "percomponent": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "retrieval": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "distribute": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "fitness": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "merchantability": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "free": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "portions": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "limited": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "andor": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "subject": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "warranties": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "furnished": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "modify": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "publish": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "obtaining": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "conditions": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "out": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "do": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "persons": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "included": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "hereby": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "following": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "charge": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "purpose": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "of": [
+    {
+      "doc_id": "DOC-004",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "kind": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "copy": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "implied": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "liable": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "substantial": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "dual": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    }
+  ],
+  "connection": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "commit": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "root": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "branch": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "noninfringement": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "permission": [
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    }
+  ],
+  "associated": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "repository": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "event": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "authors": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "permit": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "sell": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "software": [
+    {
+      "doc_id": "DOC-004",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 5
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    }
+  ],
+  "a3f8c21": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    }
+  ],
+  "this": [
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 3
+    }
+  ],
+  "without": [
+    {
+      "doc_id": "DOC-004",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "whether": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "20242026": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "as": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 3
+    }
+  ],
+  "arising": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "rights": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "licensing": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "dealings": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "but": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "limitation": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "shall": [
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    }
+  ],
+  "otherwise": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "express": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "provided": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "restriction": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "copyright": [
+    {
+      "doc_id": "DOC-004",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 3
+    }
+  ],
+  "deal": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "claim": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "project": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "permodule": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    }
+  ],
+  "so": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "copies": [
+    {
+      "doc_id": "DOC-004",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 2
+    }
+  ],
+  "sublicense": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "tort": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "holders": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "versioncommit": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "above": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "whom": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "action": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "merge": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "contract": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "liability": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "warranty": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "differences": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    }
+  ],
+  "person": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "main": [
+    {
+      "doc_id": "DOC-004",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "providers": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "offlinepackages": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "degradation": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "images": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "prepull": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "webbrowser": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "llamacpp": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "llm": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    }
+  ],
+  "operation": [
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "anthropic": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "prestaging": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "dependencies": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "cloud": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "ollama": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "fully": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "prestaged": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "python": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "installed": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "vllm": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "once": [
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "functionality": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "openaicompatible": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "image": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "guide": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 3
+    }
+  ],
+  "full": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "loop": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "postinstall": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "openai": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "requirements": [
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "requirementstxt": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "online": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "save": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "configure": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "packages": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "pull": [
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "harness": [
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "distinction": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "complete": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "going": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    }
+  ],
+  "pip": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "remote": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "inference": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "it": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "offline": [
+    {
+      "doc_id": "DOC-005",
+      "score": 8
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 10
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 13
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 12
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "uses": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "stage": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "loader": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "before": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    }
+  ],
+  "precached": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "httplocalhost11434v1": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "modelendpoint": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "works": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "initial": [
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    }
+  ],
+  "vs": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "require": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "minus": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "core": [
+    {
+      "doc_id": "DOC-005",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "used": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "offlineimagestar": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "loaded": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "operates": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "cache": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "loading": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "download": [
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "endpoint": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "modelprovider": [
+    {
+      "doc_id": "DOC-005",
+      "score": 1
+    }
+  ],
+  "deployment": [
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 3
+    }
+  ],
+  "feature": [
+    {
+      "doc_id": "DOC-005",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "added": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "messages": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "already": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "markdownbased": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "own": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "discord": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "openclawworkspaceskillsskillname": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "capabilities": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "telegram": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "speak": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "skillrepo": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "you": [
+    {
+      "doc_id": "DOC-006",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "new": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "assistant": [
+    {
+      "doc_id": "DOC-006",
+      "score": 3
+    }
+  ],
+  "respond": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "clone": [
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "repositories": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "adding": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "downloaded": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "manager": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "terminal": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "where": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "directly": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "your": [
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "also": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "into": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "run": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "workspacespecific": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "gitbased": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "channels": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "requires": [
+    {
+      "doc_id": "DOC-006",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 4
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "reload": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "work": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "restartreload": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "organization": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "anthropicsskills": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "openclawworkspace": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "compatible": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    }
+  ],
+  "initialization": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "answers": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "personal": [
+    {
+      "doc_id": "DOC-006",
+      "score": 3
+    }
+  ],
+  "configs": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "definitions": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "devices": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "listen": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "phone": [
+    {
+      "doc_id": "DOC-006",
+      "score": 1
+    }
+  ],
+  "promisetoolresult": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "injection": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "scoped": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "jsonschema": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "memorymd": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "pattern": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "interface": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "autoallow": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "slack": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "highrisk": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "lsp": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "execute": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "recordstring": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "expose": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "fetch": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "explicitly": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "claudemd": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "servers": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "extension": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "potentially": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "confirmation": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "mcpcompatible": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "create": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "openclawtools": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "blocked": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "client": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "modules": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 2
+    }
+  ],
+  "implements": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "httpsse": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "development": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "examples": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "tiered": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "ships": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "config": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "string": [
+    {
+      "doc_id": "DOC-007",
+      "score": 2
+    }
+  ],
+  "knowledge": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "typescript": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "defined": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "10": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "whatsapp": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "comprehensive": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "implementing": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "function": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "modular": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "unknown": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "communication": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "executeparams": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "push": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "placed": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "developers": [
+    {
+      "doc_id": "DOC-007",
+      "score": 1
+    }
+  ],
+  "sessions": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "disabled": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "additional": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "profiles": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "chroot": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "lists": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "allowdeny": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "isolated": [
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "named": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "mode": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "if": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "defaultnetwork": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "readwrite": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "memorylimit": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "linux": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "untrusted": [
+    {
+      "doc_id": "DOC-008",
+      "score": 2
+    }
+  ],
+  "syscall": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "filtering": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "bridge": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "sensitive": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "sys": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "perdomain": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "rules": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "persists": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "seconds": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "overview": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "completely": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "outside": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "running": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "seccomp": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "environment": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "proc": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "workspacemode": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "options": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "egress": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "2g": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "across": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "cpulimit": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "finegrained": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "dev": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "podman": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "domains": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "environments": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "aws": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "io": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "excluded": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "allowlisted": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "within": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "300": [
+    {
+      "doc_id": "DOC-008",
+      "score": 1
+    }
+  ],
+  "20": [
+    {
+      "doc_id": "DOC-009",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    }
+  ],
+  "module": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "licensed": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "compliance": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "limitations": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "law": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "basis": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "apache": [
+    {
+      "doc_id": "DOC-009",
+      "score": 5
+    }
+  ],
+  "agreed": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "version": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "obtain": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "contributors": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "language": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "distributed": [
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    }
+  ],
+  "either": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "may": [
+    {
+      "doc_id": "DOC-009",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "httpwwwapacheorglicenseslicense20": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "applicable": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "v250": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "governing": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "writing": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "except": [
+    {
+      "doc_id": "DOC-009",
+      "score": 1
+    }
+  ],
+  "connects": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "internet": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "airgapped": [
+    {
+      "doc_id": "DOC-010",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "archives": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "npm": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "they": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "telegramdiscordw": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "weights": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "prepulled": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "predownload": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "pack": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "pathbased": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "node20alpine": [
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    }
+  ],
+  "openclawsandboxlatest": [
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    }
+  ],
+  "offlineinstallable": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "setup": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "localai": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "provider": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "first": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "saved": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "cloning": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "caching": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "nodejs": [
+    {
+      "doc_id": "DOC-010",
+      "score": 1
+    }
+  ],
+  "after": [
+    {
+      "doc_id": "DOC-010",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "browse": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "autonomously": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "builds": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "curl": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "learning": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "based": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "cluster": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "start": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "complex": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "hub": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "built": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "rescan": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "vps": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "ones": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "hermesskills": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "wizard": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "hermesskillsskillname": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "improves": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "who": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "searches": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "what": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 3
+    }
+  ],
+  "selfimprove": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "force": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "selfimproving": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "suboptimal": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "manually": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "stored": [
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    }
+  ],
+  "autogenerated": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "serverless": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    }
+  ],
+  "nearly": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "idle": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "experience": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "itself": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "multistep": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "research": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "update": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "prompts": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "deepening": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "results": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "conversation": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "costs": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "getting": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "quickstart": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "unique": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "fssl": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "hotloaded": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "nothing": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "started": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "nous": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "during": [
+    {
+      "doc_id": "DOC-011",
+      "score": 2
+    }
+  ],
+  "completed": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "gpu": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "past": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "invoked": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "learned": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "httpshermesagentnousresearchcominstallsh": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "conversations": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "persist": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "produces": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "creates": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "selfimprovement": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "nudges": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "infrastructure": [
+    {
+      "doc_id": "DOC-011",
+      "score": 1
+    }
+  ],
+  "useful": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "params": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "executeself": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "lookup": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "implementation": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "palette": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "endpoints": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "timeouts": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "mytool": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "toolset": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "symbol": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "multiple": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "hermestools": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "toolresult": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "platform": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "overrides": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "toolsets": [
+    {
+      "doc_id": "DOC-012",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "async": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "transport": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "implement": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "external": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "modes": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "created": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "messaging": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "dm": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 3
+    }
+  ],
+  "does": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 3
+    }
+  ],
+  "interactive": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "dialogs": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "something": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "toolresultcontentdone": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "class": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "dangerous": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "def": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "playwrightbased": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "streaming": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "blocklists": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "pairing": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 2
+    }
+  ],
+  "engines": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "longrunning": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "mytooltool": [
+    {
+      "doc_id": "DOC-012",
+      "score": 1
+    }
+  ],
+  "vercel": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "backends": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "networking": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "layers": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "modal": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "independently": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "containers": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "backend": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 6
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "runs": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "daytona": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "seven": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "ensure": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "hermesagentlatest": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "singularity": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "platforms": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "gpuenabled": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "block": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "hpcfriendly": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "perbackend": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "containerized": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "auto": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "entirely": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "authorized": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "manages": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "4g": [
+    {
+      "doc_id": "DOC-013",
+      "score": 1
+    }
+  ],
+  "have": [
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "integrations": [
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "their": [
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "plugins": [
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "attribution": [
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "licenses": [
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "v2026772": [
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "20252026": [
+    {
+      "doc_id": "DOC-014",
+      "score": 1
+    }
+  ],
+  "degrade": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "different": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "gateway": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "installing": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "networkdependent": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "direct": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "models": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "llama318b": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "functional": [
+    {
+      "doc_id": "DOC-015",
+      "score": 2
+    }
+  ],
+  "gracefully": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "fts5": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "fulltext": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "six": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "while": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "some": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "installer": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "updates": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "clouddependent": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "hpc": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "scenarios": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "discovery": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "disk": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "installedcached": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "operate": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "browsing": [
+    {
+      "doc_id": "DOC-015",
+      "score": 1
+    }
+  ],
+  "been": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "verdict": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "pure": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "dockersingularity": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "lose": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "top": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "better": [
+    {
+      "doc_id": "DOC-016",
+      "score": 3
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "improvement": [
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    }
+  ],
+  "part": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "ive": [
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    }
+  ],
+  "which": [
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "discussion": [
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "posted": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "scattered": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "my": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "fine": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "heres": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "doesnt": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "obviously": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "calls": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "uaiexplorer42": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "udevopsninja": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "docs": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "comment": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "selling": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "pages": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "point": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "openclaws": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "apis": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "id": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "solid": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "go": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "richer": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "reddit": [
+    {
+      "doc_id": "DOC-016",
+      "score": 2
+    }
+  ],
+  "dont": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "modaldaytona": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "20260615": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "need": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "found": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "well": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "telegramdiscord": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "testing": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "cli": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "step": [
+    {
+      "doc_id": "DOC-016",
+      "score": 1
+    }
+  ],
+  "praise": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "187": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "researchers": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "key": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "news": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "approach": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "socket": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "fixed": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "points": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "seceng": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "rm": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "good": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "arbitrary": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "os": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "researcher": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "these": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "three": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "last": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "v241": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "offering": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "defense": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "demonstrated": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "proofofconcept": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "concern": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "line": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "optin": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "sandboxes": [
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "2026": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "discusses": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "hacker": [
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "escape": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "july": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "report": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "rf": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "flexible": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "level": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "confusing": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "harnesses": [
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "buried": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "against": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "secure": [
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "several": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "vmlevel": [
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "comments": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "thread": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "box": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "notable": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "most": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "enables": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "described": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "really": [
+    {
+      "doc_id": "DOC-017",
+      "score": 2
+    }
+  ],
+  "vitaclaws": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "offer": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "one": [
+    {
+      "doc_id": "DOC-017",
+      "score": 1
+    }
+  ],
+  "offlineairgapped": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "means": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "officially": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "scenario": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "documented": [
+    {
+      "doc_id": "DOC-018",
+      "score": 6
+    }
+  ],
+  "mentions": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "present": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "inherently": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "finding": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "proper": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "date": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    },
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "mean": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "procedure": [
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "guidance": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "page": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "snapshot": [
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "gap": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "notpubliclydocumented": [
+    {
+      "doc_id": "DOC-018",
+      "score": 2
+    }
+  ],
+  "dedicated": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "note": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "20260710": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "matrix": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "prerequisite": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "public": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "showing": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "cover": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "verifying": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "setups": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ],
+  "production": [
+    {
+      "doc_id": "DOC-018",
+      "score": 1
+    }
+  ]
+}

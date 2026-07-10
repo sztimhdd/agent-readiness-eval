@@ -1,0 +1,49 @@
+environment_type: web_research
+environment_version: "1.0.0"
+
+profiles:
+  controlled_web:
+    profile_version: "1.0.0"
+    corpus_version: "1.0.0"
+    search_index_version: "1.0.0"
+    network_required: false
+    determinism: "same_corpus_same_index_yields_deterministic_search_results"
+    reset_strategy: "static_corpus"
+  live_web:
+    profile_version: "1.0.0"
+    network_required: true
+    determinism: "non_deterministic_by_nature"
+    time_sensitivity: "results_may_vary_by_date"
+    freshness_requirement: "sources_must_be_retrieved_during_run"
+
+source_authority_tiers:
+  - official_documentation
+  - official_github_repository
+  - official_paper_or_preprint
+  - recognized_community_maintainer
+  - third_party_blog_or_tutorial
+
+minimum_evidence_standard:
+  non_unknown_claim:
+    requirement: "at_least_one_source_id"
+
+  confirmed_claim:
+    requirement: >
+      at least one authoritative source that directly supports the claim
+
+  conflicting_claim:
+    requirement: >
+      at least two sources whose claims materially conflict
+
+  unknown_claim:
+    requirement: >
+      documented search scope and explanation of the information gap
+
+  note: >
+    Per-harness-per-dimension confirmed source is NOT mandatory —
+    public documentation may objectively not exist for some dimensions.
+
+prohibited_source_types:
+  - ai_generated_summary_without_original
+  - cached_search_snippet_only
+  - unverifiable_forum_post_claiming_official_status

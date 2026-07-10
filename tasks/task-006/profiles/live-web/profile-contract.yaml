@@ -1,0 +1,8 @@
+profile_id: live_web
+profile_version: "1.0.0"
+network_required: true
+determinism: "non_deterministic_by_nature"
+time_sensitivity: "results_may_vary_by_date"
+freshness_requirement: "sources_must_be_retrieved_during_run"
+tool_source: "harness_native"
+web_activity_evidence: "AVAILABLE | UNAVAILABLE"

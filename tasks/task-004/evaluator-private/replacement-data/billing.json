@@ -1,0 +1,50 @@
+[
+  {
+    "billing_account": "BA-ALG-2001",
+    "customer_name": "Alpha Logistics",
+    "status": "current",
+    "current_month_charges": 92000.0,
+    "outstanding_balance": 0.0,
+    "payment_method": "wire"
+  },
+  {
+    "billing_account": "BA-BFN-2002",
+    "customer_name": "Beta Finance",
+    "status": "current",
+    "current_month_charges": 8500.0,
+    "outstanding_balance": 1200.0,
+    "payment_method": "credit_card"
+  },
+  {
+    "billing_account": "BA-GHC-2003",
+    "customer_name": "Gamma Healthcare",
+    "status": "delinquent",
+    "current_month_charges": 0.0,
+    "outstanding_balance": 32000.0,
+    "payment_method": "wire"
+  },
+  {
+    "billing_account": "BA-DMF-2500",
+    "customer_name": "Delta Manufacturing",
+    "status": "current",
+    "current_month_charges": 115000.0,
+    "outstanding_balance": 0.0,
+    "payment_method": "wire"
+  },
+  {
+    "billing_account": "BA-EPR-2005",
+    "customer_name": "Epsilon Retail",
+    "status": "current",
+    "current_month_charges": 31000.0,
+    "outstanding_balance": 500.0,
+    "payment_method": "credit_card"
+  },
+  {
+    "billing_account": "BA-ZSV-2006",
+    "customer_name": "Zeta Services",
+    "status": "current",
+    "current_month_charges": 22000.00,
+    "outstanding_balance": 0.0,
+    "payment_method": "wire"
+  }
+]
