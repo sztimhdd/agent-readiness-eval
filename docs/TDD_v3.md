@@ -8,7 +8,7 @@ SKILL.md
 → tasks/<task-id>/inputs/*
 → tasks/<task-id>/output-requirements.md
 → harness-native execution
-→ runs/<task-id>-<harness>-<model>/ answer directory
+→ runs/<task-id>-<harness>-<model>-<run-id>/ answer directory
 → offline human scoring
 ```
 

@@ -32,6 +32,7 @@ agent-readiness-eval/
 │   ├── INSTALL-VITACLAW.md
 │   ├── INSTALL-OPENCLAW.md
 │   ├── INSTALL-HERMES.md
+│   ├── INSTALL-CODEX.md
 │   └── OFFLINE-SCORING-GUIDE.md
 └── tests/
     └── test_v3_contract.py
@@ -47,6 +48,9 @@ Install this Skill in a compatible harness. Send one message:
 
 The harness should read `tasks/task-<N>/`, solve it using its own native tools, and write an answer directory under `runs/`.
 
+For a leakage-free, repeatable Codex installation and comparison procedure, see
+[`docs/INSTALL-CODEX.md`](docs/INSTALL-CODEX.md).
+
 ## Task Catalog
 
 | Task | Domain | Difficulty | Key Capability |
@@ -61,7 +65,7 @@ The harness should read `tasks/task-<N>/`, solve it using its own native tools, 
 ## Answer Directory
 
 ```text
-runs/<task-id>-<harness-name>-<model-name>/
+runs/<task-id>-<harness-name>-<model-name>-<run-id>/
 ├── task-id.txt
 ├── final-answer.md
 ├── artifacts/

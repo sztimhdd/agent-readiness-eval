@@ -8,7 +8,6 @@ tags:
   - question-pack
   - vitaclaw
 version: 3.0.0
-allowed-tools: []
 ---
 
 # Agent Readiness Eval v3
@@ -21,7 +20,8 @@ This Skill is a question pack, not an execution engine. It gives tasks and an an
 
 ## Trigger
 
-When the user says `评测`, run the first task under `tasks/` unless the user names a specific task.
+When the user says `评测 task-001` (or names another registered task), run that task.
+When the user says only `评测`, run `task-001`.
 
 ## Required Flow
 
@@ -31,14 +31,14 @@ When the user says `评测`, run the first task under `tasks/` unless the user n
 4. Create a new answer directory under `runs/` using this shape:
 
 ```text
-runs/<task-id>-<harness-name>-<model-name>/
+runs/<task-id>-<harness-name>-<model-name>-<run-id>/
 ├── task-id.txt
 ├── final-answer.md
 ├── artifacts/
 └── run-metadata.json
 ```
 
-5. Fill `run-metadata.json` from `templates/run-metadata.json`. Use `UNAVAILABLE` for fields the harness cannot observe. Do not estimate token counts.
+5. Fill `run-metadata.json` from `templates/run-metadata.json`. Use `UNAVAILABLE` for fields the harness cannot observe, including an exact model or provider name. Do not infer a model-family label or estimate token counts.
 6. Write `final-answer.md` and required files under `artifacts/`.
 7. Report the answer directory path to the user.
 
