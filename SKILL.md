@@ -1,6 +1,6 @@
 ---
 name: agent-readiness-eval
-description: Agent Readiness Eval Core v2.0 — portable evaluation suite for comparing agent harnesses. Six tasks across four capability tracks. Trigger with "评测".
+description: Agent Readiness Eval Core v2.0 — portable evaluation suite for comparing agent harnesses. Five tasks across four capability tracks (task-006 planned for future release). Trigger with "评测".
 category: evaluation
 tags:
   - readiness
@@ -27,8 +27,6 @@ This Skill issues tasks and defines answer formats. It does not execute, grade, 
 | `评测 task-002` | Run task-002 |
 | `评测 task-004` | Run task-004 (requires environment setup) |
 | `评测 task-005 controlled_tool` | Run task-005 with controlled tool profile |
-| `评测 task-006 controlled_web` | Run task-006 with controlled web profile |
-| `评测 task-006 live_web` | Run task-006 with live web profile |
 
 ## Task Catalog
 
@@ -39,7 +37,7 @@ This Skill issues tasks and defines answer formats. It does not execute, grade, 
 | task-003 — Policy-Constrained Decision | rules_and_safety | static_files | intermediate | — |
 | task-004 — Coding & Repair | coding_and_execution | runnable_project | advanced | — |
 | task-005 — Stateful Tool Use | stateful_tool_use | stateful_service | advanced | controlled_tool, native_adapter |
-| task-006 — Web Research | web_research | web_research | advanced | controlled_web, live_web |
+<!-- task-006 — Web Research — planned for future release -->
 
 ## Required Flow
 
@@ -94,10 +92,6 @@ The `run-id` MUST be unique per evaluation run. Use a timestamp or UUID.
 - The environment service exposes tools via `tasks/task-005/environment/public/tool-contract.yaml`
 - Use the canonical tool names exactly as declared
 - State operations are recorded in an audit log — you do not need to create one
-
-**Task 006 (Web Research):**
-- `controlled_web` profile: use `search_corpus` and `fetch_document` tools. Do not access the open internet.
-- `live_web` profile: use the harness's native web search. Record retrieval timestamps.
 
 ## Scoring
 

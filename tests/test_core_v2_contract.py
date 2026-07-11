@@ -15,6 +15,8 @@ ALL_TASKS = sorted(
     if d.is_dir() and d.name.startswith("task-")
 )
 NON_STATIC = {"task-004", "task-005", "task-006"}
+# Tasks that exist on disk but are excluded from the current release
+EXCLUDED_FROM_RELEASE: set[str] = {"task-006"}
 FORBIDDEN_PATHS = ["run" + "ner", "sco" + "rer", "schemas", "task", "taskpacks", ".vitaclaw_eval" + "_runs"]
 FORBIDDEN_TERMS = [
     "Local" + "Executor",
@@ -58,6 +60,8 @@ class CoreV2ContractTests(unittest.TestCase):
         else:
             declared = set(tasks)
         on_disk = {d.name for d in ALL_TASKS}
+        # Exclude tasks intentionally held back from this release
+        on_disk -= EXCLUDED_FROM_RELEASE
         missing_from_manifest = on_disk - declared
         extra_in_manifest = declared - on_disk
         self.assertTrue(len(missing_from_manifest) == 0,

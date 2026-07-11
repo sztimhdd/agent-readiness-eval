@@ -1,6 +1,6 @@
 # Agent Readiness Eval Core v2.0
 
-`agent-readiness-eval` is a portable agent evaluation suite. Six tasks across four capability tracks. It defines task content and answer formats; execution, scoring, and packaging belong to each harness or a separate offline review layer.
+`agent-readiness-eval` is a portable agent evaluation suite. Five tasks across four capability tracks (task-006 planned for future release). It defines task content and answer formats; execution, scoring, and packaging belong to each harness or a separate offline review layer.
 
 ## Package Shape
 
@@ -19,7 +19,7 @@ agent-readiness-eval/
 │   ├── task-003/          # Policy-Constrained Decision (static)
 │   ├── task-004/          # Coding & Repair (runnable project)
 │   ├── task-005/          # Stateful Tool Use (stateful service)
-│   └── task-006/          # Web Research (web profiles)
+│   └── task-006/          # Web Research (planned for future release)
 ├── adapters/
 │   ├── vitaclaw/
 │   ├── openclaw/
@@ -53,7 +53,6 @@ For specific tasks or profiles:
 ```text
 评测 task-004
 评测 task-005 controlled_tool
-评测 task-006 controlled_web
 ```
 
 For a leakage-free, repeatable installation procedure, see `docs/INSTALL-CODEX.md`.
@@ -67,7 +66,7 @@ For a leakage-free, repeatable installation procedure, see `docs/INSTALL-CODEX.m
 | 003 — Policy-Constrained Decision | rules_and_safety | static_files | intermediate | Rule application, exception scoping, escalation boundary detection |
 | 004 — Coding & Repair | coding_and_execution | runnable_project | advanced | Code execution, bug diagnosis, repair, result verification |
 | 005 — Stateful Tool Use | stateful_tool_use | stateful_service | advanced | State reading, policy lookup, sequential operation, safety stop |
-| 006 — Web Research | web_research | web_research | advanced | Proactive search, source verification, citation accuracy |
+<!-- | 006 — Web Research | web_research | web_research | advanced | Proactive search, source verification, citation accuracy | -->
 
 ## Answer Directory
 
@@ -98,7 +97,7 @@ Three distribution views are enforced by `contracts/distribution-contract.yaml`:
 | Package | Contains | Consumer |
 |---------|----------|----------|
 | **Agent** | task.md, inputs/, output-requirements, capability contracts, public tool contracts | Agent at runtime |
-| **Runtime** | base-project (004), databases (005), corpora (006) | Environment service |
+| **Runtime** | base-project (004), databases (005) | Environment service |
 | **Evaluator** | reference analysis, scoring rubrics, expected final state, replacement data | Human reviewer |
 
 Build packages with `scripts/build-distribution.py`.

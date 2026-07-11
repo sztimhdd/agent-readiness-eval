@@ -2,7 +2,7 @@
   "id": "agent-readiness-eval",
   "name": "Agent Readiness Eval Core",
   "suite_version": "2.0.0",
-  "description": "Portable agent readiness evaluation suite — six tasks across four capability tracks. Content-only package; execution stays native to each harness.",
+  "description": "Portable agent readiness evaluation suite — five tasks across four capability tracks (task-006 planned for future release). Content-only package; execution stays native to each harness.",
   "entrypoints": {
     "skill": "SKILL.md"
   },
@@ -56,18 +56,6 @@
       "capability_contract": "tasks/task-005/capability-contract.yaml",
       "environment_contract": "tasks/task-005/environment-contract.yaml",
       "profiles": ["controlled_tool", "native_adapter"]
-    },
-    {
-      "id": "task-006",
-      "task_version": "2.0.0",
-      "title": "Web Research",
-      "track": "web_research",
-      "environment_type": "web_research",
-      "difficulty": "advanced",
-      "environment": "tasks/task-006/environment/",
-      "capability_contract": "tasks/task-006/capability-contract.yaml",
-      "environment_contract": "tasks/task-006/environment-contract.yaml",
-      "profiles": ["controlled_web", "live_web"]
     }
   ]
 }
