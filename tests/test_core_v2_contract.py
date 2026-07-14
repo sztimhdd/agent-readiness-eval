@@ -69,6 +69,31 @@ class CoreV2ContractTests(unittest.TestCase):
         self.assertTrue(len(extra_in_manifest) == 0,
             f"Tasks in skill.json not on disk: {extra_in_manifest}")
 
+    def test_public_entry_points_share_v3_release_identity(self) -> None:
+        manifest = json.loads((ROOT / "skill.json").read_text(encoding="utf-8"))
+        self.assertEqual(manifest["suite_version"], "3.0.0")
+        self.assertEqual([task["id"] for task in manifest["tasks"]], [
+            "task-001",
+            "task-002",
+            "task-003",
+            "task-004",
+            "task-005",
+        ])
+
+        for path in [ROOT / "SKILL.md", ROOT / "README.md"]:
+            with self.subTest(path=path.name):
+                text = path.read_text(encoding="utf-8")
+                self.assertIn("Agent Readiness Eval Core v3.0", text)
+                self.assertIn("task-006", text)
+                self.assertIn("backlog", text.lower())
+
+        for path in [ROOT / "docs" / "PRD_core_v2.md", ROOT / "docs" / "TDD_core_v2.md"]:
+            with self.subTest(path=path.name):
+                self.assertTrue(
+                    path.read_text(encoding="utf-8").startswith("# Agent Readiness Eval Core v3.0"),
+                    f"{path.name} must use the canonical V3 title",
+                )
+
     def test_metadata_template_uses_unavailable_for_unknown_observability(self) -> None:
         metadata = json.loads((ROOT / "templates" / "run-metadata.json").read_text(encoding="utf-8"))
         self.assertEqual(metadata["input_tokens"], "UNAVAILABLE")

@@ -1,15 +1,15 @@
 {
   "id": "agent-readiness-eval",
   "name": "Agent Readiness Eval Core",
-  "suite_version": "2.0.0",
-  "description": "Portable agent readiness evaluation suite — five tasks across four capability tracks (task-006 planned for future release). Content-only package; execution stays native to each harness.",
+  "suite_version": "3.0.0",
+  "description": "Portable agent readiness evaluation suite — V3 release with task-001 through task-005 across four capability tracks. task-006 is backlog-only and excluded from V3 distribution. Content-only package; execution stays native to each harness.",
   "entrypoints": {
     "skill": "SKILL.md"
   },
   "tasks": [
     {
       "id": "task-001",
-      "task_version": "2.0.0",
+      "task_version": "3.0.0",
       "title": "Baseline Delivery",
       "track": "reading_and_delivery",
       "environment_type": "static_files",
@@ -18,7 +18,7 @@
     },
     {
       "id": "task-002",
-      "task_version": "2.0.0",
+      "task_version": "3.0.0",
       "title": "Multi-Source Investigation",
       "track": "investigation_and_judgment",
       "environment_type": "static_files",
@@ -27,7 +27,7 @@
     },
     {
       "id": "task-003",
-      "task_version": "2.0.0",
+      "task_version": "3.0.0",
       "title": "Policy-Constrained Decision",
       "track": "rules_and_safety",
       "environment_type": "static_files",
@@ -36,7 +36,7 @@
     },
     {
       "id": "task-004",
-      "task_version": "2.0.0",
+      "task_version": "3.0.0",
       "title": "Coding & Repair",
       "track": "coding_and_execution",
       "environment_type": "runnable_project",
@@ -47,7 +47,7 @@
     },
     {
       "id": "task-005",
-      "task_version": "2.0.0",
+      "task_version": "3.0.0",
       "title": "Stateful Tool Use",
       "track": "stateful_tool_use",
       "environment_type": "stateful_service",
