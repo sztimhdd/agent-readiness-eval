@@ -1,0 +1,13 @@
+{
+  "task_id": "task-005",
+  "total_conflicts_identified": 4,
+  "conflicts": [
+    { "id": "conflict-1", "topic": "Release Window", "product_requirement": "REQ-PRD-2025-001 §1", "security_requirement": "REQ-SEC-2025-001 §1", "nature": "Business hours vs maintenance window", "resolution": "Adopt maintenance window 02:00-05:00", "charter_clause": "Charter Rule 4: Operational Safety", "deprioritized": "Product requirement for business-hours deployment" },
+    { "id": "conflict-2", "topic": "API Access", "product_requirement": "REQ-PRD-2025-001 §2", "security_requirement": "REQ-SEC-2025-001 §2", "nature": "Public internet vs VPN only", "resolution": "VPN-only access", "charter_clause": "Charter Rule 1: Security First", "deprioritized": "Product requirement for public internet access" },
+    { "id": "conflict-3", "topic": "Authentication", "product_requirement": "REQ-PRD-2025-001 §3", "security_requirement": "REQ-SEC-2025-001 §3", "nature": "OAuth+social vs MFA mandatory", "resolution": "MFA mandatory, social login prohibited", "charter_clause": "Charter Rule 1: Security First", "deprioritized": "Social login convenience" },
+    { "id": "conflict-4", "topic": "Data Retention", "product_requirement": "REQ-PRD-2025-001 §4", "security_requirement": "REQ-SEC-2025-001 §4", "nature": "12 months vs 90 days", "resolution": "90-day retention per data minimization", "charter_clause": "Charter Rule 3: Data Minimization", "deprioritized": "12-month full-fidelity retention" }
+  ],
+  "unified_requirements": ["Maintenance window 02:00-05:00", "VPN-only API access", "MFA mandatory, no social login", "90-day data retention, anonymized after", "10K users, <200ms P95, rate limiting, pen test required"],
+  "escalated_to_cto": [],
+  "action_plan": ["Implement MFA", "Configure VPN-only API", "Schedule deployments in maintenance window", "Set up 90-day retention + anonymization", "Conduct penetration testing"]
+}

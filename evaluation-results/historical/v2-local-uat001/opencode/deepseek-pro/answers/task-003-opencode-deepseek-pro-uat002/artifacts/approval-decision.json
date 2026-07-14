@@ -1,0 +1,80 @@
+{
+  "task_id": "task-003",
+  "decisions": [
+    {
+      "request_id": "DAT-2025-007",
+      "decision": "REJECT",
+      "applicable_policies": ["POL-DAT-2025"],
+      "satisfied_conditions": [
+        "Export details specified (purpose, recipient, retention, deletion)",
+        "Encrypted transfer requested"
+      ],
+      "unmet_conditions": [
+        "DPO approval not obtained — required for Confidential data (POL-DAT-2025 §2)",
+        "Bulk export >100 records requires DPO pre-approval (POL-DAT-2025 §3)",
+        "Bulk export >100 records requires audit logging (POL-DAT-2025 §3)"
+      ],
+      "applicable_exceptions": [],
+      "exception_scope": "",
+      "reason": "Requester acknowledges that DPO pre-approval and audit logging are mandatory under POL-DAT-2025 §3 but explicitly refuses to comply with both requirements and demands audit logging be disabled. The DPO has been consulted and declined to approve. Per the task REJECT definition, a requester who acknowledges a policy requirement and explicitly refuses to comply is submitting a REJECT-eligible request, not a HOLD case.",
+      "required_next_action": "Submit a revised request with DPO approval obtained and audit logging enabled."
+    },
+    {
+      "request_id": "DAT-2025-008",
+      "decision": "HOLD",
+      "applicable_policies": ["POL-DAT-2025"],
+      "satisfied_conditions": [
+        "Export details specified (purpose, recipient, retention)",
+        "Encrypted transfer required",
+        "Subpoena document attached as evidence of legal compliance request"
+      ],
+      "unmet_conditions": [
+        "Joint Legal + DPO review not yet completed (POL-DAT-2025 §5 exemption pathway)",
+        "Deletion date not specified"
+      ],
+      "applicable_exceptions": [
+        "POL-DAT-2025 §5 — Legal compliance requests (subpoena, court order) may override Confidential data restrictions, subject to joint Legal + DPO review"
+      ],
+      "exception_scope": "The subpoena from Beijing Municipal Court (Case #BJ-2025-0287) triggers the §5 legal compliance exemption. This overrides the standard DPO-only approval requirement for Confidential data, replacing it with a joint Legal + DPO review. The exemption does not eliminate the review requirement — it changes who must participate.",
+      "reason": "This is a valid legal compliance request supported by a court subpoena, so the §5 exemption applies. However, the exemption requires joint review by Legal and DPO before execution. DPO approval has been requested but the joint review has not been completed.",
+      "required_next_action": "Complete the joint Legal + DPO review per POL-DAT-2025 §5. Specify a deletion date for the export. Court deadline is 7 days."
+    },
+    {
+      "request_id": "PRC-2025-018",
+      "decision": "HOLD",
+      "applicable_policies": ["POL-PRC-2025"],
+      "satisfied_conditions": [
+        "Department head approval obtained",
+        "Vendor on approved vendor list (AnalyticsPro Inc.)",
+        "CEO written approval attached — exempts from competitive bidding (POL-PRC-2025 §5)"
+      ],
+      "unmet_conditions": [
+        "CFO approval required for purchases >50,000 CNY (POL-PRC-2025 §2)"
+      ],
+      "applicable_exceptions": [
+        "POL-PRC-2025 §5 — Purchases approved in writing by the CEO are exempt from competitive bidding requirements"
+      ],
+      "exception_scope": "CEO written approval exempts this purchase from competitive bidding only. It does not exempt CFO approval for the >50,000 CNY threshold. The exemption scope is limited to the competitive bidding clause in POL-PRC-2025 §2.",
+      "reason": "Total purchase amount (53,000 CNY) exceeds the 50,000 CNY threshold, requiring CFO approval. CEO written approval exempts the competitive bidding requirement but does not substitute for CFO approval. SaaS subscription is exactly 12 months, not exceeding the 12-month threshold that would require an annual review clause.",
+      "required_next_action": "Obtain CFO approval for the 53,000 CNY purchase."
+    },
+    {
+      "request_id": "TRV-2025-042",
+      "decision": "APPROVE",
+      "applicable_policies": ["POL-TRV-2025"],
+      "satisfied_conditions": [
+        "VP approval obtained — required for international travel (POL-TRV-2025 §2)",
+        "Manager approval obtained",
+        "Economy-class flight booked",
+        "Hotel 1,200 CNY/night within international rate limit (1,500 CNY/night)",
+        "Per diem 400 CNY/day at international rate limit",
+        "Receipts provided for all individual expenses >200 CNY"
+      ],
+      "unmet_conditions": [],
+      "applicable_exceptions": [],
+      "exception_scope": "",
+      "reason": "All policy conditions satisfied. International travel with VP approval, all expenses within applicable rate limits, and receipts provided for reimbursable items above the 200 CNY threshold.",
+      "required_next_action": ""
+    }
+  ]
+}

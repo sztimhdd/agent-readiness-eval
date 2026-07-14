@@ -1,0 +1,81 @@
+{
+  "uat_id": "cold-start-agent-readiness-uat",
+  "execution_mode": "single_session_sequential",
+  "repository_url": "https://github.com/sztimhdd/agent-readiness-eval.git",
+  "expected_commit": "2241e3a7f0ef59c08c17dd83a3aa8ce4c65670c6",
+  "actual_commit": "2241e3a7f0ef59c08c17dd83a3aa8ce4c65670c6",
+  "harness_name": "codex-gpt-5.4-mini",
+  "harness_version": "UNAVAILABLE",
+  "model_name": "UNAVAILABLE",
+  "model_provider": "UNAVAILABLE",
+  "operating_system": "Darwin 27.0.0 arm64",
+  "source_contract_tests": {
+    "status": "passed",
+    "exit_code": 0,
+    "evidence_path": "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/codex-gpt-5.4-mini/export/evidence/source-contract-tests.txt"
+  },
+  "distribution": {
+    "agent_build_status": "passed",
+    "task_004_runtime_build_status": "passed",
+    "task_005_runtime_build_status": "passed",
+    "agent_package_leak_check": "passed"
+  },
+  "installation": {
+    "method": "copied SKILL.md into ~/.codex/skills/agent-readiness-eval-uat-2241e3a7",
+    "installed_path": "/Users/hai/.codex/skills/agent-readiness-eval-uat-2241e3a7",
+    "discovery_verified": false,
+    "activation_status": "restart_required",
+    "fallback_used": true
+  },
+  "task_results": [
+    {
+      "task_id": "task-001",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/codex-gpt-5.4-mini/export/runs/task-001-codex-gpt-5.4-mini-UNAVAILABLE-0f3548df",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-002",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/codex-gpt-5.4-mini/export/runs/task-002-codex-gpt-5.4-mini-UNAVAILABLE-19c60e85",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-003",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/codex-gpt-5.4-mini/export/runs/task-003-codex-gpt-5.4-mini-UNAVAILABLE-d1e35feb",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-004",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/codex-gpt-5.4-mini/export/runs/task-004-codex-gpt-5.4-mini-UNAVAILABLE-484675f5",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-005",
+      "profile": "controlled_tool",
+      "run_status": "completed",
+      "answer_directory": "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/codex-gpt-5.4-mini/export/runs/task-005-codex-gpt-5.4-mini-UNAVAILABLE-6e9b7c32",
+      "required_files_complete": true,
+      "defects": [
+        "task-005 runtime staging initially used the wrong path; corrected by invoking the canonical tool_api from the package root"
+      ]
+    }
+  ],
+  "overall_uat_status": "completed_with_defects",
+  "defects": [
+    "Native skill discovery/activation was not verifiable in-session; fallback package reading was required.",
+    "Task-005 initial invocation failed due to an incorrect runtime path before correction.",
+    "Task-003 was initially authored with the wrong decision and was corrected to HOLD."
+  ],
+  "export_root": "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/codex-gpt-5.4-mini/export"
+}

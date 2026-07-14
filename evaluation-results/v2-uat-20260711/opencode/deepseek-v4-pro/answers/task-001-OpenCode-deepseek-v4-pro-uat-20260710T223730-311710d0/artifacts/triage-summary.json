@@ -1,0 +1,22 @@
+{
+  "task_id": "task-001",
+  "severity_counts": {
+    "critical": 1,
+    "high": 3,
+    "medium": 1,
+    "low": 1
+  },
+  "area_counts": {
+    "authentication": 1,
+    "billing": 2,
+    "agent-runtime": 2,
+    "dashboard": 1
+  },
+  "top_risk": "Agent-runtime false success reporting — tasks report completion before writing artifacts (T-1003), compounded by timeout-induced unknown states (T-1005). Both undermine core reliability guarantees.",
+  "supporting_ticket_ids": ["T-1003", "T-1005"],
+  "recommended_actions": [
+    "Gate task completion on verified artifact existence — do not report success until output file is confirmed written and non-empty (T-1003).",
+    "Implement deterministic timeout handling with well-defined terminal states and automatic retry (T-1005).",
+    "Resolve intermittent payment processing failure for premium-tier customers, addressing revenue impact (T-1006)."
+  ]
+}

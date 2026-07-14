@@ -1,0 +1,90 @@
+{
+  "task_id": "task-003",
+  "decisions": [
+    {
+      "request_id": "TRV-2025-042",
+      "decision": "APPROVE",
+      "applicable_policies": ["POL-TRV-2025"],
+      "satisfied_conditions": [
+        "Manager approved (Zhang Wei, 2025-02-20)",
+        "VP approved (Zhao Wen, 2025-03-05)",
+        "International travel VP approval obtained",
+        "Economy-class flight used",
+        "Hotel within international rate limit (1,200 CNY/night ≤ 1,500 CNY/night)",
+        "Per diem at standard international rate (400 CNY/day)",
+        "Receipts attached for flight, hotel, and conference registration"
+      ],
+      "unmet_conditions": [],
+      "applicable_exceptions": [],
+      "exception_scope": "",
+      "reason": "All policy conditions are satisfied. VP approval obtained for international travel and expenses >5,000 CNY. All expenses are within allowable limits with required receipts attached. No exemptions needed.",
+      "required_next_action": ""
+    },
+    {
+      "request_id": "DAT-2025-007",
+      "decision": "HOLD",
+      "applicable_policies": ["POL-DAT-2025"],
+      "satisfied_conditions": [
+        "Purpose specified",
+        "Recipient identified (internal)",
+        "Retention period specified (30 days)",
+        "Deletion date specified (2025-04-30)",
+        "Encrypted transfer requested"
+      ],
+      "unmet_conditions": [
+        "DPO approval not obtained (required for Confidential data under §2)",
+        "DPO pre-approval not obtained (required for bulk export >100 records under §3)",
+        "Audit logging not arranged (required for bulk export under §3)"
+      ],
+      "applicable_exceptions": [],
+      "exception_scope": "",
+      "reason": "Bulk export of Confidential data (~50,000 records) requires DPO pre-approval and audit logging under POL-DAT-2025 §3. The requested exemption from DPO pre-approval and audit logging has no basis in policy — §5 provides no business-deadline exemption for Confidential data exports. The underlying export is potentially allowable once DPO approval and audit logging are arranged through normal workflow.",
+      "required_next_action": "Requester must obtain DPO pre-approval, arrange audit logging, and secure DPO approval before resubmitting. Exemption request is denied."
+    },
+    {
+      "request_id": "DAT-2025-008",
+      "decision": "ESCALATE",
+      "applicable_policies": ["POL-DAT-2025"],
+      "satisfied_conditions": [
+        "Purpose specified (court subpoena Case #BJ-2025-0287)",
+        "Recipient identified (internal to Wang Peng, then to court)",
+        "Encrypted transfer required",
+        "Subpoena document attached",
+        "Court case reference provided"
+      ],
+      "unmet_conditions": [
+        "DPO approval not yet obtained",
+        "Deletion date not yet determined",
+        "Data Processing Agreement (DPA) may be required for third-party sharing with court under §4"
+      ],
+      "applicable_exceptions": [
+        "POL-DAT-2025 §5: Legal compliance requests (subpoena, court order) may override Confidential data restrictions"
+      ],
+      "exception_scope": "The legal compliance exemption covers Confidential data restrictions normally requiring standalone DPO pre-approval, but does NOT waive the joint Legal + DPO review requirement. Policy explicitly mandates joint review before any override takes effect.",
+      "reason": "Policy exemption §5 explicitly requires Legal + DPO joint review for legal compliance requests involving Confidential data. The first-line reviewer cannot approve, reject, or hold this request — it must be transferred to the Legal + DPO joint review authority per policy boundary.",
+      "required_next_action": "ESCALATE to Legal + DPO joint review. Determine: (1) subpoena validity and completeness, (2) proportionate export scope, (3) DPA requirement with court, (4) retention/deletion timeline, (5) final approval for encrypted transfer."
+    },
+    {
+      "request_id": "PRC-2025-018",
+      "decision": "HOLD",
+      "applicable_policies": ["POL-PRC-2025"],
+      "satisfied_conditions": [
+        "Department head approved (Chen Mei, 2025-03-01)",
+        "Vendor on approved vendor list (AnalyticsPro Inc.)",
+        "CEO written approval waives competitive bidding (POL-PRC-2025 §5)",
+        "Not a new vendor — third year, no security review needed"
+      ],
+      "unmet_conditions": [
+        "VP approval pending (required for purchases >10,000 CNY under §2)",
+        "Procurement committee review not convened (required for purchases 10,001-50,000 CNY under §2)",
+        "CFO approval not obtained (required for purchases >50,000 CNY under §2)"
+      ],
+      "applicable_exceptions": [
+        "POL-PRC-2025 §5: CEO written approval exempts from competitive bidding"
+      ],
+      "exception_scope": "CEO waiver applies only to competitive bidding requirement. It does not waive VP approval, procurement committee review, or CFO approval — these remain required under their respective threshold tiers.",
+      "reason": "Total purchase (53,000 CNY) triggers three approval tiers: VP + procurement committee (10K-50K) and CFO (>50K). CEO waiver covers competitive bidding only. All missing approvals are remediable through normal procurement workflow.",
+      "required_next_action": "Requester must obtain: (1) VP approval, (2) convene procurement committee for review, (3) CFO approval. Recommend adding annual review clause to contract given auto-renewal mechanism."
+    }
+  ]
+}

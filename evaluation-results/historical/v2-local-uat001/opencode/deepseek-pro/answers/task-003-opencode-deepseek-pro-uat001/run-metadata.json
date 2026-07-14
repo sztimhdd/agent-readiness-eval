@@ -1,0 +1,23 @@
+{
+  "task_id": "task-003",
+  "suite_version": "2.0.0",
+  "task_version": "2.0.0",
+  "environment_version": "UNAVAILABLE",
+  "adapter_contract_version": "1.0.0",
+  "run_id": "uat001",
+  "harness_name": "opencode",
+  "harness_version": "UNAVAILABLE",
+  "model_name": "deepseek-pro",
+  "model_provider": "UNAVAILABLE",
+  "profile": "UNAVAILABLE",
+  "started_at": "UNAVAILABLE",
+  "finished_at": "UNAVAILABLE",
+  "elapsed_seconds": "UNAVAILABLE",
+  "input_tokens": "UNAVAILABLE",
+  "output_tokens": "UNAVAILABLE",
+  "total_tokens": "UNAVAILABLE",
+  "tool_calls": "UNAVAILABLE",
+  "run_status": "completed",
+  "abort_reason": "UNAVAILABLE",
+  "web_activity_evidence": "UNAVAILABLE"
+}

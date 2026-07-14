@@ -1,0 +1,121 @@
+{
+  "task_id": "task-002",
+  "incident_id": "INC-2025-0612",
+  "relevant_sources": [
+    "inputs/customer-email.txt",
+    "inputs/deployment-log.md",
+    "inputs/system-metrics.txt",
+    "inputs/team-notes.md",
+    "inputs/tickets.json"
+  ],
+  "timeline": [
+    {
+      "time": "09:15 UTC",
+      "event": "Deploy agent-runtime v2.3.1 (async completion reporting optimization)",
+      "source": "deployment-log.md"
+    },
+    {
+      "time": "09:28 UTC",
+      "event": "CRITICAL alert: completed_without_artifact > 3.0/min",
+      "source": "system-metrics.txt"
+    },
+    {
+      "time": "09:30 UTC",
+      "event": "T-2001 reported: task reports completed before writing artifact",
+      "source": "tickets.json"
+    },
+    {
+      "time": "09:35 UTC",
+      "event": "On-call engineer Alex picks up alert",
+      "source": "team-notes.md"
+    },
+    {
+      "time": "09:50 UTC",
+      "event": "Pattern identified \u2014 status-ordering bug",
+      "source": "team-notes.md"
+    },
+    {
+      "time": "10:00 UTC",
+      "event": "T-2002 reported: 12 tasks completed, only 4 have artifacts",
+      "source": "tickets.json"
+    },
+    {
+      "time": "10:15 UTC",
+      "event": "T-2003 reported: Pilot Bank A escalation (8 empty reports)",
+      "source": "tickets.json / customer-email.txt"
+    },
+    {
+      "time": "10:30 UTC",
+      "event": "Correlation with v2.3.1 deployment identified",
+      "source": "team-notes.md"
+    },
+    {
+      "time": "11:00 UTC",
+      "event": "Hotfix decision \u2014 revert async optimization",
+      "source": "team-notes.md"
+    },
+    {
+      "time": "11:15 UTC",
+      "event": "Hotfix ready: write-ack-first restored",
+      "source": "team-notes.md"
+    },
+    {
+      "time": "11:30 UTC",
+      "event": "Deploy v2.3.2 hotfix (all 8 nodes)",
+      "source": "deployment-log.md"
+    },
+    {
+      "time": "11:32 UTC",
+      "event": "Alerts cleared: both metrics return to baseline",
+      "source": "system-metrics.txt"
+    },
+    {
+      "time": "11:45 UTC",
+      "event": "Post-hotfix verification: 3 sample runs confirmed",
+      "source": "deployment-log.md"
+    }
+  ],
+  "confirmed_facts": [
+    "Agent-runtime v2.3.1 deployed at 09:15 UTC on 2025-06-12 (deployment-log.md, team-notes.md)",
+    "The v2.3.1 change included 'optimized async task completion reporting pipeline' and 'updated status transition logic' (deployment-log.md)",
+    "completed_without_artifact metric rose from 0.2/min baseline to peak 6.2/min at 10:00-10:30 (system-metrics.txt, team-notes.md)",
+    "write_confirmation_latency_p99 rose from 312ms to peak 2100ms (system-metrics.txt)",
+    "Pilot Bank A identified 8 empty compliance reports (customer-email.txt, tickets.json T-2003)",
+    "Hotfix v2.3.2 deployed at 11:30 UTC (deployment-log.md, team-notes.md)",
+    "Alerts cleared at 11:32 UTC; metrics returned to baseline post-hotfix (system-metrics.txt, deployment-log.md)",
+    "T-2004 (dashboard UI) is a separate low-severity ticket unrelated to the runtime incident (tickets.json \u2014 different area)",
+    "Dashboard UI V2 Redesign is a separate project explicitly unrelated to INC-2025-0612 (team-notes.md)"
+  ],
+  "likely_root_cause": "Agent-runtime v2.3.1's async completion reporting optimization changed the status transition order to report 'completed' before confirming artifact writes, without adding verification that the async write succeeded.",
+  "supporting_evidence": [
+    "System metrics anomaly begins within 15 minutes of v2.3.1 deployment (system-metrics.txt vs deployment-log.md)",
+    "Engineer Alex identified the exact mechanism at 10:30 (team-notes.md): 'reports complete first, then writes asynchronously \u2014 but there's no check that the async write actually succeeded'",
+    "Hotfix v2.3.2 rolled back the change and resolved the issue within 2 minutes (deployment-log.md, system-metrics.txt)",
+    "Ticket cluster T-2001, T-2002, T-2003 all describe the same core symptom with escalating severity (tickets.json)"
+  ],
+  "inferences": [
+    "Approximately 280-320 tasks were affected during the ~2-hour incident window (6.2/min peak over ~50 min anomaly)",
+    "The canary smoke tests did not cover the artifact-write failure path, as they passed despite the bug",
+    "The customer's 'since around 08:00' claim is an estimate that conflates observation start time with anomaly start time \u2014 the metrics confirm the bug began at 09:15",
+    "The 4-of-8 rolling deployment strategy may have partially masked the anomaly during deployment rollout"
+  ],
+  "unknowns": [
+    "Exact number of affected tasks and which customer accounts beyond Pilot Bank A were impacted",
+    "Whether downstream audit pipelines ingested empty reports beyond those caught by Pilot Bank A's manual review",
+    "The precise pre-v2.3.0 write-ack code state \u2014 v2.3.0 (2025-06-08) may have already weakened the guarantee before v2.3.1 broke it entirely",
+    "SLA breach determination requires total task volume data not present in the provided files",
+    "Why the SRE runbook for write-confirmation alerts was still pending update (mentioned in team-notes.md)"
+  ],
+  "recommended_actions": [
+    "Add post-write verification to the task completion pipeline \u2014 report 'failed' with explicit error if artifact write does not succeed (prevents recurrence regardless of status-ordering strategy)",
+    "Add integration tests for the completed-without-artifact negative path: simulate write failures, timeouts, and storage latency (fills the test gap that allowed the bug to reach production)",
+    "Create automated deployment rollback runbook: correlate 'completed_without_artifact' alerts with recent runtime deployments and provide one-click rollback (reduces incident window from 2h15m to minutes)"
+  ],
+  "confidence_level": "High",
+  "information_gaps": [
+    "Task-level logs showing individual write attempts and failures",
+    "Total task volume for Pilot Bank A to determine SLA compliance",
+    "SRE post-mortem on the tool-call write path",
+    "Complete customer impact scope beyond Pilot Bank A"
+  ]
+}

@@ -1,0 +1,10 @@
+# Decision Summary — Task 005
+
+| Request | Title | Amount | Decision | Status | Key Rationale | Policy Cited |
+|---------|-------|--------|----------|--------|---------------|-------------|
+| REQ-001 | Standard Office Supply Order | 3,200 CNY | Approve | approved | Under 5,000 CNY threshold. Department head and procurement officer both approved. Cost center ENG-0142 valid. No CFO or competitive bidding required. | POL-PRC-001 §1, §4 |
+| REQ-002 | Marketing Event Catering | 4,500 CNY | Approve | approved | Under 5,000 CNY threshold. Department head and procurement officer both approved. Three vendor quotes provided. Cost center MKT-0089 valid. | POL-PRC-001 §1, §4 |
+| REQ-003 | Server Hardware Upgrade | 85,000 CNY | Request Information | information_requested | Exceeds 5,000 CNY — CFO approval required (POL-PRC-001 §2). CFO has not approved (approval_chain shows CFO approved: false). Three vendor quotes obtained per bidding requirement (POL-PRC-001 §3). | POL-PRC-001 §2 |
+| REQ-004 | SaaS Platform Renewal — Analytics Suite | 120,000 CNY | Request Information | information_requested | Exceeds 5,000 CNY — CFO approval required (POL-PRC-001 §2). CEO exemption covers competitive bidding only (POL-PRC-002 §1-2); CFO requirement remains in force. Also: SaaS renewal requires annual review clause (POL-PRC-002 §3-4) — requires verification. | POL-PRC-001 §2, POL-PRC-002 §2-4 |
+| REQ-005 | Emergency Equipment Purchase | 75,000 CNY | Reject | rejected | Requires CFO approval (POL-PRC-001 §2, amount >5,000 CNY). Requester explicitly demands CFO approval bypass due to timeline pressure. No emergency exemption exists in applicable policies. Explicit refusal of mandatory policy requirement is not a HOLD case — it is a REJECT. | POL-PRC-001 §2 |
+| REQ-006 | Cross-Department Training Platform | 35,000 CNY | Escalate | escalated | Budget drawn from HR (40%), Engineering (35%), Marketing (25%) — three departments. POL-PRC-003 §1-2 requires mandatory joint review by Cross-Department Budget Committee regardless of amount. Direct approval prohibited per §4. | POL-PRC-003 §1-4 |

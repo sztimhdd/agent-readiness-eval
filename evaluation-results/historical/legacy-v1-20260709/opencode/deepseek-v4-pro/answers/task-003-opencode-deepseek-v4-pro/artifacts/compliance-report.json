@@ -1,0 +1,96 @@
+{
+  "task_id": "task-003",
+  "requests": [
+    {
+      "request_id": "TRV-2025-042",
+      "type": "travel",
+      "compliance_status": "Non-Compliant",
+      "applicable_policies": ["POL-TRV-2025"],
+      "findings": [
+        {
+          "policy_ref": "POL-TRV-2025 §2",
+          "description": "Total 18,500 CNY exceeds 5,000 CNY threshold; VP approval is Pending",
+          "severity": "High",
+          "exemption_applied": false,
+          "exemption_clause": null
+        },
+        {
+          "policy_ref": "POL-TRV-2025 §2",
+          "description": "International travel requires VP approval regardless of amount",
+          "severity": "High",
+          "exemption_applied": false,
+          "exemption_clause": null
+        }
+      ]
+    },
+    {
+      "request_id": "PRC-2025-018",
+      "type": "procurement",
+      "compliance_status": "Non-Compliant",
+      "applicable_policies": ["POL-PRC-2025"],
+      "findings": [
+        {
+          "policy_ref": "POL-PRC-2025 §2",
+          "description": "Total 53,000 CNY > 50,000 CNY threshold; CFO approval required (CEO exemption covers competitive bidding only)",
+          "severity": "Medium",
+          "exemption_applied": false,
+          "exemption_clause": null
+        },
+        {
+          "policy_ref": "POL-PRC-2025 §4",
+          "description": "SaaS subscription > 12 months requires annual review clause; contract draft lacks this clause",
+          "severity": "Medium",
+          "exemption_applied": false,
+          "exemption_clause": null
+        }
+      ]
+    },
+    {
+      "request_id": "DAT-2025-007",
+      "type": "data_export",
+      "compliance_status": "Non-Compliant",
+      "applicable_policies": ["POL-DAT-2025"],
+      "findings": [
+        {
+          "policy_ref": "POL-DAT-2025 §2",
+          "description": "Confidential PII data export requires DPO approval; not yet obtained",
+          "severity": "High",
+          "exemption_applied": false,
+          "exemption_clause": null
+        },
+        {
+          "policy_ref": "POL-DAT-2025 §3",
+          "description": "Bulk export >100 records (50,000) requires DPO pre-approval and audit logging",
+          "severity": "High",
+          "exemption_applied": false,
+          "exemption_clause": null
+        }
+      ]
+    },
+    {
+      "request_id": "DAT-2025-008",
+      "type": "data_export",
+      "compliance_status": "Compliant (Exemption Applied)",
+      "applicable_policies": ["POL-DAT-2025"],
+      "findings": [
+        {
+          "policy_ref": "POL-DAT-2025 §5",
+          "description": "Legal compliance request (subpoena BJ-2025-0287) overrides standard DPO requirement for Confidential data; Legal + DPO joint review still pending",
+          "severity": "Low",
+          "exemption_applied": true,
+          "exemption_clause": "POL-DAT-2025 §5: Legal compliance requests may override Confidential data restrictions"
+        }
+      ]
+    }
+  ],
+  "total_requests": 4,
+  "compliant_count": 1,
+  "non_compliant_count": 3,
+  "exemption_applied_count": 1,
+  "findings": [
+    { "policy_ref": "POL-DAT-2025 §2", "description": "Missing DPO approval for Confidential PII export", "severity": "High", "exemption_applied": false, "exemption_clause": null },
+    { "policy_ref": "POL-TRV-2025 §2", "description": "Missing VP approval for international travel >5,000 CNY", "severity": "High", "exemption_applied": false, "exemption_clause": null },
+    { "policy_ref": "POL-PRC-2025 §4", "description": "Contract lacks annual review clause", "severity": "Medium", "exemption_applied": false, "exemption_clause": null },
+    { "policy_ref": "POL-PRC-2025 §2", "description": "CFO approval still required despite CEO bidding exemption", "severity": "Medium", "exemption_applied": false, "exemption_clause": null }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "task_id": "task-002",
+  "incident_id": "INC-2025-0612",
+  "relevant_sources": [
+    "tickets.json",
+    "deployment-log.md",
+    "system-metrics.txt",
+    "customer-email.txt",
+    "team-notes.md (INC-2025-0612 section only)"
+  ],
+  "timeline": [
+    { "time": "09:15 UTC", "event": "Deploy agent-runtime v2.3.1", "source": "deployment-log.md" },
+    { "time": "09:28 UTC", "event": "CRITICAL alert: completed_without_artifact > 3.0/min", "source": "system-metrics.txt" },
+    { "time": "09:30 UTC", "event": "T-2001 filed: task completes without output", "source": "tickets.json" },
+    { "time": "09:35 UTC", "event": "On-call engineer picks up alert", "source": "team-notes.md" },
+    { "time": "09:50 UTC", "event": "Pattern identified as status-ordering bug", "source": "team-notes.md" },
+    { "time": "10:00 UTC", "event": "T-2002 filed: batch with missing outputs", "source": "tickets.json" },
+    { "time": "10:15 UTC", "event": "T-2003 filed: Pilot Bank A escalation", "source": "tickets.json" },
+    { "time": "10:30 UTC", "event": "Correlation with v2.3.1 deployment confirmed", "source": "team-notes.md" },
+    { "time": "10:45 UTC", "event": "Customer email from Sarah Chen (VP Compliance)", "source": "customer-email.txt" },
+    { "time": "11:00 UTC", "event": "T-2004 filed: dashboard status display issue", "source": "tickets.json" },
+    { "time": "11:30 UTC", "event": "Deploy v2.3.2 hotfix", "source": "deployment-log.md" },
+    { "time": "11:32 UTC", "event": "All alerts clear, metrics return to baseline", "source": "system-metrics.txt" },
+    { "time": "11:45 UTC", "event": "Post-hotfix verification: all healthy", "source": "deployment-log.md" }
+  ],
+  "confirmed_facts": [
+    "v2.3.1 deployed at 09:15 UTC on 2025-06-12",
+    "completed_without_artifact rose from 0.2/min to peak 6.2/min starting after deployment",
+    "At least 8 Pilot Bank A compliance reports were affected",
+    "Hotfix v2.3.2 at 11:30 restored normal behavior; metrics returned to baseline by 11:32",
+    "Engineer Alex identified the status-ordering bug by 09:50 and confirmed deployment correlation by 10:30"
+  ],
+  "likely_root_cause": "Race condition in async task completion reporting introduced in v2.3.1 — tasks reported 'completed' before write confirmation, causing silent write failures when latency spiked.",
+  "supporting_evidence": [
+    "deployment-log.md: v2.3.1 'Optimized async task completion reporting pipeline'",
+    "deployment-log.md: v2.3.2 'Fixed race condition where task status was set to completed before output artifact write confirmed'",
+    "system-metrics.txt: completed_without_artifact spike correlates exactly with deployment window",
+    "team-notes.md: Alex identifies mechanism at 09:50, confirms deployment correlation at 10:30"
+  ],
+  "inferences": [
+    "Async completion optimization in v2.3.1 directly caused the race condition",
+    "T-2004 (dashboard status issue) is a downstream symptom of the same root cause",
+    "Canary smoke tests did not verify artifact completeness after status transition"
+  ],
+  "unknowns": [
+    "Customer email claims 'since around 08:00' but metrics show baseline until 09:15 — source of discrepancy unknown",
+    "Total number of tasks affected across all customers (only Pilot Bank A numbers confirmed)",
+    "Whether empty reports were consumed by downstream compliance pipelines",
+    "Exact failure mechanism for individual writes (auth-service logs not available)"
+  ],
+  "recommended_actions": [
+    "Notify Pilot Bank A with incident timeline, affected report list, and SLA assessment",
+    "Update canary smoke tests to verify artifact completeness after status transitions",
+    "Add write-acknowledgement monitoring and alerting independent of task completion metrics"
+  ],
+  "confidence_level": "Medium",
+  "information_gaps": [
+    "Auth-service write logs for incident window",
+    "Canary node smoke test specification",
+    "Cross-customer impact data beyond Pilot Bank A"
+  ]
+}
