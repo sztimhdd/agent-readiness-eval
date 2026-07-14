@@ -1,0 +1,83 @@
+{
+  "task_id": "task-003",
+  "decisions": [
+    {
+      "request_id": "DAT-2025-007",
+      "decision": "REJECT",
+      "applicable_policies": ["POL-DAT-2025"],
+      "satisfied_conditions": [
+        "Purpose specified (Q1 customer churn analysis)",
+        "Recipient specified (Liu Fang, internal)",
+        "Retention period and deletion date defined",
+        "Encrypted transfer requested"
+      ],
+      "unmet_conditions": [
+        "DPO pre-approval not obtained — requester explicitly refuses to comply (POL-DAT-2025 §3: bulk exports >100 records require DPO pre-approval)",
+        "Audit logging demanded to be disabled by requester (POL-DAT-2025 §3: bulk exports require audit logging)"
+      ],
+      "applicable_exceptions": [],
+      "exception_scope": "",
+      "reason": "Bulk export of 50,000 Confidential records. Requester acknowledges POL-DAT-2025 §3 requirements for DPO pre-approval and audit logging but explicitly refuses to comply, demanding bypass of mandatory DPO approval and disabling of audit logging. DPO has consulted and declined. Under REJECT criteria: requester who acknowledges a policy requirement and explicitly refuses to comply is not a HOLD case; they submit a REJECT-eligible request. Revised submission with DPO approval may be considered separately.",
+      "required_next_action": "Requester must obtain DPO approval and agree to audit logging before resubmitting."
+    },
+    {
+      "request_id": "DAT-2025-008",
+      "decision": "HOLD",
+      "applicable_policies": ["POL-DAT-2025"],
+      "satisfied_conditions": [
+        "Purpose specified (subpoena response, case #BJ-2025-0287)",
+        "Recipient specified (internal, then to court)",
+        "Retention period defined (until case resolution)",
+        "Encrypted transfer required",
+        "Subpoena document attached",
+        "Valid legal compliance basis (POL-DAT-2025 §5 exemption applies)"
+      ],
+      "unmet_conditions": [
+        "DPO approval requested but not yet obtained (POL-DAT-2025 §3: bulk export >100 records requires DPO pre-approval, and §5: legal compliance exemption requires joint Legal + DPO review)"
+      ],
+      "applicable_exceptions": ["POL-DAT-2025 §5 — Legal compliance requests (subpoena) may override Confidential data restrictions"],
+      "exception_scope": "Legal compliance exemption allows export of Confidential data despite standard restrictions, but requires joint review by Legal + DPO. Does not bypass DPO involvement entirely.",
+      "reason": "The subpoena provides a valid legal basis under POL-DAT-2025 §5. However, the joint Legal + DPO review required by the exemption has not been completed — DPO approval is still pending. All other elements (purpose, encrypted transfer, subpoena documentation) are in order. The 7-day court deadline allows time for required approvals through normal workflow.",
+      "required_next_action": "Complete joint Legal + DPO review and obtain DPO approval. Confirm deletion date once case resolution timeline is determined."
+    },
+    {
+      "request_id": "PRC-2025-018",
+      "decision": "HOLD",
+      "applicable_policies": ["POL-PRC-2025"],
+      "satisfied_conditions": [
+        "Department head approval obtained",
+        "Vendor on approved vendor list",
+        "Purchase purpose specified",
+        "CEO written approval obtained (exempts from competitive bidding per POL-PRC-2025 §5)"
+      ],
+      "unmet_conditions": [
+        "CFO approval required — total 53,000 CNY exceeds 50,000 CNY threshold (POL-PRC-2025 §2)",
+        "VP approval still pending (POL-PRC-2025 §2: purchases 10,001–50,000 CNY require VP approval)",
+        "Contract lacks annual review clause — SaaS subscription with auto-renewal (POL-PRC-2025 §4: SaaS subscriptions >12 months require annual review clause)"
+      ],
+      "applicable_exceptions": ["POL-PRC-2025 §5 — CEO written approval exempts from competitive bidding requirements"],
+      "exception_scope": "CEO exemption waives competitive bidding only. It does not waive: CFO approval for >50K purchases, VP approval for 10K-50K purchases, or contract review clause requirements under §4.",
+      "reason": "CEO exemption removes competitive bidding obligation but does not substitute for separately required CFO approval (§2). VP approval remains pending. Contract must include annual review clause per §4 for SaaS exceeding 12 months. All gaps remediable through normal workflow.",
+      "required_next_action": "Obtain VP approval; obtain CFO approval; amend contract to include annual review clause per POL-PRC-2025 §4."
+    },
+    {
+      "request_id": "TRV-2025-042",
+      "decision": "APPROVE",
+      "applicable_policies": ["POL-TRV-2025"],
+      "satisfied_conditions": [
+        "International travel — VP approval obtained (POL-TRV-2025 §2)",
+        "Total >5,000 CNY — VP approval obtained (POL-TRV-2025 §2)",
+        "Economy-class flight booking (POL-TRV-2025 §3)",
+        "Hotel 1,200 CNY/night within international limit of 1,500 CNY/night (POL-TRV-2025 §3)",
+        "Per diem 400 CNY/day within international limit (POL-TRV-2025 §3)",
+        "Receipts for flight, hotel, and conference registration — all >200 CNY (POL-TRV-2025 §4)",
+        "Manager approval obtained"
+      ],
+      "unmet_conditions": [],
+      "applicable_exceptions": [],
+      "exception_scope": "",
+      "reason": "All required conditions under POL-TRV-2025 are satisfied. International travel VP approval obtained. All expenses within policy limits. All required receipts attached. No exceptions needed.",
+      "required_next_action": ""
+    }
+  ]
+}

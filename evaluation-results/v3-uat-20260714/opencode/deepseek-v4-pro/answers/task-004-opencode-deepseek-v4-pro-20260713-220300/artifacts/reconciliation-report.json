@@ -1,0 +1,25 @@
+{
+  "task_id": "task-004",
+  "total_accounts_reviewed": 6,
+  "discrepancy_count": 3,
+  "discrepancies_by_type": {
+    "missing_support_record": 2,
+    "amount_mismatch": 1
+  },
+  "findings": [
+    {
+      "account_id": "ACC-1003",
+      "discrepancy_type": "missing_support_record"
+    },
+    {
+      "account_id": "ACC-1500",
+      "discrepancy_type": "amount_mismatch",
+      "crm_amount": 78000.0,
+      "billing_amount": 65000.0
+    },
+    {
+      "account_id": "ACC-1006",
+      "discrepancy_type": "missing_support_record"
+    }
+  ]
+}

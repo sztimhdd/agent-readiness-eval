@@ -2,7 +2,20 @@
 
 This directory is a reviewable archive of answer artifacts and UAT reports, grouped by **harness / model**.  It intentionally contains no packaged source distribution, evaluator-only material, raw session logs, database/runtime state, or compressed UAT bundles.
 
-## Current comparison set: Core v2 cold-start UAT
+## Current comparison sets
+
+### Core v3 local UAT
+
+The latest local V3 batch is [`v3-uat-20260714/`](v3-uat-20260714/). It preserves the Hermes and OpenCode full-suite answer directories and a CTO-facing comparison report.
+
+| Harness | Model | Tasks completed | UAT result | Notes |
+| --- | --- | ---: | --- | --- |
+| Hermes | DeepSeek V4 Flash | 5 / 5 | PASS | Cleanest V3 run; benign shutdown warning after artifacts were written. |
+| OpenCode | DeepSeek V4 Pro | 5 / 5 | PARTIAL PASS | task-003 judgment issue and task-004 missing pre-fix evidence capture. |
+
+See [`v3-uat-20260714/uat-comparison-report.md`](v3-uat-20260714/uat-comparison-report.md) for CTO review.
+
+### Core v2 cold-start UAT
 
 The comparable batch is [`v2-uat-20260711/`](v2-uat-20260711/).  Each harness was asked to clone and pin commit `2241e3a7f0ef59c08c17dd83a3aa8ce4c65670c6`, install the Skill natively where possible, then complete task-001 through task-005 in one sequential session.  The raw, canonical answer directories and harness summaries are preserved below each model directory.
 
@@ -21,6 +34,7 @@ Scores are a single-run diagnostic review, not a statistically valid model ranki
 
 ## Directory guide
 
+- [`v3-uat-20260714/`](v3-uat-20260714/) — latest V3 Hermes/OpenCode UAT report and answer directories.
 - [`v2-uat-20260711/opencode/deepseek-v4-pro/`](v2-uat-20260711/opencode/deepseek-v4-pro/) — summary, source-contract evidence, and five canonical answer directories.
 - [`v2-uat-20260711/hermes/deepseek-v4-flash/`](v2-uat-20260711/hermes/deepseek-v4-flash/) — summary, source-contract evidence, and five canonical answer directories.
 - [`v2-uat-20260711/codex/gpt-5.4-mini/`](v2-uat-20260711/codex/gpt-5.4-mini/) — summary, source-contract evidence, and five canonical run directories.  The original flat `answers/` export is deliberately omitted because it lost per-run directory boundaries.

@@ -1,0 +1,22 @@
+{
+  "task_id": "task-001",
+  "severity_counts": {
+    "critical": 1,
+    "high": 3,
+    "medium": 1,
+    "low": 1
+  },
+  "area_counts": {
+    "authentication": 1,
+    "billing": 2,
+    "agent-runtime": 2,
+    "dashboard": 1
+  },
+  "top_risk": "Agent runtime prematurely reports task success before writing artifacts, causing acceptance of empty reports during UAT. Combined with another agent-runtime high-severity bug (tool-call timeout leaving tasks in unknown state), the agent-runtime system is the most critical reliability risk.",
+  "supporting_ticket_ids": ["T-1003", "T-1005"],
+  "recommended_actions": [
+    "Fix T-1003 (CRITICAL): Agent runtime must not report success until all artifacts are written. Add post-task artifact verification before emitting success signal.",
+    "Fix T-1005 (HIGH): Tool-call timeouts must transition tasks to a well-defined error state instead of 'unknown', with automatic cleanup or retry logic.",
+    "Fix T-1001 (HIGH): Investigate authentication failure after password reset for Pilot Bank A admins — 42-minute admin downtime is a severe operational impact for a tenant."
+  ]
+}

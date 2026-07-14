@@ -1,0 +1,70 @@
+{
+  "task_id": "task-002",
+  "incident_id": "INC-2025-0612",
+  "relevant_sources": [
+    "customer-email.txt",
+    "deployment-log.md",
+    "system-metrics.txt",
+    "team-notes.md",
+    "tickets.json"
+  ],
+  "timeline": [
+    { "time": "08:00 UTC", "event": "First empty AI agent reports begin appearing, per Pilot Bank A compliance team", "source": "customer-email.txt" },
+    { "time": "09:15 UTC", "event": "agent-runtime v2.3.1 deployed with async completion reporting optimization", "source": "deployment-log.md" },
+    { "time": "09:28 UTC", "event": "CRITICAL alert: completed_without_artifact exceeds 3.0/min; WARN: write latency exceeds 1000ms", "source": "system-metrics.txt" },
+    { "time": "09:30 UTC", "event": "T-2001 reported: agent task reports completed before writing artifact", "source": "tickets.json" },
+    { "time": "09:35 UTC", "event": "On-call engineer Alex picks up alert; storage backend checked and ruled out", "source": "team-notes.md" },
+    { "time": "09:50 UTC", "event": "Pattern identified: status-ordering bug — tasks transition to completed with no write verification", "source": "team-notes.md" },
+    { "time": "10:00 UTC", "event": "T-2002 reported: batch of 12 tasks completed, only 4 have output artifacts", "source": "tickets.json" },
+    { "time": "10:15 UTC", "event": "T-2003 (critical): Pilot Bank A escalation — 8 empty compliance reports entered audit pipeline", "source": "tickets.json" },
+    { "time": "10:30 UTC", "event": "Correlation with v2.3.1 confirmed; root cause: async write optimization with no success check", "source": "team-notes.md" },
+    { "time": "10:45 UTC", "event": "Sarah Chen (VP Compliance, Pilot Bank A) sends formal escalation email", "source": "customer-email.txt" },
+    { "time": "11:00 UTC", "event": "Hotfix decision; T-2004 dashboard issue filed (symptom, not cause)", "source": "team-notes.md" },
+    { "time": "11:15 UTC", "event": "Fix ready: status transition reverted to write-ack-first-then-complete", "source": "team-notes.md" },
+    { "time": "11:30 UTC", "event": "v2.3.2 hotfix deployed across all 8 nodes, rolling back async changes", "source": "deployment-log.md" },
+    { "time": "11:32 UTC", "event": "All alerts return to OK; completed_without_artifact and write latency return to baseline", "source": "system-metrics.txt" },
+    { "time": "11:45 UTC", "event": "Post-hotfix verification: all nodes healthy, sample runs confirmed with expected outputs", "source": "deployment-log.md" }
+  ],
+  "confirmed_facts": [
+    "v2.3.1 deployed at 09:15 UTC with async task completion reporting changes (deployment-log.md); completed_without_artifact anomaly began rising simultaneously (system-metrics.txt)",
+    "Anomaly peaked at 6.2 empty completions per minute between 10:00-10:30 UTC (system-metrics.txt)",
+    "v2.3.2 hotfix rolled back async changes at 11:30 UTC (deployment-log.md, team-notes.md)",
+    "Metrics returned to baseline within 2 minutes of hotfix deployment (system-metrics.txt, deployment-log.md)",
+    "Pilot Bank A reported at least 8 empty compliance reports that entered their audit pipeline (customer-email.txt, tickets.json T-2003)",
+    "Three related agent-runtime tickets (T-2001, T-2002, T-2003) were filed on 2025-06-12 after the 09:15 deployment (tickets.json)"
+  ],
+  "likely_root_cause": "The v2.3.1 deployment reversed the task completion state machine ordering from 'write-acknowledgement then complete' to 'complete then async-write', without any verification that the asynchronous artifact write succeeded. Tasks that encountered write failures after the premature status transition remained marked 'completed' with no output artifacts.",
+  "supporting_evidence": [
+    "deployment-log.md: v2.3.1 change 'Optimized async task completion reporting pipeline' and 'Updated status transition logic'",
+    "team-notes.md, 09:50: 'the new optimization reports complete first, then writes asynchronously — but there's no check that the async write actually succeeded'",
+    "system-metrics.txt: completed_without_artifact rises from 0.2/min to 6.2/min after 09:15, returns to 0.3/min after 11:30 hotfix",
+    "team-notes.md, 11:15: 'Changed status transition logic back to write-ack-first-then-complete'",
+    "deployment-log.md: v2.3.2 hotfix explicitly 'rolled back async completion reporting changes from v2.3.1'"
+  ],
+  "inferences": [
+    "The async write verification gap in v2.3.1 is the direct root cause — no other deployment or system change coincides with the anomaly window",
+    "All empty-report tickets (T-2001 through T-2003) were caused by the same v2.3.1 defect",
+    "The write confirmation latency spike was a secondary effect of async writes queuing without synchronous backpressure",
+    "T-2004 (dashboard misleading status) is a downstream UI symptom of the runtime defect"
+  ],
+  "unknowns": [
+    "Whether any customer data was exposed or misrouted during the incident",
+    "Exact number of affected reports across all customers beyond Pilot Bank A's reported 8",
+    "Whether this incident constitutes an SLA breach under Pilot Bank A's contract",
+    "Whether the canary smoke tests were insufficient or the race condition was non-reproducible in canary",
+    "Auth-service write logs that would confirm the exact failure path for each empty task"
+  ],
+  "recommended_actions": [
+    "Reinforce deployment verification: add post-deployment artifact validation checks to smoke tests so empty completions are caught before full rollout",
+    "Add task completion integrity monitoring: instrument a permanent lower-threshold alert on completed_without_artifact and integrate with on-call paging",
+    "Conduct formal incident post-mortem: assess SLA impact, confirm no data exposure, audit codebase for other unverified async write patterns"
+  ],
+  "confidence_level": "High",
+  "information_gaps": [
+    "Auth-service write logs for the affected tasks — would confirm exact failure path",
+    "Per-customer breakdown of affected tasks — only Pilot Bank A count is known",
+    "Canary node metrics during the 4-minute canary window — would explain why pre-rollout detection failed",
+    "SLA contract language for Pilot Bank A — needed for breach determination",
+    "Customer data routing logs — needed to answer the data exposure question"
+  ]
+}

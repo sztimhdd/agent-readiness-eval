@@ -1,0 +1,22 @@
+{
+  "task_id": "task-001",
+  "severity_counts": {
+    "critical": 1,
+    "high": 3,
+    "medium": 1,
+    "low": 1
+  },
+  "area_counts": {
+    "authentication": 1,
+    "billing": 2,
+    "agent-runtime": 2,
+    "dashboard": 1
+  },
+  "top_risk": "Agent-runtime task completion reliability — tasks report status transitions to 'completed' before verifying that requested artifacts have been successfully written, enabling downstream consumers to accept empty or incomplete output. Supported by T-1003 (critical: agent task reports success before writing artifact) and T-1005 (high: tool-call timeout leaves task in unknown state).",
+  "supporting_ticket_ids": ["T-1003", "T-1005"],
+  "recommended_actions": [
+    "Fix agent task completion ordering — ensure artifact write confirmation occurs and is verified before status transitions to 'completed' (addresses T-1003)",
+    "Implement tool-call timeout recovery with deterministic state transitions — eliminate unknown task states after timeouts (addresses T-1005)",
+    "Fix premium-tier payment processing — resolve intermittent payment failures causing revenue loss for premium accounts (addresses T-1006)"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "task_id": "task-005",
+  "source": "environment_export",
+  "export_tool": "get_final_state",
+  "final_state": [
+    {
+      "request_id": "REQ-001",
+      "status": "approved"
+    },
+    {
+      "request_id": "REQ-002",
+      "status": "approved"
+    },
+    {
+      "request_id": "REQ-003",
+      "status": "information_requested"
+    },
+    {
+      "request_id": "REQ-004",
+      "status": "information_requested"
+    },
+    {
+      "request_id": "REQ-005",
+      "status": "rejected"
+    },
+    {
+      "request_id": "REQ-006",
+      "status": "escalated"
+    }
+  ]
+}

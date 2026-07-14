@@ -1,0 +1,74 @@
+{
+  "task_id": "task-002",
+  "incident_id": "INC-2025-0612",
+  "relevant_sources": [
+    "inputs/tickets.json",
+    "inputs/system-metrics.txt",
+    "inputs/deployment-log.md",
+    "inputs/team-notes.md",
+    "inputs/customer-email.txt"
+  ],
+  "timeline": [
+    {"time": "08:00 UTC", "event": "Pilot Bank A compliance team begins noticing occasional empty reports (customer approximation).", "source": "customer-email.txt"},
+    {"time": "09:15 UTC", "event": "Deploy agent-runtime v2.3.1: async completion reporting optimization.", "source": "deployment-log.md"},
+    {"time": "09:28 UTC", "event": "CRITICAL alert: completed_without_artifact > 3.0/min. WARN: write_confirmation_latency > 1000ms.", "source": "system-metrics.txt"},
+    {"time": "09:30 UTC", "event": "T-2001 reported: agent reports completed before writing artifact.", "source": "tickets.json"},
+    {"time": "09:35 UTC", "event": "On-call engineer Alex picks up alert. Initial suspicion: storage latency.", "source": "team-notes.md"},
+    {"time": "09:50 UTC", "event": "Pattern identified: status-ordering bug — task transitions to completed before write confirmation fires.", "source": "team-notes.md"},
+    {"time": "10:00 UTC", "event": "T-2002 reported: 12 tasks show completed, only 4 have artifacts.", "source": "tickets.json"},
+    {"time": "10:15 UTC", "event": "T-2003 filed (critical): Pilot Bank A compliance flagged 8 empty reports.", "source": "tickets.json"},
+    {"time": "10:30 UTC", "event": "Correlation with v2.3.1 deployment confirmed: the async optimization changed status ordering.", "source": "team-notes.md"},
+    {"time": "10:45 UTC", "event": "Customer escalation: Sarah Chen (VP Compliance, Pilot Bank A) sends urgent email.", "source": "customer-email.txt"},
+    {"time": "11:00 UTC", "event": "Hotfix decision made: revert async optimization. T-2004 filed (dashboard status display).", "source": "team-notes.md, tickets.json"},
+    {"time": "11:15 UTC", "event": "Fix ready: revert status transition logic to write-ack-first-then-complete.", "source": "team-notes.md"},
+    {"time": "11:30 UTC", "event": "Deploy hotfix v2.3.2: rollback of async completion changes, restore v2.3.0 behavior.", "source": "deployment-log.md"},
+    {"time": "11:32 UTC", "event": "Alerts cleared: completed_without_artifact and write_confirmation_latency return to baseline.", "source": "system-metrics.txt"},
+    {"time": "11:45 UTC", "event": "Post-hotfix verification: all nodes healthy, 3 sample runs produce expected outputs.", "source": "deployment-log.md"}
+  ],
+  "confirmed_facts": [
+    "v2.3.1 was deployed at 09:15 UTC with an async completion reporting optimization (sources: deployment-log.md, team-notes.md).",
+    "The completed_without_artifact metric spiked from 0.2/min (baseline) to 6.2/min (peak) immediately after the 09:15 deployment (source: system-metrics.txt).",
+    "Write confirmation latency (P99) spiked from 312ms to 2100ms after the deployment (source: system-metrics.txt).",
+    "The hotfix v2.3.2, deployed at 11:30 UTC, rolled back the async completion changes (sources: deployment-log.md, team-notes.md).",
+    "Post-hotfix, both metrics returned to baseline by 11:32 UTC (source: system-metrics.txt).",
+    "Pilot Bank A compliance team identified 8 empty agent reports (sources: tickets.json T-2003, customer-email.txt).",
+    "The internal investigation identified the root cause as a status-ordering bug: tasks transition to 'completed' before write confirmation fires (source: team-notes.md).",
+    "Alert CRITICAL fired at 09:28 for completed_without_artifact, and WARN for write_confirmation_latency (source: system-metrics.txt)."
+  ],
+  "likely_root_cause": "The agent-runtime v2.3.1 deployment at 09:15 UTC changed the task completion status ordering from write-ack-first-then-complete to complete-first-then-write-async, without adding verification that the async write actually succeeded. Tasks transitioned to 'completed' before their output artifacts were written to storage, and the async write could fail silently with no retry or alerting.",
+  "supporting_evidence": [
+    "deployment-log.md: 'Optimized async task completion reporting pipeline' — describes the change that introduced the bug.",
+    "team-notes.md (10:30): 'The new optimization reports complete first, then writes asynchronously — but there is no check that the async write actually succeeded.' — confirms the mechanism.",
+    "system-metrics.txt: completed_without_artifact 09:15-09:30 avg 1.1/min → 09:30-10:00 avg 4.8/min — confirms anomaly onset matches deployment window.",
+    "system-metrics.txt: write_confirmation_latency P99 09:15-09:30 890ms (up from 312ms baseline) — confirms write path degraded.",
+    "tickets.json T-2001: 'Agent task reports completed before writing requested artifact to storage.' — direct symptom report.",
+    "deployment-log.md (11:30): 'Rolled back async completion reporting changes from v2.3.1' / 'Restored previous task completion flow' — fix description confirms the root cause."
+  ],
+  "inferences": [
+    "The dashboard's task history page (T-2004) shows 'completed' status for tasks still in write phase because the dashboard reads the status field that v2.3.1 now sets prematurely — the status data is accurate for the new incorrect behavior.",
+    "The 8 empty reports are likely a subset of a larger set of affected tasks. Only Pilot Bank A's compliance team has audited manually; other tenants may have undetected empty reports.",
+    "The pre-deployment baseline (0.2/min completed_without_artifact) represents normal rare failures or edge cases. The post-deployment anomaly (4.8-6.2/min) is directly caused by v2.3.1.",
+    "The async write itself may have been completing successfully in most cases, but the confirmation signal was lost due to the reordered status pipeline. The write_confirmation_latency spike suggests queue buildup, not necessarily write failures.",
+    "T-2004 (dashboard low-severity) and the DASH-102 improvement note in team-notes.md are symptoms of the same root cause, not separate issues."
+  ],
+  "unknowns": [
+    "The exact total number of affected agent runs across all tenants (only Pilot Bank A has reported).",
+    "Whether any customer data was exposed, misrouted, or lost during the incident.",
+    "Whether the incident constitutes an SLA breach for Pilot Bank A or other tenants.",
+    "Whether the async write to S3 actually failed or just the confirmation signal was lost in the reordered pipeline.",
+    "Why the smoke tests on the canary node at 09:15 did not catch the issue before full rollout.",
+    "How long the incident might have continued undetected without Pilot Bank A's compliance team audit."
+  ],
+  "recommended_actions": [
+    "P1 — Audit all tenant runs between 09:15 and 11:30 UTC on 2025-06-12 to identify all affected tasks, not just Pilot Bank A's. Cross-reference completed_without_artifact timestamps with tenant task IDs.",
+    "P2 — Add a mandatory 'write-confirmation-received' state between 'completed' and 'artifact-written' in the task lifecycle state machine. No task should reach terminal 'completed' until artifact write is confirmed.",
+    "P3 — Update the deployment verification process to include a diff check of status-transition ordering logic, not just smoke-test pass/fail. Add a canary test that specifically validates the complete-before-write invariant."
+  ],
+  "confidence_level": "High",
+  "information_gaps": [
+    "Auth-service write logs that would confirm the exact failure path of the write confirmation signal.",
+    "Per-tenant breakdown of affected tasks (only Pilot Bank A data available).",
+    "S3 storage write logs for the affected period — would confirm whether writes succeeded or failed.",
+    "The pre-09:15 baseline 'completed_without_artifact' records — are the 0.2/min normal false positives or a pre-existing minor bug?"
+  ]
+}
