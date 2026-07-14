@@ -1,8 +1,4 @@
-# Distribution Contract — Agent Readiness Eval Core v2.0
-# Single source of truth for build-distribution.py.
-# All file classification occurs here.
-
-version: "2.0.0"
+version: "3.0.0"
 
 # Default excludes (applied to all targets)
 default_excludes:
@@ -18,10 +14,11 @@ default_excludes:
   - .git/**
   - .codegraph/**
   - .gitignore
+  - tasks/*/environment/service/runtime-state/**
   - AGENTS.md
   - opencode.json
   - contracts/**
-  - scripts/**
+  - scripts/build-distribution.py
   - tests/**
   - docs/superpowers/**
   - tasks/*/task-design-note.md
@@ -43,6 +40,7 @@ agent_package:
     - tasks/*/profiles/*/public/**
     - tasks/*/profiles/*/profile-contract.yaml
     - tasks/*/environment-contract.yaml
+    - scripts/task005_tool.py
     - templates/**
   exclude:
     - tasks/*/evaluator-notes/**
@@ -63,8 +61,6 @@ runtime_private:
   include:
     - tasks/task-005/environment/private/**
     - tasks/task-005/environment/service/**
-    - tasks/task-006/profiles/*/service/private/**
-    - tasks/task-006/profiles/*/service/*.py
   exclude: []
 
 # Evaluator-only: human reviewer only, never enters agent/runtime packages

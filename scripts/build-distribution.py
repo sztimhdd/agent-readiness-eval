@@ -1,16 +1,4 @@
 #!/usr/bin/env python3
-"""Build distribution packages for Agent Readiness Eval Core v2.0.
-
-Reads contracts/distribution-contract.yaml as the single source of truth
-for file classification.  Supports three build targets:
-
-  --target agent          Agent-visible package (SKILL.md, tasks, templates)
-  --target runtime --task <id>  Runtime assets for a specific task
-  --target evaluator      Evaluator-only materials (rubrics, scoring guide)
-
-Stdlib only — Python 3.10+ required.
-"""
-
 import argparse
 import fnmatch
 import hashlib
@@ -22,13 +10,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-
-# ---------------------------------------------------------------------------
-# YAML parser — hand-rolled for this specific contract structure
-# ---------------------------------------------------------------------------
-
 def _parse_contract(path):
-    """Parse distribution-contract.yaml.  Returns nested dict matching its shape."""
     contract = {}
     section = None       # current top-level key whose value is a dict
     subsection = None    # current sub-key inside a section dict
@@ -90,20 +72,7 @@ def _parse_contract(path):
 
     return contract
 
-
-# ---------------------------------------------------------------------------
-# Glob matching — PurePosixPath handles ** natively
-# ---------------------------------------------------------------------------
-
 def _glob_match(path, pattern):
-    """Return True if *path* matches *pattern*.
-
-    *path* is a relative forward-slash path like ``tasks/task-001/task.md``.
-    *pattern* supports ``*`` (single component) and ``**`` (recursive).
-
-    Filename-only patterns (no ``/``) also match against the basename so
-    patterns like ``*.pyc`` work anywhere in the tree.
-    """
     if "/" not in pattern and "**" not in pattern:
         return fnmatch.fnmatch(os.path.basename(path), pattern)
 
@@ -120,16 +89,11 @@ def _glob_match(path, pattern):
 
 
 def _matches_any(path, patterns):
-    """Return True when *path* matches at least one pattern in *patterns*."""
     return any(_glob_match(path, p) for p in patterns)
 
 
-# ---------------------------------------------------------------------------
-# Git helpers
-# ---------------------------------------------------------------------------
-
 def _tracked_files(repo_root):
-    """Return sorted list of git-tracked file paths (relative to repo root)."""
+    files = set()
     try:
         result = subprocess.run(
             ["git", "ls-files"],
@@ -139,31 +103,66 @@ def _tracked_files(repo_root):
             check=True,
         )
     except (subprocess.CalledProcessError, FileNotFoundError):
-        # fallback: collect everything that exists on disk
-        files = []
-        for dirpath, dirnames, filenames in os.walk(repo_root):
-            # skip .git
-            if ".git" in dirnames:
-                dirnames.remove(".git")
-            for fn in filenames:
-                abs_p = os.path.join(dirpath, fn)
-                rel_p = os.path.relpath(abs_p, repo_root)
-                files.append(rel_p)
-        return sorted(files)
+        result = None
 
-    lines = result.stdout.strip().split("\n")
-    return sorted(line.strip() for line in lines if line.strip())
+    if result is not None:
+        files.update(line.strip() for line in result.stdout.strip().split("\n") if line.strip())
+
+    for dirpath, dirnames, filenames in os.walk(repo_root):
+        if ".git" in dirnames:
+            dirnames.remove(".git")
+        for fn in filenames:
+            abs_p = os.path.join(dirpath, fn)
+            rel_p = os.path.relpath(abs_p, repo_root)
+            if rel_p == ".git":
+                continue
+            files.add(rel_p)
+
+    return sorted(files)
 
 
-# ---------------------------------------------------------------------------
-# Classification
-# ---------------------------------------------------------------------------
+def _source_commit(repo_root):
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            capture_output=True,
+            text=True,
+            cwd=repo_root,
+            check=True,
+        )
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return "UNAVAILABLE"
+    return result.stdout.strip() or "UNAVAILABLE"
 
-def _classify(tracked, contract):
-    """Partition tracked files into the four views + unclassified.
 
-    Returns ``(classified: dict, unclassified: list)``.
-    """
+def _declared_task_ids(repo_root):
+    manifest_path = os.path.join(repo_root, "skill.json")
+    with open(manifest_path, encoding="utf-8") as fh:
+        manifest = json.load(fh)
+
+    declared = []
+    seen = set()
+    for task in manifest.get("tasks", []):
+        task_id = task.get("id") if isinstance(task, dict) else task
+        if not task_id or task_id in seen:
+            print(f"Error: duplicate or missing task id in skill.json: {task_id}", file=sys.stderr)
+            sys.exit(1)
+        task_dir = os.path.join(repo_root, "tasks", task_id)
+        if not os.path.isdir(task_dir):
+            print(f"Error: declared task missing on disk: {task_id}", file=sys.stderr)
+            sys.exit(1)
+        declared.append(task_id)
+        seen.add(task_id)
+    return set(declared)
+
+
+def _task_id_for_path(fpath):
+    parts = fpath.split("/", 2)
+    if len(parts) >= 2 and parts[0] == "tasks":
+        return parts[1]
+    return None
+
+def _classify(tracked, contract, declared_task_ids):
     excludes = contract.get("default_excludes", [])
 
     agent_inc  = contract.get("agent_package",   {}).get("include", [])
@@ -183,6 +182,10 @@ def _classify(tracked, contract):
     unclassified = []
 
     for fpath in tracked:
+        task_id = _task_id_for_path(fpath)
+        if task_id is not None and task_id not in declared_task_ids:
+            continue
+
         # 1. default excludes
         if _matches_any(fpath, excludes):
             continue
@@ -216,11 +219,6 @@ def _runtime_for_task(classified, task_id):
     private = [f for f in classified["runtime_private"] if _in_task(f)]
     return sorted(set(exposed + private))
 
-
-# ---------------------------------------------------------------------------
-# Build
-# ---------------------------------------------------------------------------
-
 def _sha256(filepath):
     h = hashlib.sha256()
     with open(filepath, "rb") as fh:
@@ -229,8 +227,14 @@ def _sha256(filepath):
     return h.hexdigest()
 
 
+def _file_set_sha256(manifest_entries):
+    payload = "".join(
+        sorted(f"{entry['path']}\0{entry['sha256']}\n" for entry in manifest_entries),
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
 def _build(files, repo_root, output_dir, build_target):
-    """Copy *files* into *output_dir* and write package-manifest.json."""
     os.makedirs(output_dir, exist_ok=True)
     manifest_entries = []
 
@@ -243,6 +247,8 @@ def _build(files, repo_root, output_dir, build_target):
 
     manifest = {
         "build_target": build_target,
+        "source_commit": _source_commit(repo_root),
+        "file_set_sha256": _file_set_sha256(manifest_entries),
         "files": manifest_entries,
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
@@ -253,11 +259,6 @@ def _build(files, repo_root, output_dir, build_target):
         fh.write("\n")
 
     return len(files)
-
-
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
 
 def main():
     ap = argparse.ArgumentParser(
@@ -291,7 +292,8 @@ def main():
 
     contract = _parse_contract(contract_path)
     tracked = _tracked_files(repo_root)
-    classified, unclassified = _classify(tracked, contract)
+    declared_task_ids = _declared_task_ids(repo_root)
+    classified, unclassified = _classify(tracked, contract, declared_task_ids)
 
     if unclassified:
         for fp in sorted(unclassified):
