@@ -1,6 +1,8 @@
 # Output Requirements
 
-Create these files in your answer directory:
+Create these files in your answer directory under `<workspace-root>/runs/<task-id>-<harness>-<model>-<run-id>/`:
+
+Do not write `final-answer.md`, `run-metadata.json`, or `task-id.txt` at the workspace root.
 
 ```text
 final-answer.md
