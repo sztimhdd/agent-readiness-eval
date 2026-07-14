@@ -1,8 +1,10 @@
-# Agent Readiness Eval v3 PRD
+# Agent Readiness Eval Core v3.0 PRD
 
 ## Goal
 
 Provide a portable question pack that can be installed in VitaClaw, OpenClaw, Hermes, and OpenCode to compare native harness execution results.
+
+V3 releases `task-001` through `task-005`. `task-006` remains backlog-only and is not installable or distributable in V3.
 
 ## Core Principle
 

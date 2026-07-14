@@ -1,6 +1,6 @@
-# Agent Readiness Eval Core v2.0
+# Agent Readiness Eval Core v3.0
 
-`agent-readiness-eval` is a portable agent evaluation suite. Five tasks across four capability tracks (task-006 planned for future release). It defines task content and answer formats; execution, scoring, and packaging belong to each harness or a separate offline review layer.
+`agent-readiness-eval` is a portable agent evaluation suite. The V3 release includes task-001 through task-005 across four capability tracks. task-006 is retained on disk as backlog-only material and is not installable or distributable in V3. The suite defines task content and answer formats; execution, scoring, and packaging belong to each harness or a separate offline review layer.
 
 ## Package Shape
 
@@ -19,7 +19,7 @@ agent-readiness-eval/
 │   ├── task-003/          # Policy-Constrained Decision (static)
 │   ├── task-004/          # Coding & Repair (runnable project)
 │   ├── task-005/          # Stateful Tool Use (stateful service)
-│   └── task-006/          # Web Research (planned for future release)
+│   └── task-006/          # Web Research (backlog-only; excluded from V3)
 ├── adapters/
 │   ├── vitaclaw/
 │   ├── openclaw/
@@ -46,7 +46,7 @@ Install this Skill in a compatible harness. Send one message:
 评测
 ```
 
-The harness reads `tasks/task-001/`, solves it using its own native tools, and writes an answer directory under `runs/`.
+The harness reads `tasks/task-001/`, solves it using its own native tools, and writes an answer directory under `<workspace-root>/runs/`.
 
 For specific tasks or profiles:
 
@@ -66,12 +66,12 @@ For a leakage-free, repeatable installation procedure, see `docs/INSTALL-CODEX.m
 | 003 — Policy-Constrained Decision | rules_and_safety | static_files | intermediate | Rule application, exception scoping, escalation boundary detection |
 | 004 — Coding & Repair | coding_and_execution | runnable_project | advanced | Code execution, bug diagnosis, repair, result verification |
 | 005 — Stateful Tool Use | stateful_tool_use | stateful_service | advanced | State reading, policy lookup, sequential operation, safety stop |
-<!-- | 006 — Web Research | web_research | web_research | advanced | Proactive search, source verification, citation accuracy | -->
+<!-- | 006 — Web Research | web_research | web_research | advanced | Backlog-only; not installable or distributable in V3 | -->
 
 ## Answer Directory
 
 ```text
-runs/<task-id>-<harness-name>-<model-name>-<run-id>/
+<workspace-root>/runs/<task-id>-<harness>-<model>-<run-id>/
 ├── task-id.txt
 ├── final-answer.md
 ├── artifacts/
@@ -118,7 +118,7 @@ This package has no execution engine, grading engine, child-agent control layer,
 
 | Layer | Version |
 |-------|---------|
-| Suite | 2.0.0 |
-| Tasks | 2.0.0 |
+| Suite | 3.0.0 |
+| Tasks | 3.0.0 |
 | Environment | 1.0.0 |
 | Adapter Contract | 1.0.0 |

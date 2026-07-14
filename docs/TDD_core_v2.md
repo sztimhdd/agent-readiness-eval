@@ -1,4 +1,6 @@
-# Agent Readiness Eval v3 TDD
+# Agent Readiness Eval Core v3.0 TDD
+
+V3 releases `task-001` through `task-005`. `task-006` remains backlog-only and is excluded from V3 agent, runtime, and evaluator distribution targets.
 
 ## Architecture
 
