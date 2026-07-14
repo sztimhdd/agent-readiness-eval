@@ -1,0 +1,14 @@
+version: "3.0.0"
+
+tool_authorization:
+  note: "The controller binds Profiles; the Skill does not declare allowed-tools."
+  profile_bindings:
+    task-001: static-eval
+    task-002: static-eval
+    task-003: static-eval
+    task-004: coding-eval
+    task-005: stateful-eval
+  profile_capabilities:
+    static-eval: [read_skill_file, write_file]
+    coding-eval: [read_skill_file, write_file, edit_file, exec]
+    stateful-eval: [read_skill_file, write_file, skill_run, run_skill_script]
