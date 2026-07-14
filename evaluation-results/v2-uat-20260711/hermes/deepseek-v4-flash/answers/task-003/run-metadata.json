@@ -1,0 +1,18 @@
+{
+  "run_id": "uat-20260711T0134Z",
+  "task_id": "task-003",
+  "harness_name": "Hermes-Agent",
+  "harness_version": "0.18.0",
+  "model_name": "deepseek-v4-flash",
+  "model_provider": "deepseek",
+  "run_status": "completed",
+  "started_at": "2026-07-11T01:38:00Z",
+  "completed_at": "2026-07-11T01:40:00Z",
+  "total_tokens": "UNAVAILABLE",
+  "total_llm_calls": "UNAVAILABLE",
+  "total_tool_calls": "UNAVAILABLE",
+  "total_duration_seconds": "UNAVAILABLE",
+  "tool_calls_by_type": "UNAVAILABLE",
+  "max_context_used": "UNAVAILABLE",
+  "errors_encountered": "UNAVAILABLE"
+}

@@ -1,0 +1,87 @@
+{
+  "task_id": "task-002",
+  "incident_id": "INC-2025-0612",
+  "relevant_sources": [
+    "inputs/customer-email.txt",
+    "inputs/deployment-log.md",
+    "inputs/system-metrics.txt",
+    "inputs/team-notes.md",
+    "inputs/tickets.json"
+  ],
+  "timeline": [
+    {
+      "time": "08:00 UTC",
+      "event": "Customer reports begin: empty completed reports appear and metrics remain normal initially.",
+      "source": "customer-email.txt"
+    },
+    {
+      "time": "09:15 UTC",
+      "event": "agent-runtime v2.3.1 deploys with async completion reporting optimization.",
+      "source": "deployment-log.md"
+    },
+    {
+      "time": "09:28 UTC",
+      "event": "Critical alert fires for completed_without_artifact and write confirmation latency.",
+      "source": "system-metrics.txt"
+    },
+    {
+      "time": "09:30 UTC",
+      "event": "First tracked ticket records completed-before-write symptom.",
+      "source": "tickets.json"
+    },
+    {
+      "time": "09:50 UTC",
+      "event": "Team identifies status-ordering bug rather than storage latency.",
+      "source": "team-notes.md"
+    },
+    {
+      "time": "10:15 UTC",
+      "event": "Customer escalation confirms 8 empty compliance reports.",
+      "source": "tickets.json"
+    },
+    {
+      "time": "11:30 UTC",
+      "event": "agent-runtime v2.3.2 hotfix rolls back async completion changes.",
+      "source": "deployment-log.md"
+    },
+    {
+      "time": "11:32 UTC",
+      "event": "Metrics return to baseline after hotfix.",
+      "source": "system-metrics.txt"
+    }
+  ],
+  "confirmed_facts": [
+    "The anomaly begins after the 09:15 UTC deployment of agent-runtime v2.3.1 and subsides after the 11:30 UTC hotfix.",
+    "Multiple sources describe the same symptom: tasks are marked complete before artifacts are written.",
+    "The post-hotfix metrics return to baseline and sample runs confirm normal behavior."
+  ],
+  "likely_root_cause": "agent-runtime v2.3.1 changed completion sequencing so tasks were marked complete before write acknowledgment, allowing empty reports to be emitted without a successful artifact write.",
+  "supporting_evidence": [
+    "deployment-log.md: 2025-06-12 09:15 UTC v2.3.1 changed async completion reporting and status transition logic",
+    "system-metrics.txt: completed_without_artifact rises after 09:15 and alerts at 09:28",
+    "team-notes.md: 09:50 identifies a status-ordering bug; 10:30 correlates it with v2.3.1",
+    "customer-email.txt: reports empty completed reports starting around 08:00 UTC",
+    "tickets.json: T-2001/T-2002/T-2003 describe the completed-before-write symptom"
+  ],
+  "inferences": [
+    "The storage backend was unlikely to be the primary cause because the team checked S3 and found it healthy.",
+    "The dashboard symptom is downstream of the runtime bug rather than an independent root cause.",
+    "The hotfix likely worked by restoring write-ack-first sequencing rather than changing storage behavior."
+  ],
+  "unknowns": [
+    "The exact code path in agent-runtime v2.3.1 that reordered completion and write acknowledgment is not shown.",
+    "Whether any empty reports were externally consumed before the hotfix is not fully enumerated.",
+    "The precise customer-impact count beyond the reported eight empty reports is not stated."
+  ],
+  "recommended_actions": [
+    "Keep the v2.3.2 sequencing rollback in production and verify no regressions in the task completion path.",
+    "Add an invariant or integration test that prevents completion before artifact write acknowledgment.",
+    "Review alerting and runbook guidance so completed_without_artifact pages earlier and more clearly."
+  ],
+  "confidence_level": "High",
+  "information_gaps": [
+    "Missing write-path logs showing the exact failure mode inside v2.3.1.",
+    "Missing customer-side downstream audit pipeline logs to quantify exposure.",
+    "Missing code diff for the async completion optimization."
+  ]
+}

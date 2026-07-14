@@ -4,6 +4,8 @@ version: "3.0.0"
 default_excludes:
   - archive/**
   - runs/**
+  # Published evaluation evidence is repository documentation, never package input.
+  - evaluation-results/**
   - .worktrees/**
   - .superpowers/**
   - .omo/**

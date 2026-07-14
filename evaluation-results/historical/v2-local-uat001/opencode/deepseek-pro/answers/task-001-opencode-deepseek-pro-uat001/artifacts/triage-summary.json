@@ -1,0 +1,22 @@
+{
+  "task_id": "task-001",
+  "severity_counts": {
+    "critical": 1,
+    "high": 3,
+    "medium": 1,
+    "low": 1
+  },
+  "area_counts": {
+    "agent-runtime": 2,
+    "billing": 2,
+    "authentication": 1,
+    "dashboard": 1
+  },
+  "top_risk": "Agent-runtime reliability: false-success reporting (T-1003) and timeout-induced state corruption (T-1005) both undermine core task execution trustworthiness. Both represent failures in the runtime's state-machine consistency around task lifecycle transitions.",
+  "supporting_ticket_ids": ["T-1003", "T-1005"],
+  "recommended_actions": [
+    "Fix T-1003: ensure task completion is not reported until all requested artifacts are verified as written (data-integrity defect, critical)",
+    "Fix T-1005: implement deterministic timeout handling so tool-call timeouts always leave tasks in a defined, recoverable state (operational safety, high)",
+    "Fix T-1006: resolve intermittent payment processing failure affecting premium-tier customers (revenue impact, high)"
+  ]
+}

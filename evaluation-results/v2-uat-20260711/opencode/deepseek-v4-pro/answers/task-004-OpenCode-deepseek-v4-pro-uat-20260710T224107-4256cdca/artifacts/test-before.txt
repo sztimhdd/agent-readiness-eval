@@ -1,0 +1,56 @@
+test_amount_comparison (test_reconcile.TestReconcile.test_amount_comparison)
+Numerically equivalent amounts must not be flagged as mismatches. ... FAIL
+test_id_mapping (test_reconcile.TestReconcile.test_id_mapping)
+Support matching must use customer_ref (account_id), not company_name. ... FAIL
+test_missing_value_handling (test_reconcile.TestReconcile.test_missing_value_handling)
+Null/missing status values in CRM must be handled without crashing. ... ERROR
+test_reconcile_matching_records (test_reconcile.TestReconcile.test_reconcile_matching_records)
+All CRM accounts should map to billing records via last-4-digit rule. ... ok
+test_report_generation (test_reconcile.TestReconcile.test_report_generation)
+Reporter generates valid JSON output with expected fields. ... ok
+
+======================================================================
+ERROR: test_missing_value_handling (test_reconcile.TestReconcile.test_missing_value_handling)
+Null/missing status values in CRM must be handled without crashing.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/opencode/export/exam-workspace/skill/runs/task-004-OpenCode-deepseek-v4-pro-uat-20260710T224107-4256cdca/artifacts/project/tests/test_reconcile.py", line 96, in test_missing_value_handling
+    reconcile()
+    ~~~~~~~~~^^
+  File "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/opencode/export/exam-workspace/skill/runs/task-004-OpenCode-deepseek-v4-pro-uat-20260710T224107-4256cdca/artifacts/project/tests/../src/reconcile.py", line 23, in reconcile
+    crm_normalized = crm_status.lower()
+                     ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+======================================================================
+FAIL: test_amount_comparison (test_reconcile.TestReconcile.test_amount_comparison)
+Numerically equivalent amounts must not be flagged as mismatches.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/opencode/export/exam-workspace/skill/runs/task-004-OpenCode-deepseek-v4-pro-uat-20260710T224107-4256cdca/artifacts/project/tests/test_reconcile.py", line 79, in test_amount_comparison
+    self.assertEqual(crm_str, bill_str,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+        f"Amounts should produce equivalent strings: {crm_str} vs {bill_str}")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '5000' != '5000.0'
+- 5000
++ 5000.0
+?     ++
+ : Amounts should produce equivalent strings: 5000 vs 5000.0
+
+======================================================================
+FAIL: test_id_mapping (test_reconcile.TestReconcile.test_id_mapping)
+Support matching must use customer_ref (account_id), not company_name.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/opencode/export/exam-workspace/skill/runs/task-004-OpenCode-deepseek-v4-pro-uat-20260710T224107-4256cdca/artifacts/project/tests/test_reconcile.py", line 62, in test_id_mapping
+    self.assertIsNotNone(ticket,
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+        "ACC-1500 should match ST-5004 via customer_ref 'ACC-1500'")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : ACC-1500 should match ST-5004 via customer_ref 'ACC-1500'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+FAILED (failures=2, errors=1)

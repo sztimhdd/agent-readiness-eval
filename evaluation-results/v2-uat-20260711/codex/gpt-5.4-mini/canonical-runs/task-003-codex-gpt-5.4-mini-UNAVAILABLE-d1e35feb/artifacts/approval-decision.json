@@ -1,0 +1,90 @@
+{
+  "task_id": "task-003",
+  "decisions": [
+    {
+      "request_id": "TRV-2025-042",
+      "decision": "APPROVE",
+      "applicable_policies": [
+        "POL-TRV-2025"
+      ],
+      "satisfied_conditions": [
+        "Manager approval obtained",
+        "VP approval obtained",
+        "Receipts attached for expenses over 200 CNY",
+        "International travel has VP approval"
+      ],
+      "unmet_conditions": [],
+      "applicable_exceptions": [],
+      "exception_scope": "",
+      "reason": "All required travel approval and receipt conditions are satisfied.",
+      "required_next_action": ""
+    },
+    {
+      "request_id": "DAT-2025-007",
+      "decision": "REJECT",
+      "applicable_policies": [
+        "POL-DAT-2025"
+      ],
+      "satisfied_conditions": [
+        "Purpose specified",
+        "Recipient specified",
+        "Retention period specified",
+        "Deletion date specified",
+        "Encrypted transfer requested"
+      ],
+      "unmet_conditions": [
+        "DPO pre-approval not obtained",
+        "Bulk export requires DPO pre-approval and audit logging",
+        "Requester explicitly refuses to obtain DPO approval and requests audit logging be disabled"
+      ],
+      "applicable_exceptions": [],
+      "exception_scope": "",
+      "reason": "The request is a bulk confidential export and cannot proceed without DPO pre-approval and audit logging; the requester explicitly refuses the required controls.",
+      "required_next_action": ""
+    },
+    {
+      "request_id": "DAT-2025-008",
+      "decision": "ESCALATE",
+      "applicable_policies": [
+        "POL-DAT-2025"
+      ],
+      "satisfied_conditions": [
+        "Purpose is a legal compliance request",
+        "Encrypted transfer required",
+        "Recipient identified"
+      ],
+      "unmet_conditions": [
+        "Confidential data export restrictions would normally require DPO approval"
+      ],
+      "applicable_exceptions": [
+        "Legal compliance requests may override Confidential data restrictions"
+      ],
+      "exception_scope": "Applies only to confidential data restrictions and only when reviewed jointly by Legal and DPO.",
+      "reason": "A court-subpoena response may qualify for the legal-compliance exception, but the policy requires joint Legal + DPO review before execution.",
+      "required_next_action": "Escalate to Legal + DPO joint review for authorization."
+    },
+    {
+      "request_id": "PRC-2025-018",
+      "decision": "HOLD",
+      "applicable_policies": [
+        "POL-PRC-2025"
+      ],
+      "satisfied_conditions": [
+        "CEO written approval obtained",
+        "Vendor is on approved vendor list",
+        "Department head approval obtained"
+      ],
+      "unmet_conditions": [
+        "CFO approval not obtained",
+        "Competitive bidding requirement remains unless waived",
+        "No annual review clause currently in draft"
+      ],
+      "applicable_exceptions": [
+        "CEO-approved purchases are exempt from competitive bidding requirements"
+      ],
+      "exception_scope": "CEO approval waives only competitive bidding; it does not waive the CFO approval requirement for purchases over 50,000 CNY.",
+      "reason": "The request still exceeds the 50,000 CNY threshold and lacks CFO approval, so it can be made executable only after normal workflow completion.",
+      "required_next_action": "Obtain CFO approval before purchase execution."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "task_id": "task-004",
+  "total_accounts_reviewed": 4,
+  "discrepancy_count": 2,
+  "discrepancies_by_type": {
+    "amount_mismatch": 1,
+    "status_mismatch": 0,
+    "missing_record": 1
+  },
+  "findings": [
+    {
+      "account_identifiers": { "crm": "ACC-1004", "billing": "BA-DVS-004", "support": "ST-5004" },
+      "discrepancy_type": "amount_mismatch",
+      "description": "CRM monthly_revenue=78000 vs Billing current_month_charges=65000 — difference 13000 CNY",
+      "crm_value": "78000",
+      "billing_value": "65000"
+    },
+    {
+      "account_identifiers": { "crm": "ACC-1003", "billing": "BA-GTL-003", "support": null },
+      "discrepancy_type": "missing_record",
+      "description": "GlobalTrade Ltd. has no support ticket; CRM suspended/Billing delinquent are consistent per field mapping",
+      "crm_value": "suspended",
+      "billing_value": "delinquent"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+test_amount_comparison (test_reconcile.TestReconcile.test_amount_comparison)
+Numerically equivalent amounts must not be flagged as mismatches. ... ok
+test_id_mapping (test_reconcile.TestReconcile.test_id_mapping)
+Support matching must use customer_ref (account_id), not company_name. ... ok
+test_missing_value_handling (test_reconcile.TestReconcile.test_missing_value_handling)
+Null/missing status values in CRM must be handled without crashing. ... ok
+test_reconcile_matching_records (test_reconcile.TestReconcile.test_reconcile_matching_records)
+All CRM accounts should map to billing records via last-4-digit rule. ... ok
+test_report_generation (test_reconcile.TestReconcile.test_report_generation)
+Reporter generates valid JSON output with expected fields. ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+Reconciliation complete. 3 discrepancies found.
+Report written to output/reconciliation-report.json
+
+Discrepancy summary:
+  ACC-1003: missing_support_record
+  ACC-1500: amount_mismatch 78000 65000
+  ACC-1006: missing_support_record
+
+EXIT_CODE=0

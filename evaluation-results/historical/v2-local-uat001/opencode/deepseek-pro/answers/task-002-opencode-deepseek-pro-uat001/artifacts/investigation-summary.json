@@ -1,0 +1,72 @@
+{
+  "task_id": "task-002",
+  "incident_id": "INC-2025-0612",
+  "relevant_sources": [
+    "inputs/deployment-log.md",
+    "inputs/system-metrics.txt",
+    "inputs/team-notes.md",
+    "inputs/customer-email.txt",
+    "inputs/tickets.json"
+  ],
+  "timeline": [
+    { "time": "09:15 UTC", "event": "agent-runtime v2.3.1 deployed: async completion reporting optimization, updated status transition logic", "source": "deployment-log.md" },
+    { "time": "09:15 UTC", "event": "completed_without_artifact metric begins rising from 0.2/min baseline", "source": "system-metrics.txt" },
+    { "time": "09:28 UTC", "event": "CRITICAL alert: completed_without_artifact exceeds 3.0/min threshold", "source": "system-metrics.txt" },
+    { "time": "09:35 UTC", "event": "On-call engineer Alex picks up alert, initially suspects storage latency", "source": "team-notes.md" },
+    { "time": "09:50 UTC", "event": "Status-ordering bug identified: tasks transition to completed without actual artifact write", "source": "team-notes.md" },
+    { "time": "10:00 UTC", "event": "Anomaly peak: 6.2/min completed_without_artifact, 33/min total completions, write latency p99 at 2100ms", "source": "system-metrics.txt" },
+    { "time": "10:15 UTC", "event": "T-2003: Pilot Bank A compliance team flags 8 empty reports, customer escalation", "source": "tickets.json" },
+    { "time": "10:30 UTC", "event": "Engineering confirms v2.3.1 deployment correlation — async write with no success check", "source": "team-notes.md" },
+    { "time": "10:45 UTC", "event": "Customer escalation email from Sarah Chen, VP Compliance Pilot Bank A: 8+ empty reports, SLA concern", "source": "customer-email.txt" },
+    { "time": "11:00 UTC", "event": "Hotfix decision: revert async optimization", "source": "team-notes.md" },
+    { "time": "11:15 UTC", "event": "Fix ready: write-ack-first-then-complete flow restored", "source": "team-notes.md" },
+    { "time": "11:30 UTC", "event": "v2.3.2 hotfix deployed to all 8 nodes, reverting async completion changes", "source": "deployment-log.md" },
+    { "time": "11:32 UTC", "event": "Alerts cleared: all metrics return to baseline", "source": "system-metrics.txt" },
+    { "time": "11:45 UTC", "event": "Post-hotfix verification: all nodes healthy, three sample runs confirmed", "source": "deployment-log.md" }
+  ],
+  "confirmed_facts": [
+    "v2.3.1 was deployed at 09:15 UTC on 2025-06-12 (deployment-log.md, system-metrics.txt timing correlation)",
+    "The completed_without_artifact anomaly began at 09:15 UTC and subsided after the 11:30 UTC hotfix (system-metrics.txt, team-notes.md)",
+    "The root cause was a status-ordering bug: tasks were marked completed before async write confirmation, with no success check (team-notes.md, system-metrics.txt latency data)",
+    "v2.3.2 hotfix reverted the async optimization and restored write-ack-first ordering (deployment-log.md, team-notes.md)",
+    "Pilot Bank A was affected with at least 8 empty compliance reports (customer-email.txt, tickets.json T-2003)",
+    "The incident was resolved and error rates returned to baseline by 11:45 UTC (deployment-log.md, system-metrics.txt)",
+    "Write confirmation latency p99 spiked from 312ms to 2100ms during the incident window (system-metrics.txt)"
+  ],
+  "likely_root_cause": "agent-runtime v2.3.1 reordered the task completion lifecycle — marking tasks 'completed' before the asynchronous artifact write finished, with no validation that the write actually succeeded — causing a surge of empty reports.",
+  "supporting_evidence": [
+    "deployment-log.md: v2.3.1 change log — 'Optimized async task completion reporting pipeline', 'Updated status transition logic for long-running agent tasks'",
+    "system-metrics.txt: completed_without_artifact surges at 09:15 (exact deployment minute), peaks at 6.2/min, returns to baseline after 11:30 hotfix",
+    "system-metrics.txt: write_confirmation_latency_p99 rises from 312ms to 2100ms during incident window",
+    "team-notes.md: 'the new optimization reports complete first, then writes asynchronously — but there's no check that the async write actually succeeded'",
+    "customer-email.txt: Pilot Bank A reports 8+ empty compliance reports showing 'completed' but containing no data",
+    "tickets.json: T-2003 confirms customer escalation with identical details"
+  ],
+  "inferences": [
+    "The async optimization lacked a compensating check (retry on failure or a pending-write state) — the incomplete implementation is the proximate cause",
+    "Some async writes may have been silently failing rather than just slow, given the completed_without_artifact rate of 6.2/min",
+    "The suspiciously high total completion rate (33/min vs 24/min baseline) is consistent with tasks being prematurely counted as completed",
+    "v2.3.1 smoke tests passed but did not validate the artifact write path — a deployment validation gap",
+    "This likely constitutes an SLA breach for Pilot Bank A (8 failures in a 99.95% SLA)"
+  ],
+  "unknowns": [
+    "Whether any customer data was exposed or misrouted due to the failed writes",
+    "Total number of affected tasks across all customers (metrics suggest hundreds, but only Pilot Bank A's 8 are confirmed)",
+    "Whether async writes failed due to timeouts, resource contention, or outright exceptions",
+    "Customer email reports symptoms 'since around 08:00' but deployment was at 09:15 — 75-minute discrepancy unresolved",
+    "Whether the 4-of-8 nodes v2.3.1 deployment scope vs 8-of-8 hotfix creates partial-coverage questions"
+  ],
+  "recommended_actions": [
+    "Immediate: Audit all tasks from 09:15-11:30 UTC for missing artifacts and re-run affected tasks — potentially hundreds of tasks beyond Pilot Bank A's 8",
+    "Short-term: Gate task completion status on confirmed artifact write success, with a post-write audit check for zero-byte or missing artifacts",
+    "Medium-term: Expand canary deployment validation to include end-to-end artifact verification with a synthetic task producing a known output"
+  ],
+  "confidence_level": "High",
+  "information_gaps": [
+    "Agent-runtime write-side logs — would confirm exact failure mode (timeout, exception, silent drop)",
+    "Per-customer task completion rates during incident window — needed for SLA breach calculation",
+    "Full list of affected task IDs — metrics show aggregates only",
+    "Post-mortem on why async optimization was designed without a write success check",
+    "Agent logs or task start timestamps to resolve the 08:00 vs 09:15 timing discrepancy in customer email"
+  ]
+}

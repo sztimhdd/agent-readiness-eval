@@ -1,0 +1,50 @@
+[
+  {
+    "billing_account": "BA-PBA-1001",
+    "customer_name": "Pilot Bank A",
+    "status": "current",
+    "current_month_charges": 45000.0,
+    "outstanding_balance": 0.0,
+    "payment_method": "wire"
+  },
+  {
+    "billing_account": "BA-TSI-1002",
+    "customer_name": "TechStart Inc.",
+    "status": "current",
+    "current_month_charges": 12000.0,
+    "outstanding_balance": 3500.0,
+    "payment_method": "credit_card"
+  },
+  {
+    "billing_account": "BA-GTL-1003",
+    "customer_name": "GlobalTrade Ltd.",
+    "status": "delinquent",
+    "current_month_charges": 0.0,
+    "outstanding_balance": 18000.0,
+    "payment_method": "wire"
+  },
+  {
+    "billing_account": "BA-DVS-1500",
+    "customer_name": "DataVault Systems",
+    "status": "current",
+    "current_month_charges": 65000.0,
+    "outstanding_balance": 0.0,
+    "payment_method": "wire"
+  },
+  {
+    "billing_account": "BA-NWE-1005",
+    "customer_name": "NorthWind Energy",
+    "status": "current",
+    "current_month_charges": 24000.0,
+    "outstanding_balance": 0.0,
+    "payment_method": "wire"
+  },
+  {
+    "billing_account": "BA-SBC-1006",
+    "customer_name": "SkyBridge Corp.",
+    "status": "current",
+    "current_month_charges": 5000.00,
+    "outstanding_balance": 0.0,
+    "payment_method": "credit_card"
+  }
+]

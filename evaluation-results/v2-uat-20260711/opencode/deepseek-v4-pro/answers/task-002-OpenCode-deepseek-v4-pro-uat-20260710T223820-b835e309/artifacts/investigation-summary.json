@@ -1,0 +1,73 @@
+{
+  "task_id": "task-002",
+  "incident_id": "INC-2025-0612",
+  "relevant_sources": [
+    "inputs/customer-email.txt",
+    "inputs/deployment-log.md",
+    "inputs/system-metrics.txt",
+    "inputs/team-notes.md",
+    "inputs/tickets.json"
+  ],
+  "timeline": [
+    {"time": "08:00 UTC", "event": "Pilot Bank A compliance team begins noticing empty reports (customer-reported, not yet confirmed by platform metrics)", "source": "customer-email.txt"},
+    {"time": "09:15 UTC", "event": "agent-runtime v2.3.1 deployed with async task completion reporting optimization", "source": "deployment-log.md"},
+    {"time": "09:15-09:30 UTC", "event": "completed_without_artifact rises from 0.2/min to 1.1/min; write latency P99 spikes to 890ms", "source": "system-metrics.txt"},
+    {"time": "09:28 UTC", "event": "CRITICAL alert: completed_without_artifact > 3.0/min triggered", "source": "system-metrics.txt"},
+    {"time": "09:30 UTC", "event": "T-2001 filed: agent task reports completed before writing artifact", "source": "tickets.json"},
+    {"time": "09:35 UTC", "event": "On-call engineer Alex picks up alert, initially suspects storage backend", "source": "team-notes.md"},
+    {"time": "09:50 UTC", "event": "Pattern identified: status-ordering bug, write confirmation never fires", "source": "team-notes.md"},
+    {"time": "10:00 UTC", "event": "T-2002 filed: batch of 12 tasks, only 4 have output artifacts", "source": "tickets.json"},
+    {"time": "10:00-10:30 UTC", "event": "Peak anomaly: 33 tasks/min completing, 6.2/min without artifacts", "source": "system-metrics.txt"},
+    {"time": "10:15 UTC", "event": "T-2003 (critical): Pilot Bank A escalation, 8 empty reports in audit pipeline", "source": "tickets.json"},
+    {"time": "10:30 UTC", "event": "Correlation with v2.3.1 deployment confirmed by engineering", "source": "team-notes.md"},
+    {"time": "10:45 UTC", "event": "Formal escalation email from Sarah Chen, VP Compliance, Pilot Bank A", "source": "customer-email.txt"},
+    {"time": "11:00 UTC", "event": "Hotfix decision: revert async optimization", "source": "team-notes.md"},
+    {"time": "11:15 UTC", "event": "v2.3.2 fix ready, restores write-ack-first-then-complete flow", "source": "team-notes.md"},
+    {"time": "11:30 UTC", "event": "v2.3.2 hotfix deployed to all 8 nodes", "source": "deployment-log.md"},
+    {"time": "11:30-12:00 UTC", "event": "All metrics return to baseline; write latency P99 back to 340ms", "source": "system-metrics.txt"},
+    {"time": "11:32 UTC", "event": "OK alerts: all metrics returned to normal", "source": "system-metrics.txt"},
+    {"time": "11:45 UTC", "event": "Post-hotfix verification: all nodes healthy, sample runs confirmed", "source": "deployment-log.md"}
+  ],
+  "confirmed_facts": [
+    "v2.3.1 was deployed at 09:15 UTC on 2025-06-12 (deployment-log.md, team-notes.md)",
+    "The deployment changed status transition ordering to report completed before write confirmation (deployment-log.md, team-notes.md)",
+    "completed_without_artifact spiked from 0.2/min to 6.2/min in the 09:15-10:30 window (system-metrics.txt, team-notes.md)",
+    "Write confirmation latency P99 spiked from 312ms to 2100ms (system-metrics.txt, team-notes.md)",
+    "Pilot Bank A was the escalated customer with 8 empty reports (customer-email.txt, tickets.json T-2003)",
+    "v2.3.2 hotfix resolved the issue with all metrics returning to baseline by 11:45 (system-metrics.txt, deployment-log.md)",
+    "The DASHBOARD UI V2 REDESIGN section in team-notes.md is explicitly a separate, unrelated project"
+  ],
+  "likely_root_cause": "agent-runtime v2.3.1 changed the task completion pipeline to report 'completed' status before verifying the async artifact write succeeded, causing tasks to appear complete with no output.",
+  "supporting_evidence": [
+    "deployment-log.md: v2.3.1 change log — 'Optimized async task completion reporting pipeline' and 'Updated status transition logic'",
+    "team-notes.md: 'the new optimization reports complete first, then writes asynchronously — but there's no check that the async write actually succeeded'",
+    "system-metrics.txt: completed_without_artifact spikes immediately after 09:15 deployment and returns to baseline after 11:30 hotfix",
+    "deployment-log.md: v2.3.2 change log — 'Rolled back async completion reporting changes from v2.3.1'"
+  ],
+  "inferences": [
+    "Customer claim of issues starting at 08:00 is likely imprecise; the metrics inflection point is clearly at 09:15",
+    "Write confirmation latency spike (to 2100ms P99) suggests async write queue backup as tasks completed without verification",
+    "At least some of the 8 Pilot Bank A empty reports were accepted into downstream audit pipeline before detection",
+    "Pilot Bank A's 08:00 timeline may reflect pre-existing low-rate issues or imprecise reporting"
+  ],
+  "unknowns": [
+    "Exact total number of affected tasks across all customers (rates known, cumulative counts not)",
+    "Whether any customer data was exposed or misrouted (not answerable from available files)",
+    "Whether SLA breach threshold was crossed (requires contractual definition and cumulative counts)",
+    "Root cause of underlying write failures — storage backend reported healthy, so what caused writes to fail?",
+    "Per-customer breakdown of affected task counts"
+  ],
+  "recommended_actions": [
+    "Implement post-deployment metric gate on completed_without_artifact with automatic 5-minute rollback threshold",
+    "Add task completion contract tests to CI: verify artifact existence, non-emptiness, and checksum before reporting completed",
+    "Conduct post-incident review with Pilot Bank A to confirm audit pipeline impact and provide preventive measures assurance"
+  ],
+  "confidence_level": "High",
+  "information_gaps": [
+    "Agent-runtime service logs for the 09:15-11:30 window (would confirm exact task IDs affected)",
+    "Storage backend (S3) access logs for the same window (would confirm write success/failure patterns)",
+    "Per-customer breakdown of affected tasks (would quantify impact beyond Pilot Bank A)",
+    "The specific code diff between v2.3.0 and v2.3.1 (would confirm exact status transition change)",
+    "Cumulative count of affected tasks (metrics only show per-minute rates)"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "uat_id": "uat-20260711T0134Z",
+  "execution_mode": "single_session_sequential",
+  "repository_url": "https://github.com/sztimhdd/agent-readiness-eval.git",
+  "expected_commit": "2241e3a7f0ef59c08c17dd83a3aa8ce4c65670c6",
+  "actual_commit": "2241e3a7f0ef59c08c17dd83a3aa8ce4c65670c6",
+  "harness_name": "Hermes-Agent",
+  "harness_version": "0.18.0",
+  "model_name": "deepseek-v4-flash",
+  "model_provider": "deepseek",
+  "operating_system": "macOS 27.0 (Darwin 27.0.0 arm64)",
+  "source_contract_tests": {
+    "status": "passed",
+    "exit_code": "0",
+    "evidence_path": "evidence/source-contract-tests.txt"
+  },
+  "distribution": {
+    "agent_build_status": "succeeded",
+    "task_004_runtime_build_status": "succeeded",
+    "task_005_runtime_build_status": "succeeded",
+    "agent_package_leak_check": "passed — no evaluator-notes, evaluator-private, environment/private, rubrics, or reference analysis files found"
+  },
+  "installation": {
+    "method": "hermes skills install (HTTPS URL, community source)",
+    "installed_path": "/Users/hai/.hermes/skills/y/agent-readiness-eval",
+    "discovery_verified": true,
+    "activation_status": "restart_required",
+    "fallback_used": true
+  },
+  "task_results": [
+    {
+      "task_id": "task-001",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "answers/task-001/ (run: runs/task-001-Hermes-Agent-deepseek-v4-flash-uat-20260711T0134Z/)",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-002",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "answers/task-002/ (run: runs/task-002-Hermes-Agent-deepseek-v4-flash-uat-20260711T0134Z/)",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-003",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "answers/task-003/ (run: runs/task-003-Hermes-Agent-deepseek-v4-flash-uat-20260711T0134Z/)",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-004",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "answers/task-004/ (run: runs/task-004-Hermes-Agent-deepseek-v4-flash-uat-20260711T0134Z/)",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-005",
+      "profile": "controlled_tool",
+      "run_status": "completed",
+      "answer_directory": "answers/task-005/ (run: runs/task-005-Hermes-Agent-deepseek-v4-flash-uat-20260711T0144Z/)",
+      "required_files_complete": true,
+      "defects": []
+    }
+  ],
+  "overall_uat_status": "completed_with_defects",
+  "defects": [
+    {
+      "type": "distribution",
+      "severity": "minor",
+      "description": "Agent package has package-manifest.json not manifest.yaml — cosmetic naming difference from typical Skill packages"
+    },
+    {
+      "type": "harness_install_activation",
+      "severity": "medium",
+      "description": "hermes skills install does not support file:// scheme for local installation. Only HTTPS URLs work."
+    },
+    {
+      "type": "harness_install_activation",
+      "severity": "medium",
+      "description": "hermes skills install requires interactive category selection and confirmation prompt. No --yes or non-interactive flag available."
+    },
+    {
+      "type": "harness_install_activation",
+      "severity": "high",
+      "description": "Native hermes skills install with URL only fetches the SKILL.md file, not the full package directory structure (tasks/, templates/, inputs/). Full package must be installed manually."
+    },
+    {
+      "type": "harness_install_activation",
+      "severity": "medium",
+      "description": "Newly installed skills require /reset (new session) to take effect. No in-session activation mechanism."
+    },
+    {
+      "type": "agent_execution",
+      "severity": "minor",
+      "description": "task-004: python3 -m unittest discover -s tests -v also runs reconcile() which prints discrepancy output, contaminating the test stdout capture. test_reconcile.py calls reconcile() at module level in test_missing_value_handling."
+    },
+    {
+      "type": "agent_execution",
+      "severity": "low",
+      "description": "task-005: A request in 'information_requested' state cannot receive additional request_information calls. If multiple items are missing, only the first field can be requested. The requester must address all missing items in a single response."
+    }
+  ],
+  "export_root": "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/hermes/export"
+}

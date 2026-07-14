@@ -1,0 +1,86 @@
+{
+  "uat_id": "uat-opencode-deepseek-v4-pro-20260710T224500",
+  "execution_mode": "single_session_sequential",
+  "repository_url": "https://github.com/sztimhdd/agent-readiness-eval.git",
+  "expected_commit": "2241e3a7f0ef59c08c17dd83a3aa8ce4c65670c6",
+  "actual_commit": "2241e3a7f0ef59c08c17dd83a3aa8ce4c65670c6",
+  "harness_name": "OpenCode",
+  "harness_version": "UNAVAILABLE",
+  "model_name": "deepseek-v4-pro",
+  "model_provider": "DeepSeek",
+  "operating_system": "Darwin (macOS 27.0.0 arm64)",
+  "source_contract_tests": {
+    "status": "passed",
+    "exit_code": 0,
+    "evidence_path": "evidence/source-contract-tests.txt"
+  },
+  "distribution": {
+    "agent_build_status": "success (44 files)",
+    "task_004_runtime_build_status": "success (9 files)",
+    "task_005_runtime_build_status": "success (3 files)",
+    "agent_package_leak_check": "no_leak_detected"
+  },
+  "installation": {
+    "method": "native_skill_copy",
+    "installed_path": "/Users/hai/.config/opencode/skills/agent-readiness-eval-uat/",
+    "discovery_verified": false,
+    "activation_status": "restart_required",
+    "fallback_used": true
+  },
+  "task_results": [
+    {
+      "task_id": "task-001",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "answers/task-001-OpenCode-deepseek-v4-pro-uat-20260710T223730-311710d0",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-002",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "answers/task-002-OpenCode-deepseek-v4-pro-uat-20260710T223820-b835e309",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-003",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "answers/task-003-OpenCode-deepseek-v4-pro-uat-20260710T223958-cd3d0094",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-004",
+      "profile": "default",
+      "run_status": "completed",
+      "answer_directory": "answers/task-004-OpenCode-deepseek-v4-pro-uat-20260710T224107-4256cdca",
+      "required_files_complete": true,
+      "defects": []
+    },
+    {
+      "task_id": "task-005",
+      "profile": "controlled_tool",
+      "run_status": "completed",
+      "answer_directory": "answers/task-005-OpenCode-deepseek-v4-pro-uat-20260710T224248-0a80460e",
+      "required_files_complete": true,
+      "defects": []
+    }
+  ],
+  "overall_uat_status": "pass",
+  "defects": [
+    {
+      "type": "harness_install_activation",
+      "severity": "minor",
+      "description": "Native Skill installation succeeded (files copied to ~/.config/opencode/skills/agent-readiness-eval-uat/) but skill discovery requires harness restart. Fallback: followed SKILL.md directly from exam-workspace/skill/."
+    },
+    {
+      "type": "observability",
+      "severity": "info",
+      "description": "Multiple metadata fields recorded as UNAVAILABLE: harness_version, token counts, timings, tool_call counts. OpenCode does not expose these metrics in the agent context."
+    }
+  ],
+  "export_root": "/Users/hai/agent-readiness-uat-controller/20260711T013426Z-2241e3a/opencode/export"
+}

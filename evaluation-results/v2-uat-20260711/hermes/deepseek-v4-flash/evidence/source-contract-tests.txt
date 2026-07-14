@@ -1,0 +1,15 @@
+test_active_docs_do_not_reference_legacy_execution_architecture (test_core_v2_contract.CoreV2ContractTests.test_active_docs_do_not_reference_legacy_execution_architecture) ... ok
+test_agent_package_excludes_leaked_sensitive_paths (test_core_v2_contract.CoreV2ContractTests.test_agent_package_excludes_leaked_sensitive_paths) ... ok
+test_codex_install_guide_documents_the_leakage_free_projection (test_core_v2_contract.CoreV2ContractTests.test_codex_install_guide_documents_the_leakage_free_projection) ... ok
+test_each_task_has_question_pack_shape_without_hidden_answer_code (test_core_v2_contract.CoreV2ContractTests.test_each_task_has_question_pack_shape_without_hidden_answer_code) ... ok
+test_metadata_template_uses_unavailable_for_unknown_observability (test_core_v2_contract.CoreV2ContractTests.test_metadata_template_uses_unavailable_for_unknown_observability) ... ok
+test_package_has_only_portable_v3_top_level_shape (test_core_v2_contract.CoreV2ContractTests.test_package_has_only_portable_v3_top_level_shape) ... ok
+test_skill_does_not_disable_the_file_tools_required_by_tasks (test_core_v2_contract.CoreV2ContractTests.test_skill_does_not_disable_the_file_tools_required_by_tasks) ... ok
+test_skill_json_has_structured_tasks (test_core_v2_contract.CoreV2ContractTests.test_skill_json_has_structured_tasks) ... ok
+test_skill_json_tasks_match_on_disk_directories (test_core_v2_contract.CoreV2ContractTests.test_skill_json_tasks_match_on_disk_directories) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.057s
+
+OK
+---EXIT---0
