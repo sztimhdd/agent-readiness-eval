@@ -41,7 +41,9 @@ class V4ContractTests(unittest.TestCase):
         skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         for status in ["scored", "partial", "adapter_blocked", "protocol_mismatch", "task_invalid", "run_invalid"]:
             with self.subTest(status=status):
-                self.assertIn(f'"{status}"', skill)
+                # Status appears in lifecycle table, error handling, completion gate, etc.
+                # Now documented as backtick-quoted Markdown (`status`) rather than JSON-quoted.
+                self.assertIn(f"`{status}`", skill)
         self.assertNotIn('"completed"', skill)  # V3 status removed from valid set
 
     def test_preflight_template_exists(self) -> None:
@@ -249,6 +251,157 @@ class V4ContractTests(unittest.TestCase):
         # §6: checks.additionalProperties constrains extra check values to boolean
         self.assertIn("additionalProperties", text,
             "preflight checks must have additionalProperties type constraint (§6)")
+
+    # ── Task 2: profiles, lifecycle, target precedence, violation semantics ──
+
+    def test_readme_run_status_points_to_controller(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        # §4.2.3: run_status is controller-owned, not in answer/run-metadata.json
+        self.assertNotIn("run-metadata.json records a `run_status`", readme,
+            "README must not claim answer/run-metadata.json records run_status (§4.2.3)")
+        self.assertIn("controller/run-manifest.json", readme,
+            "README must point run_status to controller/run-manifest.json (§4.2.3)")
+
+    def test_skill_md_does_not_assign_run_status_to_agent(self) -> None:
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        # §4.2.3: agent MUST NOT set run_status
+        required_flow_section = skill[skill.find("## Required Flow"):skill.find("## Completion Gate")]
+        self.assertNotIn('Set `run_status` to:', required_flow_section,
+            "SKILL.md Required Flow must not instruct agent to set run_status (§4.2.3)")
+        self.assertIn("agent_reported_phase", required_flow_section,
+            "SKILL.md Required Flow must instruct agent to report agent_reported_phase instead (§4.2.1)")
+
+    def test_lifecycle_distinguishes_preflight_blocked_from_ready(self) -> None:
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        # AC-3a: preflight adapter_blocked/protocol_mismatch have NO answer/ dir
+        self.assertIn("create NO", skill,
+            "SKILL.md must state preflight-blocked runs create NO answer/ directory (AC-3a)")
+        # AC-5d: preflight-blocked = 2 controller files only
+        preflight_blocked_2 = "2: preflight-result + run-manifest"
+        self.assertIn(preflight_blocked_2, skill,
+            "SKILL.md lifecycle must state preflight-blocked writes only 2 controller files (AC-5d)")
+
+    def test_violation_status_mapping_table_exists(self) -> None:
+        guide = (ROOT / "docs" / "OFFLINE-SCORING-GUIDE.md").read_text(encoding="utf-8")
+        # §8.1: violation-to-status mapping documented in scoring guide
+        for term in ["unauthorized_read", "evidence_fabrication", "prohibited_exec",
+                     "boundary_escape", "evidence_tamper", "protected_file_modification"]:
+            self.assertIn(term, guide.lower(),
+                f"OFFLINE-SCORING-GUIDE.md missing violation type: {term} (§8.1)")
+        # §8.1: prohibited_exec = process cap 20 (not task_invalid)
+        self.assertIn("process cap", guide.lower(),
+            "OFFLINE-SCORING-GUIDE.md must document process cap for prohibited_exec (§8.1)")
+        # §8.1: boundary_escape split by target
+        self.assertIn("task_invalid", guide.lower(),
+            "OFFLINE-SCORING-GUIDE.md must document boundary_escape→task_invalid when reaching protected content (§8.1)")
+        # AC-8b: SQLite bypass = run_invalid
+        self.assertIn("sqlite", guide.lower(),
+            "OFFLINE-SCORING-GUIDE.md must document SQLite bypass→run_invalid (AC-8b)")
+
+    def test_material_trajectory_loss_rules_documented(self) -> None:
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        # §9.2.1: zero trajectory events = protocol_mismatch
+        self.assertIn("protocol_mismatch", skill.lower())
+        # §9.2.3: decision-log SHALL NOT substitute for trajectory
+        self.assertIn("not substitute", skill.lower(),
+            "SKILL.md must state decision-log does not substitute for trajectory (§9.2.3)")
+        # §9.2.4: partial-but-sufficient trajectory = deduction, not mismatch
+        self.assertIn("deduction", skill.lower(),
+            "SKILL.md must document partial trajectory = deductions, not protocol_mismatch (§9.2.4)")
+
+    def test_uat_contract_uses_normalized_capability_vocabulary(self) -> None:
+        contract = (ROOT / "contracts" / "uat-controller-contract.yaml").read_text(encoding="utf-8")
+        # §10.1: static-eval normalized capabilities
+        self.assertIn("filesystem.list", contract,
+            "uat-controller-contract.yaml missing filesystem.list for static-eval (§10.1)")
+        self.assertIn("filesystem.read", contract,
+            "uat-controller-contract.yaml missing filesystem.read for static-eval (§10.1)")
+        self.assertIn("filesystem.write_answer", contract,
+            "uat-controller-contract.yaml missing filesystem.write_answer for static-eval (§10.1)")
+        # §10.3: coding-eval must include code.exec
+        self.assertIn("code.exec", contract,
+            "uat-controller-contract.yaml coding-eval missing code.exec (§10.3)")
+        self.assertIn("code.edit", contract,
+            "uat-controller-contract.yaml coding-eval missing code.edit (§10.3)")
+        # §10.4: stateful-eval must include stateful.read and stateful.write
+        self.assertIn("stateful.read", contract,
+            "uat-controller-contract.yaml stateful-eval missing stateful.read (§10.4)")
+        self.assertIn("stateful.write", contract,
+            "uat-controller-contract.yaml stateful-eval missing stateful.write (§10.4)")
+
+    def test_uat_contract_declares_stateful_tool_boundary(self) -> None:
+        contract = (ROOT / "contracts" / "uat-controller-contract.yaml").read_text(encoding="utf-8")
+        # §10.4 / AC-10d: exactly 9 public agent tools named
+        public_tools = [
+            "list_requests", "get_request", "list_policies", "get_policy",
+            "get_approval_status", "request_information", "approve_request",
+            "reject_request", "escalate_request",
+        ]
+        for tool in public_tools:
+            self.assertIn(tool, contract,
+                f"uat-controller-contract.yaml missing public tool: {tool} (§10.4)")
+        # §10.4: 3 admin-only tools named
+        admin_tools = ["get_final_state", "get_action_log", "reset"]
+        for tool in admin_tools:
+            self.assertIn(tool, contract,
+                f"uat-controller-contract.yaml missing admin tool: {tool} (§10.4)")
+        self.assertIn("admin", contract.lower(),
+            "uat-controller-contract.yaml must declare admin tool boundary (§10.4)")
+
+    def test_profile_contract_declares_read_only_shell_fallback(self) -> None:
+        contract = (ROOT / "contracts" / "uat-controller-contract.yaml").read_text(encoding="utf-8")
+        # §10.2: read_only_shell_fallback is non-canonical, diagnostic-only
+        self.assertIn("read_only_shell_fallback", contract,
+            "uat-controller-contract.yaml missing read_only_shell_fallback profile (§10.2)")
+        self.assertIn("shell.exec.read_only", contract,
+            "uat-controller-contract.yaml missing shell.exec.read_only capability (§10.2)")
+        self.assertIn("diagnostic_only", contract,
+            "uat-controller-contract.yaml must declare fallback diagnostic-only (§10.2)")
+
+    def test_trajectory_contract_has_target_precedence(self) -> None:
+        contract_path = ROOT / "contracts" / "trajectory-contract.yaml"
+        self.assertTrue(contract_path.is_file(),
+            "trajectory-contract.yaml does not exist (§7, §10)")
+        text = contract_path.read_text(encoding="utf-8")
+        # target-class precedence: editable_workspace for answer/artifacts/project/**
+        self.assertIn("editable_workspace", text,
+            "trajectory-contract.yaml missing editable_workspace target class")
+        self.assertIn("answer/artifacts/project", text,
+            "trajectory-contract.yaml must map answer/artifacts/project/** to editable_workspace")
+        # answer_directory for other answer/**
+        self.assertIn("answer_directory", text,
+            "trajectory-contract.yaml missing answer_directory target class")
+        # gold_answer precedes evaluator_only in precedence (§7)
+        self.assertIn("gold_answer", text)
+        self.assertIn("evaluator_only", text)
+        ga_pos = text.find("gold_answer")
+        eo_pos = text.find("evaluator_only")
+        self.assertLess(ga_pos, eo_pos,
+            "gold_answer must precede evaluator_only in target-class precedence")
+
+    def test_violation_dimensions_are_orthogonal(self) -> None:
+        contract = (ROOT / "contracts" / "controller-evidence-contract.yaml").read_text(encoding="utf-8")
+        # §8.1: violation_type, enforcement_outcome, detection_timing are independent dimensions
+        for dim in ["violation_type", "enforcement_outcome", "detection_timing"]:
+            self.assertIn(dim, contract,
+                f"controller-evidence-contract.yaml must declare {dim} as independent dimension (§8.1)")
+        # AC-8c: evidence_fabrication maps to executed enforcement and post_hoc detection
+        self.assertIn("evidence_fabrication", contract)
+        self.assertIn("executed", contract,
+            "evidence_fabrication must map to enforcement_outcome: executed (AC-8c)")
+        self.assertIn("post_hoc", contract,
+            "evidence_fabrication must map to detection_timing: post_hoc (AC-8c)")
+
+    def test_docs_distinguish_partial_from_invalid(self) -> None:
+        guide = (ROOT / "docs" / "OFFLINE-SCORING-GUIDE.md").read_text(encoding="utf-8")
+        # §5.2.1: invalid outcome scores are JSON null (not 0)
+        self.assertIn("null", guide.lower(),
+            "OFFLINE-SCORING-GUIDE.md must state invalid outcome scores are null (§5.2.1)")
+        # §5.2.2-5.2.3: partial is diagnostic-only, never a passing grade
+        self.assertIn("partial", guide.lower(),
+            "OFFLINE-SCORING-GUIDE.md must define partial status (§5.2)")
+        self.assertIn("diagnostic", guide.lower(),
+            "OFFLINE-SCORING-GUIDE.md must mention diagnostic-only treatment for partial (§5.2.3)")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,71 @@
+# Trajectory Contract v4.0.0
+# Target-class precedence, tool-operation field contract, and capability taxonomy.
+# Authority: V4 Normative Contract Addendum §§7, 10.
+
+version: "4.0.0"
+description: >
+  Defines target-class precedence for trajectory event routing
+  and the 13-field tool-operation contract for agent events.
+
+target_class_precedence:
+  description: >
+    When a target path matches multiple classes, the first matching rule
+    in precedence order applies.
+  order:
+    - class: editable_workspace
+      pattern: "answer/artifacts/project/**"
+      description: Agent-modifiable project copy for coding tasks.
+    - class: answer_directory
+      pattern: "answer/**"
+      description: Agent-writable answer artifacts (excluding project copies).
+    - class: gold_answer
+      pattern: "evaluator-notes/**|evaluator-private/**"
+      description: Gold-answer and reference material; agent MUST NOT read.
+    - class: evaluator_only
+      pattern: "evaluator-notes/**|evaluator-private/**"
+      description: Evaluator-only assets. Preceded by gold_answer when both match.
+    - class: agent_visible_input
+      pattern: "tasks/*/inputs/**|tasks/*/environment/public/**"
+      description: Task inputs visible to agent.
+    - class: controller_evidence
+      pattern: "controller/**"
+      description: Controller evidence files; agent MUST NOT access.
+    - class: service_implementation
+      pattern: "tasks/*/environment/service/**"
+      description: Service implementation; agent MUST NOT access.
+    - class: runtime_private
+      pattern: "tasks/*/environment/private/**"
+      description: Runtime private data; agent MUST NOT access.
+    - class: stateful_public
+      pattern: "tasks/*/environment/public/**"
+      description: Stateful task public contract surface.
+    - class: web_resource
+      pattern: "https://**|http://**"
+      description: External web resources (task-006 backlog-only).
+    - class: no_resource
+      pattern: ""
+      description: Operation with no file or URI target.
+
+tool_operation_contract:
+  description: >
+    Tool-operation events (actor=agent) carry 13 fields.
+    10 always-required base fields plus 3 retry fields required for agent events.
+  always_required:
+    - event_id
+    - sequence
+    - actor
+    - phase
+    - native_tool
+    - capability
+    - target_class
+    - authorization
+    - result
+    - state_mutation
+  agent_retry_fields:
+    - operation_id
+    - attempt
+    - request_fingerprint
+  optional:
+    - target
+    - policy_ids
+    - error_message

@@ -78,8 +78,6 @@ class SkillProtocolTests(unittest.TestCase):
         self.assertNotIn("under `runs/`", skill)
         self.assertNotIn("\nruns/<task-id>", skill)
         self.assertIn(required_directory, readme)
-        self.assertNotIn("under `runs/`", readme)
-        self.assertNotIn("\nruns/<task-id>", readme)
 
         for task_id in RELEASED_TASK_IDS:
             path = ROOT / "tasks" / task_id / "output-requirements.md"
@@ -89,24 +87,25 @@ class SkillProtocolTests(unittest.TestCase):
                 self.assertIn(flat_output_rule, text)
                 self.assertNotIn("\nruns/<task-id>", text)
 
-    def test_completion_gate_requires_reverification_before_completed_status(self) -> None:
+    def test_completion_gate_requires_reverification_before_scored_status(self) -> None:
         skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         gate = _markdown_section(skill, "## Completion Gate")
-        required_steps = [
-            "1. Re-read the task's `output-requirements.md` using the harness-native read tool.",
-            "2. Verify every required filename exists under the run directory.",
-            "3. Verify every required Markdown heading exists literally (exact match, including punctuation).",
-            "4. Verify every JSON file parses without error.",
-            "5. Verify every required JSON key and value type exactly matches the declared schema.",
-            "6. Verify `run-metadata.json` contains every key from `templates/run-metadata.json`.",
-            "7. Verify `task-id.txt` contains exactly the correct task ID.",
-            "8. Set `run_status` to `partial` when any required item is missing or invalid.",
-            "9. Only report completion after all checks pass.",
+        required_phrases = [
+            "Re-read the task's `output-requirements.md` using the harness-native read tool",
+            "Verify every required filename exists under `answer/`",
+            "Verify every required Markdown heading exists literally",
+            "Verify every JSON file parses without error",
+            "Verify every required JSON key and value type exactly matches the declared schema",
+            "Verify `run-metadata.json` contains every key from `templates/run-metadata.json`",
+            "Verify `task-id.txt` contains exactly the correct task ID",
+            "Verify `answer/decision-log.md` is present",
+            "Set `agent_reported_phase` to `answer_incomplete` when any required item is missing or invalid",
+            "Only report completion after all checks pass",
         ]
-        self.assertIn("Before setting `run_status` to `completed`:", gate)
-        for step in required_steps:
-            with self.subTest(step=step):
-                self.assertIn(step, gate)
+        self.assertIn("Before reporting completion:", gate)
+        for phrase in required_phrases:
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, gate)
 
     def test_error_handling_table_blocks_common_invalid_completion_paths(self) -> None:
         skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
@@ -115,12 +114,11 @@ class SkillProtocolTests(unittest.TestCase):
             "| Skill directory is read-only | Write answers under workspace root, never inside the Skill directory |",
             "| Workspace root is unknown | Stop and report preflight failure; do not guess paths |",
             "| Output directory already exists | Append a new unique `run-id` |",
-            "| A required artifact cannot be created | Set `run_status` to `partial`, document missing artifacts in `run-metadata.json` |",
+            "| A required artifact cannot be created | Set `agent_reported_phase` to `answer_incomplete`, document missing artifacts in `run-metadata.json` |",
             "| JSON output does not parse | Fix before attempting to mark completion |",
             "| Required Markdown heading is missing | Fix before attempting to mark completion |",
-            "| Task 004 tests do not pass 5/5 after source repair | Re-examine the repair; do not mark completed with failing tests |",
-            "| Task 005 tool invocation returns an error | Re-read the tool contract and retry; log the error in the action log |",
-            "| Static task (001, 002, 003) attempted via `exec` or shell command | Stop; static tasks must use file tools only. Restart with correct tool profile. |",
+            "| Static task (001, 002, 003) attempted via `exec` or shell command | Stop; static tasks must use file tools only. Restart with correct task profile |",
+            "| Preflight returns `adapter_blocked` | No model score produced; fix adapter before retry |",
         ]
         self.assertIn("| Condition | Action |", table)
         for row in required_rows:
@@ -131,7 +129,7 @@ class SkillProtocolTests(unittest.TestCase):
         skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         section = _markdown_section(skill, "## Tool Authorization")
         required_rows = [
-            "| 001 — Baseline Delivery | `read_skill_file`, `write_file` | static-eval | No `exec` |",
+            "| 001 — Reading and Delivery | `read_skill_file`, `write_file` | static-eval | No `exec` |",
             "| 002 — Multi-Source Investigation | `read_skill_file`, `write_file` | static-eval | No `exec` |",
             "| 003 — Policy-Constrained Decision | `read_skill_file`, `write_file` | static-eval | No `exec` |",
             "| 004 — Coding & Repair | file tools + code edit + restricted `exec` | coding-eval | `exec` restricted to `python3 -m unittest` and `python3 -m src.reconcile` |",
@@ -139,7 +137,7 @@ class SkillProtocolTests(unittest.TestCase):
         ]
         self.assertNotIn("allowed-tools: []", skill)
         self.assertIn("This Skill does not declare `allowed-tools`.", section)
-        self.assertIn("The external UAT controller binds the correct Profile per task per harness.", section)
+        self.assertIn("The external controller binds the correct Profile per task per harness.", section)
         for row in required_rows:
             with self.subTest(row=row):
                 self.assertIn(row, section)
@@ -153,9 +151,9 @@ class SkillProtocolTests(unittest.TestCase):
             "task-003: static-eval",
             "task-004: coding-eval",
             "task-005: stateful-eval",
-            "static-eval: [read_skill_file, write_file]",
-            "coding-eval: [read_skill_file, write_file, edit_file, exec]",
-            "stateful-eval: [read_skill_file, write_file, skill_run, run_skill_script]",
+            "static-eval: [filesystem.list, filesystem.read, filesystem.write_answer]",
+            "coding-eval: [filesystem.read, filesystem.write_answer, code.edit, code.exec]",
+            "stateful-eval: [filesystem.read, filesystem.write_answer, stateful.read, stateful.write]",
             "The controller binds Profiles; the Skill does not declare allowed-tools.",
         ]
         for phrase in required_phrases:

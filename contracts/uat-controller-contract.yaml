@@ -1,4 +1,4 @@
-version: "3.0.0"
+version: "4.0.0"
 
 tool_authorization:
   note: "The controller binds Profiles; the Skill does not declare allowed-tools."
@@ -9,6 +9,25 @@ tool_authorization:
     task-004: coding-eval
     task-005: stateful-eval
   profile_capabilities:
-    static-eval: [read_skill_file, write_file]
-    coding-eval: [read_skill_file, write_file, edit_file, exec]
-    stateful-eval: [read_skill_file, write_file, skill_run, run_skill_script]
+    static-eval: [filesystem.list, filesystem.read, filesystem.write_answer]
+    coding-eval: [filesystem.read, filesystem.write_answer, code.edit, code.exec]
+    stateful-eval: [filesystem.read, filesystem.write_answer, stateful.read, stateful.write]
+  fallback_profiles:
+    read_only_shell_fallback:
+      capability: shell.exec.read_only
+      diagnostic_only: true
+  stateful_tool_boundary:
+    public_agent_tools:
+      - list_requests
+      - get_request
+      - list_policies
+      - get_policy
+      - get_approval_status
+      - request_information
+      - approve_request
+      - reject_request
+      - escalate_request
+    admin_controller_tools:
+      - get_final_state
+      - get_action_log
+      - reset
