@@ -1,0 +1,522 @@
+# Controller Evidence Contract v4.0.0
+# Machine-readable JSON Schema (Draft 2020-12) for all five controller evidence files.
+# Authority: V4 Normative Contract Addendum §13.
+
+version: "4.0.0"
+description: >
+  JSON Schema definitions for controller/ evidence files produced by the
+  external controller during and after each agent evaluation run.
+
+schemas:
+  preflight-result:
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
+    "$id": "https://agent-readiness-eval/schemas/preflight-result"
+    title: Preflight Result
+    type: object
+    required:
+      - task_id
+      - suite_version
+      - harness_id
+      - model_id
+      - profile_id
+      - adapter_version
+      - source_commit
+      - status
+      - checks
+      - blocked_by
+      - checked_at
+    properties:
+      task_id:
+        type: string
+      suite_version:
+        type: string
+      harness_id:
+        type: string
+      model_id:
+        type: string
+      profile_id:
+        type: string
+      adapter_version:
+        type: string
+      source_commit:
+        type: string
+      status:
+        type: string
+        enum: [ready, adapter_blocked, protocol_mismatch]
+      checks:
+        type: object
+        properties:
+          canonical_identity:
+            type: boolean
+          probe_directory_writable:
+            type: boolean
+          agent_visible_paths_readable:
+            type: boolean
+          controller_paths_isolated:
+            type: boolean
+          evaluator_paths_isolated:
+            type: boolean
+          tool_events_capturable:
+            type: boolean
+          shell_execution_blocked:
+            type: boolean
+          filesystem_read_available:
+            type: boolean
+          filesystem_write_answer_available:
+            type: boolean
+          project_copy_available:
+            type: boolean
+          src_editable:
+            type: boolean
+          test_execution_available:
+            type: boolean
+          protected_paths_readonly:
+            type: boolean
+          declared_tools_accessible:
+            type: boolean
+          controller_tools_inaccessible:
+            type: boolean
+          runtime_private_inaccessible:
+            type: boolean
+        required:
+          - canonical_identity
+          - probe_directory_writable
+          - agent_visible_paths_readable
+          - controller_paths_isolated
+          - evaluator_paths_isolated
+          - tool_events_capturable
+        additionalProperties:
+          type: boolean
+      blocked_by:
+        type: array
+        items:
+          type: string
+      checked_at:
+        type: string
+        format: date-time
+    allOf:
+      - if:
+          properties:
+            profile_id:
+              const: static-eval
+        then:
+          properties:
+            checks:
+              required:
+                - shell_execution_blocked
+                - filesystem_read_available
+                - filesystem_write_answer_available
+      - if:
+          properties:
+            profile_id:
+              const: coding-eval
+        then:
+          properties:
+            checks:
+              required:
+                - project_copy_available
+                - src_editable
+                - test_execution_available
+                - protected_paths_readonly
+      - if:
+          properties:
+            profile_id:
+              const: stateful-eval
+        then:
+          properties:
+            checks:
+              required:
+                - declared_tools_accessible
+                - controller_tools_inaccessible
+                - runtime_private_inaccessible
+
+  run-manifest:
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
+    "$id": "https://agent-readiness-eval/schemas/run-manifest"
+    title: Run Manifest
+    type: object
+    required:
+      - task_id
+      - suite_version
+      - harness_id
+      - model_id
+      - run_id
+      - profile_id
+      - run_status
+      - started_at
+      - finished_at
+      - controller_version
+      - source_commit
+      - source_tree_dirty
+      - package_digest
+      - protected_file_detection
+    properties:
+      task_id:
+        type: string
+      suite_version:
+        type: string
+      harness_id:
+        type: string
+      model_id:
+        type: string
+      run_id:
+        type: string
+      profile_id:
+        type: string
+      run_status:
+        type: string
+        enum:
+          - scored
+          - partial
+          - adapter_blocked
+          - protocol_mismatch
+          - task_invalid
+          - run_invalid
+      started_at:
+        type: string
+        format: date-time
+      finished_at:
+        type: string
+        format: date-time
+      controller_version:
+        type: string
+      source_commit:
+        type: string
+      source_tree_dirty:
+        type: boolean
+      package_digest:
+        type: string
+        pattern: '^[0-9a-f]{64}$'
+        description: SHA-256 hex digest of sorted relative_path:SHA256 entries
+      protected_file_detection:
+        type: string
+        enum: [readonly_mount, write_audit, hash_only, full]
+
+  trajectory:
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
+    "$id": "https://agent-readiness-eval/schemas/trajectory"
+    title: Trajectory Event (JSONL line)
+    description: >
+      Each line in controller/trajectory.jsonl conforms to this schema.
+      Tool-operation events (actor=agent) require operation_id, attempt, request_fingerprint.
+      Non-tool events (controller, adapter, harness, preflight probes) MAY omit those three fields.
+    type: object
+    required:
+      - event_id
+      - sequence
+      - actor
+      - phase
+      - native_tool
+      - capability
+      - target_class
+      - authorization
+      - result
+      - state_mutation
+    properties:
+      event_id:
+        type: string
+        format: uuid
+      sequence:
+        type: integer
+        minimum: 0
+      actor:
+        type: string
+        enum: [agent, controller, adapter, harness]
+      phase:
+        type: string
+        enum:
+          - preflight
+          - investigation
+          - policy_review
+          - execution
+          - verification
+          - completion
+      native_tool:
+        type: string
+      capability:
+        type: string
+        enum:
+          - filesystem.list
+          - filesystem.read
+          - filesystem.write_answer
+          - code.edit
+          - code.exec
+          - stateful.read
+          - stateful.write
+          - tool.invoke
+          - web.search
+          - web.fetch
+          - shell.exec
+          - shell.exec.read_only
+      target_class:
+        type: string
+        enum:
+          - controller_evidence
+          - answer_directory
+          - editable_workspace
+          - gold_answer
+          - evaluator_only
+          - service_implementation
+          - runtime_private
+          - stateful_public
+          - agent_visible_input
+          - web_resource
+          - no_resource
+      target:
+        type: string
+      authorization:
+        type: string
+        enum: [allowed, blocked, unauthorized]
+      result:
+        type: string
+        enum:
+          - success
+          - error_transient
+          - error_fatal
+          - timeout
+          - rejected
+          - partial
+      state_mutation:
+        type: boolean
+      policy_ids:
+        type: array
+        items:
+          type: string
+      error_message:
+        type: string
+      operation_id:
+        type: string
+        format: uuid
+        description: Required for tool-operation events (actor=agent). May be omitted for non-tool events.
+      attempt:
+        type: integer
+        minimum: 1
+        description: Required for tool-operation events. 1 = initial, incremented on retry.
+      request_fingerprint:
+        type: string
+        pattern: '^[0-9a-f]{64}$'
+        description: Required for tool-operation events. SHA-256 hex of normalized tool name + params.
+    if:
+      properties:
+        actor:
+          const: agent
+    then:
+      required:
+        - operation_id
+        - attempt
+        - request_fingerprint
+
+  protocol-violations:
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
+    "$id": "https://agent-readiness-eval/schemas/protocol-violations"
+    title: Protocol Violations
+    type: object
+    required:
+      - task_id
+      - suite_version
+      - violations
+      - total_violations
+    properties:
+      task_id:
+        type: string
+      suite_version:
+        type: string
+      violations:
+        type: array
+        items:
+          type: object
+          required:
+            - violation_id
+            - violation_type
+            - enforcement_outcome
+            - detection_timing
+            - event_id
+            - sequence
+            - native_tool
+            - capability
+            - authorization
+            - target
+            - rule_reference
+          if:
+            properties:
+              detection_timing:
+                const: runtime
+          then:
+            properties:
+              event_id:
+                type: string
+                format: uuid
+              sequence:
+                type: integer
+              native_tool:
+                type: string
+              capability:
+                type: string
+              authorization:
+                type: string
+                enum: [allowed, blocked, unauthorized]
+            required:
+              - event_id
+              - sequence
+              - native_tool
+              - capability
+              - authorization
+          properties:
+            violation_id:
+              type: string
+              format: uuid
+            violation_type:
+              type: string
+              enum:
+                - unauthorized_read
+                - unauthorized_write
+                - prohibited_exec
+                - evidence_tamper
+                - evidence_fabrication
+                - boundary_escape
+                - protected_file_modification
+            enforcement_outcome:
+              type: string
+              enum: [blocked, escaped, executed, not_applicable]
+            detection_timing:
+              type: string
+              enum: [runtime, post_hoc]
+            event_id:
+              oneOf:
+                - type: string
+                  format: uuid
+                - type: "null"
+              description: >
+                REQUIRED for runtime tool violations (with associated trajectory event).
+                MAY be null for post-hoc violations with no trajectory event
+                (hash mismatch, evidence fabrication).
+            sequence:
+              oneOf:
+                - type: integer
+                - type: "null"
+            native_tool:
+              oneOf:
+                - type: string
+                - type: "null"
+            capability:
+              oneOf:
+                - type: string
+                - type: "null"
+            authorization:
+              oneOf:
+                - type: string
+                  enum: [allowed, blocked, unauthorized]
+                - type: "null"
+              description: >
+                Use "allowed" when the operation was technically permitted by tools
+                but reached a protected resource. Use null for post-hoc violations
+                with no trajectory event.
+            target:
+              oneOf:
+                - type: string
+                - type: "null"
+            rule_reference:
+              type: string
+      total_violations:
+        type: integer
+        minimum: 0
+      max_cap_applied:
+        type:
+          - string
+          - "null"
+
+  outcome-checks:
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
+    "$id": "https://agent-readiness-eval/schemas/outcome-checks"
+    title: Outcome Checks
+    type: object
+    required:
+      - task_id
+      - suite_version
+      - run_status
+      - outcome_score
+      - process_score
+      - total_score
+      - invalid
+      - diagnostic_only
+      - checks
+    properties:
+      task_id:
+        type: string
+      suite_version:
+        type: string
+      run_status:
+        type: string
+      outcome_score:
+        oneOf:
+          - type: integer
+          - type: "null"
+      process_score:
+        oneOf:
+          - type: integer
+          - type: "null"
+      total_score:
+        oneOf:
+          - type: integer
+          - type: "null"
+      invalid:
+        type: boolean
+      diagnostic_only:
+        type: boolean
+      checks:
+        type: array
+        items:
+          type: object
+          required:
+            - check_id
+            - description
+            - automated
+            - result
+            - evidence
+            - deduction
+            - dimension
+          properties:
+            check_id:
+              type: string
+            description:
+              type: string
+            automated:
+              type: boolean
+            result:
+              type: string
+              enum: [pass, fail, partial]
+            evidence:
+              type: string
+            deduction:
+              type: integer
+              minimum: 0
+            dimension:
+              type: string
+              enum: [outcome, process]
+            reviewer_identity:
+              type: string
+              description: REQUIRED when automated is false
+            reviewed_at:
+              type: string
+              format: date-time
+              description: REQUIRED when automated is false
+            rubric_version:
+              type: string
+              description: REQUIRED when automated is false
+            max_points:
+              type: integer
+              description: REQUIRED when automated is false
+            awarded_points:
+              type: integer
+              description: REQUIRED when automated is false
+          if:
+            properties:
+              automated:
+                const: false
+          then:
+            required:
+              - reviewer_identity
+              - reviewed_at
+              - rubric_version
+              - max_points
+              - awarded_points

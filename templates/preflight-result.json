@@ -1,0 +1,30 @@
+{
+  "task_id": "",
+  "suite_version": "4.0.0",
+  "harness_id": "",
+  "model_id": "",
+  "profile_id": "",
+  "adapter_version": "",
+  "source_commit": "",
+  "status": "",
+  "checks": {
+    "canonical_identity": false,
+    "probe_directory_writable": false,
+    "agent_visible_paths_readable": false,
+    "controller_paths_isolated": false,
+    "evaluator_paths_isolated": false,
+    "tool_events_capturable": false,
+    "shell_execution_blocked": false,
+    "filesystem_read_available": false,
+    "filesystem_write_answer_available": false,
+    "project_copy_available": false,
+    "src_editable": false,
+    "test_execution_available": false,
+    "protected_paths_readonly": false,
+    "declared_tools_accessible": false,
+    "controller_tools_inaccessible": false,
+    "runtime_private_inaccessible": false
+  },
+  "blocked_by": [],
+  "checked_at": ""
+}

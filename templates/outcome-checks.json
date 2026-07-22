@@ -1,0 +1,21 @@
+{
+  "task_id": "",
+  "suite_version": "4.0.0",
+  "run_status": "",
+  "outcome_score": null,
+  "process_score": null,
+  "total_score": null,
+  "invalid": false,
+  "diagnostic_only": false,
+  "checks": [
+    {
+      "check_id": "",
+      "description": "",
+      "automated": true,
+      "result": "",
+      "evidence": "",
+      "deduction": 0,
+      "dimension": ""
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "task_id": "",
+  "suite_version": "4.0.0",
+  "violations": [
+    {
+      "violation_id": "",
+      "violation_type": "",
+      "enforcement_outcome": "",
+      "detection_timing": "",
+      "event_id": null,
+      "sequence": null,
+      "native_tool": null,
+      "capability": null,
+      "authorization": null,
+      "target": null,
+      "rule_reference": ""
+    }
+  ],
+  "total_violations": 0,
+  "max_cap_applied": null
+}

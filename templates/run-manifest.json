@@ -1,0 +1,16 @@
+{
+  "task_id": "",
+  "suite_version": "4.0.0",
+  "harness_id": "",
+  "model_id": "",
+  "run_id": "",
+  "profile_id": "",
+  "run_status": "",
+  "started_at": "",
+  "finished_at": "",
+  "controller_version": "",
+  "source_commit": "",
+  "source_tree_dirty": false,
+  "package_digest": "",
+  "protected_file_detection": ""
+}

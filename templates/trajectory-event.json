@@ -1,0 +1,17 @@
+{
+  "event_id": "",
+  "sequence": 0,
+  "actor": "",
+  "phase": "",
+  "native_tool": "",
+  "capability": "",
+  "target_class": "",
+  "target": "",
+  "authorization": "",
+  "result": "",
+  "state_mutation": false,
+  "policy_ids": [],
+  "operation_id": "",
+  "attempt": 1,
+  "request_fingerprint": ""
+}

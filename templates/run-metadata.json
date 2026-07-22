@@ -1,6 +1,6 @@
 {
   "task_id": "",
-  "suite_version": "2.0.0",
+  "suite_version": "4.0.0",
   "task_version": "",
   "environment_version": "",
   "adapter_contract_version": "1.0.0",
@@ -17,8 +17,9 @@
   "output_tokens": "UNAVAILABLE",
   "total_tokens": "UNAVAILABLE",
   "tool_calls": "UNAVAILABLE",
-  "run_status": "completed",
+  "agent_reported_phase": "UNAVAILABLE",
   "abort_reason": "UNAVAILABLE",
   "web_activity_evidence": "UNAVAILABLE",
-  "web_activity_evidence_unavailable_reason": "UNAVAILABLE"
+  "web_activity_evidence_unavailable_reason": "UNAVAILABLE",
+  "controller_evidence_available": false
 }
