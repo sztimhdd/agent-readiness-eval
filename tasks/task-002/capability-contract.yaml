@@ -1,5 +1,5 @@
 task_id: task-002
-task_version: "2.0.0"
+task_version: "4.0.0"
 environment_type: static_files
 environment_version: not_applicable
 adapter_contract_version: "1.0.0"
@@ -11,6 +11,8 @@ primary_capabilities:
   - evidence_evaluation
   - distractor_exclusion
   - confidence_estimation
+  - conflict_resolution
+  - causal_chain_construction
 
 required_environment:
   - file_read
@@ -19,6 +21,7 @@ required_environment:
 required_evidence:
   - task_id_file
   - final_answer
+  - decision_log
   - investigation_summary_json
   - run_metadata
 

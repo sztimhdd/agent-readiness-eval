@@ -19,20 +19,6 @@ Changed status transition logic back to write-ack-first-then-complete. Deploying
 
 ---
 
-## DASHBOARD UI V2 REDESIGN (separate project, unrelated to INC-2025-0612)
-
-Status: In design review
-
-Tasks for next sprint:
-- DASH-101: Redesign task history page layout with filter sidebar
-- DASH-102: Add real-time status badge component with WebSocket connection
-- DASH-103: Migration: replace REST polling with Server-Sent Events for live updates
-- DASH-104: New dashboard widget: weekly task completion trend chart
-
-Note: The new status badge in DASH-102 will show "completed" only after the backend confirms write — this should prevent the kind of confusion seen in the current UI. This is a forward-looking improvement for the next major release, not related to the ongoing incident.
-
----
-
 ## Random notes
 
 - Sprint retro scheduled for Friday 14:00.

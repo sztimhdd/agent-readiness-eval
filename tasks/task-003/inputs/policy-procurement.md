@@ -15,7 +15,7 @@ Applies to all software, hardware, and service purchases > 2,000 CNY.
 
 ## 4. Software Licensing
 - All software must be license-compliant. Free/open-source software requires legal review.
-- SaaS subscriptions > 12 months require annual review clause in contract.
+- SaaS subscriptions >= 12 months require annual review clause in contract.
 
 ## 5. Exemptions
 - Purchases approved in writing by the CEO are exempt from competitive bidding requirements.

@@ -404,5 +404,84 @@ class V4ContractTests(unittest.TestCase):
             "OFFLINE-SCORING-GUIDE.md must mention diagnostic-only treatment for partial (§5.2.3)")
 
 
+    # ── Task 4: deterministic task content at evaluator boundary ──
+
+    def test_task001_update_log_is_severity_authority(self) -> None:
+        # §12.1.2: ticket-update-log.md > data.json for severity
+        contract = (ROOT / "tasks/task-001/capability-contract.yaml").read_text(encoding="utf-8")
+        self.assertIn("source_authority_resolution", contract)
+        # §12.1.4: source_authority_resolution capability in contract
+        task = (ROOT / "tasks/task-001/task.md").read_text(encoding="utf-8")
+        self.assertIn("ticket-update-log.md", task)
+        self.assertIn("severity-policy.md", task)
+        # Evaluator notes exist and document source authority
+        ref_path = ROOT / "tasks/task-001/evaluator-notes/reference-analysis.md"
+        self.assertTrue(ref_path.is_file(),
+            "task-001 evaluator-notes/reference-analysis.md does not exist")
+        ref = ref_path.read_text(encoding="utf-8")
+        self.assertIn("ticket-update-log.md", ref.lower())
+        self.assertIn("source", ref.lower())
+        rubric_path = ROOT / "tasks/task-001/evaluator-notes/manual-scoring-rubric.md"
+        self.assertTrue(rubric_path.is_file(),
+            "task-001 evaluator-notes/manual-scoring-rubric.md does not exist")
+
+    def test_task002_has_exactly_six_relevant_and_two_distractor_files(self) -> None:
+        # §12.2.1: exactly 8 files, 6 relevant + 2 distractors at file level
+        inputs_dir = ROOT / "tasks/task-002/inputs"
+        files = sorted([f.name for f in inputs_dir.iterdir()])
+        self.assertEqual(len(files), 8, f"task-002 must have exactly 8 input files, got {len(files)}")
+        expected = [
+            "customer-email.txt", "deployment-log.md", "error-log-extract.txt",
+            "sprint-planning-notes.md", "system-metrics.txt", "team-notes.md",
+            "tickets.json", "vendor-advisory.txt",
+        ]
+        self.assertEqual(files, expected)
+        ref = (ROOT / "tasks/task-002/evaluator-notes/reference-analysis.md").read_text(encoding="utf-8")
+        self.assertIn("6 relevant", ref.lower())
+        self.assertIn("2 distractor", ref.lower())
+        # Each input file is named in the reference analysis
+        for f_name in expected:
+            self.assertIn(f_name, ref, f"reference-analysis.md missing file: {f_name}")
+
+    def test_task002_preserves_unresolved_eight_vs_twelve_conflict(self) -> None:
+        # §12.2.4: 09:15 is authoritative incident start
+        deploy = (ROOT / "tasks/task-002/inputs/deployment-log.md").read_text(encoding="utf-8")
+        self.assertIn("09:15 UTC", deploy,
+            "deployment-log.md must record deploy at 09:15 UTC (§12.2.4)")
+        ref = (ROOT / "tasks/task-002/evaluator-notes/reference-analysis.md").read_text(encoding="utf-8")
+        # §12.2.5: unresolved 8-vs-12 conflict for Pilot Bank A
+        self.assertIn("Pilot Bank A", ref,
+            "reference-analysis.md must document Pilot Bank A conflict (§12.2.5)")
+        self.assertIn("8", ref)
+        self.assertIn("12", ref)
+        # 09:15 is authoritative incident start per metrics precedence
+        self.assertIn("09:15", ref,
+            "reference-analysis.md must use 09:15 as authoritative start (§12.2.4)")
+
+    def test_task003_policy_and_matrix_have_one_canonical_decision(self) -> None:
+        # §12.3.1: >= 12 months
+        procurement = (ROOT / "tasks/task-003/inputs/policy-procurement.md").read_text(encoding="utf-8")
+        self.assertIn(">= 12 months", procurement,
+            "policy-procurement.md must have >= 12 months clause (§12.3.1)")
+        # §12.3.2: joint Legal + DPO review
+        data_pol = (ROOT / "tasks/task-003/inputs/policy-data.md").read_text(encoding="utf-8")
+        self.assertIn("Legal", data_pol,
+            "policy-data.md must reference Legal in exemption (§12.3.2)")
+        self.assertIn("DPO", data_pol,
+            "policy-data.md must reference DPO in exemption (§12.3.2)")
+        self.assertIn("joint", data_pol.lower(),
+            "policy-data.md must have joint review clause (§12.3.2)")
+        # §12.3.3: DAT-2025-008 = ESCALATE with Legal+DPO joint review rationale
+        matrix_text = (ROOT / "tasks/task-003/evaluator-notes/decision-matrix.yaml").read_text(encoding="utf-8")
+        self.assertIn("DAT-2025-008", matrix_text)
+        self.assertIn("ESCALATE", matrix_text)
+        self.assertIn("Legal", matrix_text)
+        self.assertIn("DPO", matrix_text)
+        # §12.3.4: one canonical decision per request — task.md must state this
+        task_md = (ROOT / "tasks/task-003/task.md").read_text(encoding="utf-8")
+        self.assertIn("ONE decision", task_md,
+            "task-003 task.md must state ONE canonical decision per request (§12.3.4)")
+
+
 if __name__ == "__main__":
     unittest.main()

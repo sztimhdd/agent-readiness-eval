@@ -66,7 +66,7 @@
 
 | Score | Condition |
 |-------|-----------|
-| 10 | All 4 required files present; JSON is valid and follows schema; `task-id.txt` contains exactly `task-002`; `UNAVAILABLE` used correctly for unobservable metadata |
+| 10 | All 5 required files present; JSON is valid and follows schema; `task-id.txt` contains exactly `task-002`; `UNAVAILABLE` used correctly for unobservable metadata |
 | 7 | All files present but one format issue (missing field, invalid JSON, wrong task ID) |
 | 5 | Missing 1 required file, or multiple format issues |
 | 3 | Missing 2 required files, or JSON is invalid |

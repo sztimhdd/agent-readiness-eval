@@ -5,16 +5,17 @@ Create these files in your answer directory under `<workspace-root>/runs/<task-i
 Do not write `final-answer.md`, `run-metadata.json`, or `task-id.txt` at the workspace root.
 
 ```text
-task-id.txt
-final-answer.md
-run-metadata.json
-artifacts/approval-decision.json
+answer/task-id.txt
+answer/final-answer.md
+answer/decision-log.md
+answer/run-metadata.json
+answer/artifacts/approval-decision.json
 ```
 
-## `task-id.txt`
+## `answer/task-id.txt`
 Must contain exactly: `task-003`
 
-## `final-answer.md`
+## `answer/final-answer.md`
 Must include:
 
 ### Executive Summary
@@ -23,7 +24,10 @@ One paragraph summarizing the overall decision outcome across all requests.
 ### Per-Request Decision Report
 For each request, list: Request ID, type, applicable policies, decision (APPROVE / HOLD / REJECT / ESCALATE), satisfied conditions, unmet conditions, applicable exceptions with scope, reason, and required next action.
 
-## `artifacts/approval-decision.json`
+## `answer/decision-log.md`
+Contains concise source citations, decisions, verification steps, and declared recovery actions. Must not request or contain hidden chain of thought.
+
+## `answer/artifacts/approval-decision.json`
 Must be valid JSON conforming to this schema:
 
 ```json
@@ -49,5 +53,5 @@ Each decision entry MUST have all 10 fields. The `decision` field must be one of
 
 Use `exception_scope` to describe the exact boundary of any exception that applies. Use `required_next_action` for HOLD and ESCALATE decisions to specify what must happen next.
 
-## `run-metadata.json`
+## `answer/run-metadata.json`
 Copy fields from `templates/run-metadata.json`. Use `UNAVAILABLE` for unobservable fields.

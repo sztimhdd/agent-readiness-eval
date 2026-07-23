@@ -1,5 +1,5 @@
 {
-  "dataset_id": "support_triage_v3_static_001",
+  "dataset_id": "support_triage_v4_static_001",
   "tickets": [
     {
       "id": "T-1001",
@@ -48,6 +48,38 @@
       "customer": "pilot-bank-c",
       "summary": "Payment processing fails intermittently for premium-tier customers; additionally, customer reports confusing UI labels on the same checkout page.",
       "impact": "Revenue loss for premium accounts (estimated 15 affected transactions). UI confusion is non-blocking but generates support volume."
+    },
+    {
+      "id": "T-1007",
+      "severity": "critical",
+      "area": "authentication",
+      "customer": "pilot-bank-c",
+      "summary": "Passwordless login flow fails silently for returning users on mobile devices.",
+      "impact": "Users cannot log in via mobile; no error message displayed. ~40 reports in last 48 hours."
+    },
+    {
+      "id": "T-1008",
+      "severity": "high",
+      "area": "agent-runtime",
+      "customer": "pilot-bank-a",
+      "summary": "Agent session does not persist across browser tabs causing users to re-authenticate.",
+      "impact": "Operators lose work when switching tabs; ~8 incidents reported this week."
+    },
+    {
+      "id": "T-1009",
+      "severity": "high",
+      "area": "billing",
+      "customer": "pilot-bank-b",
+      "summary": "Invoice PDFs for enterprise accounts contain incorrect VAT calculations.",
+      "impact": "Regulatory compliance concern; ~23 invoices affected in current billing cycle."
+    },
+    {
+      "id": "T-1010",
+      "severity": "medium",
+      "area": "dashboard",
+      "customer": "pilot-bank-a",
+      "summary": "Dashboard performance metrics load 30% slower during peak hours for multi-tenant views.",
+      "impact": "Dashboard takes 8-12 seconds to render during 9-11 AM peak."
     }
   ]
 }

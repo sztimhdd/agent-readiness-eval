@@ -1,0 +1,36 @@
+From: secure-engineering@secureauth-inc.com
+To: agentia-security@agentia-platform.com
+Subject: SECURITY ADVISORY: Auth SDK v4.2.1 — Premature callback completion
+Date: 2025-06-10 14:30 UTC
+Severity: MEDIUM
+
+Dear Agentia Platform Team,
+
+This advisory is being sent to all customers using SecureAuth SDK v4.2.1.
+
+A race condition has been identified in the authentication callback chain
+when using asynchronous completion handlers. Under concurrent load, the
+SDK may signal task completion before all auth context callbacks in the
+chain have resolved. This can cause downstream consumers to receive
+authentication results that appear complete but contain partial or empty
+payload data.
+
+Impact: Applications relying on auth callback payloads for downstream
+task execution may process incomplete data without raising errors.
+
+Fix: Upgrade to SecureAuth SDK v4.2.2 (released 2025-06-10), which adds
+a barrier synchronization check before firing the completion signal.
+
+Recommended action:
+  - If you are on v4.2.1, upgrade to v4.2.2 immediately.
+  - If you are on v4.2.0 or earlier, this advisory does not apply.
+
+Affected component: auth-callback-handler
+CVE: Pending
+CVSS: 5.3 (Medium)
+
+If you have any questions, contact SecureAuth Security Engineering.
+
+Best regards,
+Dr. Priya Sharma
+SecureAuth Security Engineering

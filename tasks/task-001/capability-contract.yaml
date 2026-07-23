@@ -1,5 +1,5 @@
 task_id: task-001
-task_version: "2.0.0"
+task_version: "4.0.0"
 environment_type: static_files
 environment_version: not_applicable
 adapter_contract_version: "1.0.0"
@@ -9,6 +9,7 @@ primary_capabilities:
   - instruction_following
   - structured_output
   - edge_case_handling
+  - source_authority_resolution
 
 required_environment:
   - file_read
@@ -19,6 +20,7 @@ required_evidence:
   - final_answer
   - triage_summary_json
   - run_metadata
+  - decision_log
 
 comparison_modes:
   - same_harness_different_model

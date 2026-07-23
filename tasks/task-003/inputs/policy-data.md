@@ -11,6 +11,7 @@ Applies to all employee requests involving customer data access, export, or proc
 
 ## 3. Export Rules
 - Any data export must specify: purpose, recipient, retention period, deletion date.
+- Retention periods for exports containing Confidential data must be >= 12 months from export date.
 - Exports of Confidential data must use encrypted transfer.
 - Bulk exports (>100 records) require DPO pre-approval and audit logging.
 

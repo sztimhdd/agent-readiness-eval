@@ -1,0 +1,51 @@
+# Agent Runtime — Error Log Extract
+# Source: agent-runtime-service-02, /var/log/agent-runtime/error.log
+# Date: 2025-06-12
+# Extracted by: ops@agentia-platform.com
+
+--- Incident window: 09:15 - 11:30 UTC ---
+
+[2025-06-12T09:17:23.456Z]  WARN  task-executor - Task t-7f9a3 reached completion handler
+[2025-06-12T09:17:23.457Z]  INFO  task-executor - Status transition: executing -> completed
+[2025-06-12T09:17:23.458Z]  INFO  task-executor - Scheduling asynchronous artifact write for task t-7f9a3
+[2025-06-12T09:17:23.512Z]  WARN  write-ack-handler - Artifact write for t-7f9a3 did not complete
+[2025-06-12T09:17:23.512Z]  ERROR write-ack-handler - No confirmation received for task t-7f9a3 (status already marked completed)
+
+[2025-06-12T09:18:41.102Z]  WARN  task-executor - Task t-8b23c reached completion handler
+[2025-06-12T09:18:41.103Z]  INFO  task-executor - Status transition: executing -> completed
+[2025-06-12T09:18:41.104Z]  INFO  task-executor - Scheduling asynchronous artifact write for task t-8b23c
+[2025-06-12T09:18:41.189Z]  WARN  write-ack-handler - Artifact write for t-8b23c did not complete
+[2025-06-12T09:18:41.189Z]  ERROR write-ack-handler - No confirmation received for task t-8b23c (status already marked completed)
+
+[2025-06-12T09:25:12.878Z]  WARN  task-executor - Task t-9c34d reached completion handler
+[2025-06-12T09:25:12.879Z]  INFO  task-executor - Status transition: executing -> completed
+[2025-06-12T09:25:12.880Z]  INFO  task-executor - Scheduling asynchronous artifact write for task t-9c34d
+[2025-06-12T09:25:12.912Z]  WARN  write-ack-handler - Artifact write for t-9c34d did not complete
+[2025-06-12T09:25:12.912Z]  ERROR write-ack-handler - No confirmation received for task t-9c34d (status already marked completed)
+
+[2025-06-12T09:30:01.001Z]  ALERT monitoring - Threshold breached: completed_without_artifact > 3.0/min
+[2025-06-12T09:30:01.001Z]  ALERT monitoring - Triggered: INC-2025-0612
+
+--- Pre-incident window (baseline behavior) ---
+
+[2025-06-12T08:45:03.122Z]  INFO  task-executor - Task t-5e12a reached completion handler
+[2025-06-12T08:45:03.124Z]  INFO  task-executor - Status transition: executing -> completed
+[2025-06-12T08:45:03.125Z]  INFO  task-executor - Synchronous artifact write confirmed for task t-5e12a
+[2025-06-12T08:45:03.126Z]  INFO  task-executor - Final ack received — task fully complete
+
+[2025-06-12T09:05:12.456Z]  INFO  task-executor - Task t-6f23b reached completion handler
+[2025-06-12T09:05:12.458Z]  INFO  task-executor - Status transition: executing -> completed
+[2025-06-12T09:05:12.459Z]  INFO  task-executor - Synchronous artifact write confirmed for task t-6f23b
+[2025-06-12T09:05:12.459Z]  INFO  task-executor - Final ack received — task fully complete
+
+--- Post-hotfix window (v2.3.2 deployed at 11:30) ---
+
+[2025-06-12T11:32:15.234Z]  INFO  task-executor - Task t-10d45 reached completion handler
+[2025-06-12T11:32:15.236Z]  INFO  task-executor - Status transition: executing -> completed
+[2025-06-12T11:32:15.237Z]  INFO  task-executor - Synchronous artifact write confirmed for task t-10d45
+[2025-06-12T11:32:15.238Z]  INFO  task-executor - Final ack received — task fully complete
+
+[2025-06-12T11:35:22.101Z]  INFO  task-executor - Task t-11e58 reached completion handler
+[2025-06-12T11:35:22.103Z]  INFO  task-executor - Status transition: executing -> completed
+[2025-06-12T11:35:22.104Z]  INFO  task-executor - Synchronous artifact write confirmed for task t-11e58
+[2025-06-12T11:35:22.104Z]  INFO  task-executor - Final ack received — task fully complete
