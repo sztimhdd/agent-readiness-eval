@@ -483,5 +483,36 @@ class V4ContractTests(unittest.TestCase):
             "task-003 task.md must state ONE canonical decision per request (§12.3.4)")
 
 
+    # ── Task 4: seed defects visible at test boundary ──
+
+    def test_task004_visible_tests_are_id_agnostic(self) -> None:
+        """Task 004 tests must not hardcode account IDs; must reference new defect names."""
+        test_file = ROOT / "tasks/task-004/environment/base-project/tests/test_reconcile.py"
+        src = test_file.read_text(encoding="utf-8")
+        self.assertNotIn("ACC-", src,
+            "test_reconcile.py must not contain hardcoded account IDs")
+        for name in ["non_positive_amount", "amount_comparison", "null_status_handling"]:
+            self.assertIn(name, src,
+                f"test_reconcile.py missing test for: {name}")
+
+    def test_task004_has_cross_module_invariant_and_local_defects(self) -> None:
+        """Seed must have: mapper string billing_amount, reconcile missing invariant,
+        reconcile missing null guard."""
+        mapper = (ROOT / "tasks/task-004/environment/base-project/src/mapper.py").read_text(encoding="utf-8")
+        reconcile_src = (ROOT / "tasks/task-004/environment/base-project/src/reconcile.py").read_text(encoding="utf-8")
+
+        # mapper returns billing_amount as string (cross-module type bug)
+        self.assertIn("str(bill['current_month_charges'])", mapper,
+            "mapper must return billing_amount as string (seed defect 1)")
+
+        # reconcile lacks non-positive amount invariant
+        self.assertNotIn("non_positive_amount", reconcile_src,
+            "reconcile must lack non_positive_amount check (seed defect 2)")
+
+        # reconcile lacks null guard on crm_status.lower()
+        self.assertNotIn("if crm_status else", reconcile_src,
+            "reconcile must lack null guard on crm_status.lower() (seed defect 3)")
+
+
 if __name__ == "__main__":
     unittest.main()

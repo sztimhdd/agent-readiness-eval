@@ -52,7 +52,7 @@ def match_crm_to_support(crm_account, support_records):
     Correct rule: CRM account_id == Support customer_ref  (exact match)
     """
     for ticket in support_records:
-        if ticket['customer_ref'] == crm_account['company_name']:
+        if ticket['customer_ref'] == crm_account['account_id']:
             return ticket
     return None
 
@@ -82,7 +82,7 @@ def map_all():
             'plan': acct['plan'],
             'billing_account': bill['billing_account'] if bill else None,
             'billing_status': bill['status'] if bill else None,
-            'billing_amount': bill['current_month_charges'] if bill else None,
+            'billing_amount': str(bill['current_month_charges']) if bill else None,
             'billing_balance': bill['outstanding_balance'] if bill else None,
             'support_ticket': ticket['ticket_id'] if ticket else None,
             'support_status': ticket['status'] if ticket else None,

@@ -1,5 +1,5 @@
 task_id: task-004
-task_version: "2.0.0"
+task_version: "4.0.0"
 environment_type: runnable_project
 environment_version: "1.0.0"
 adapter_contract_version: "1.0.0"
@@ -21,8 +21,6 @@ required_evidence:
   - task_id_file
   - final_answer
   - artifacts_project_copy
-  - artifacts_test_before
-  - artifacts_test_after
   - artifacts_change_summary
   - artifacts_reconciliation_report
   - run_metadata

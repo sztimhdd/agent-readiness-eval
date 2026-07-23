@@ -14,17 +14,13 @@ The project lives at `environment/base-project/`. It has no external dependencie
 
 3. **Read the expected output format.** `expected-output-format.md` defines the required JSON report shape.
 
-4. **Run the tests.** Execute `python3 -m unittest discover -s tests -v` from the project root. Capture the output as `artifacts/test-before.txt`. You should see exactly 3 non-passing tests: 2 failures and 1 error.
+4. **Diagnose the bugs.** Run the tests, read the source files, and analyze the test output. Identify the root cause of each failure. Do not modify tests, data files, or the expected output format document.
 
-5. **Diagnose the bugs.** Read the source files and test output. Identify the root cause of each failure. Do not modify tests, data files, or the expected output format document.
+5. **Fix the code.** Modify only files under `src/` to repair the bugs. All 5 tests must pass after your fixes.
 
-6. **Fix the code.** Modify only files under `src/` to repair the bugs. All 5 tests must pass after your fixes.
+6. **Generate the reconciliation report.** Run `python3 -m src.reconcile` from the project root. This produces `output/reconciliation-report.json`.
 
-7. **Re-run the tests.** Capture the passing output as `artifacts/test-after.txt`.
-
-8. **Generate the reconciliation report.** Run `python3 -m src.reconcile` from the project root. This produces `output/reconciliation-report.json`.
-
-9. **Write your change summary.** Document each bug found and the fix applied in `artifacts/change-summary.md`.
+7. **Write your change summary.** Document each bug found and the fix applied in `artifacts/change-summary.md`.
 
 ## Veto Rules
 
