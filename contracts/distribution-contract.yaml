@@ -1,4 +1,4 @@
-version: "3.0.0"
+version: "4.0.0"
 
 # Default excludes (applied to all targets)
 default_excludes:
@@ -27,6 +27,8 @@ default_excludes:
   - docs/task-*
   - docs/benchmark-*
   - docs/opencode-full-*
+  - package-manifest.json
+  - docs/v3-evidence/**
 
 # Agent-visible package: what the agent sees at runtime
 agent_package:

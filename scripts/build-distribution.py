@@ -227,9 +227,9 @@ def _sha256(filepath):
     return h.hexdigest()
 
 
-def _file_set_sha256(manifest_entries):
+def _package_digest(manifest_entries):
     payload = "".join(
-        sorted(f"{entry['path']}\0{entry['sha256']}\n" for entry in manifest_entries),
+        sorted(f"{entry['path']}:{entry['sha256']}" for entry in manifest_entries),
     )
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
@@ -248,7 +248,7 @@ def _build(files, repo_root, output_dir, build_target):
     manifest = {
         "build_target": build_target,
         "source_commit": _source_commit(repo_root),
-        "file_set_sha256": _file_set_sha256(manifest_entries),
+        "package_digest": _package_digest(manifest_entries),
         "files": manifest_entries,
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }

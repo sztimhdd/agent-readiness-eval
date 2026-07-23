@@ -52,22 +52,24 @@ class DistributionContractTests(unittest.TestCase):
                             self.assertIn(path.split("/", 2)[1], declared)
                         self.assertFalse(path.startswith("tasks/task-006/"), path)
 
-    def test_package_manifest_records_source_commit_and_deterministic_file_set_hash(self) -> None:
+    def test_package_manifest_records_canonical_package_digest(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             first = _build_package("agent", Path(tmpdir) / "first")
             second = _build_package("agent", Path(tmpdir) / "second")
 
         self.assertIn("source_commit", first)
         self.assertNotEqual(first["source_commit"], "")
-        self.assertEqual(first["file_set_sha256"], second["file_set_sha256"])
+        self.assertNotIn("file_set_sha256", first)
+        self.assertIn("package_digest", first)
+        self.assertEqual(first["package_digest"], second["package_digest"])
 
         files = first["files"]
         if not isinstance(files, list):
             self.fail("package manifest files must be a list")
         expected = hashlib.sha256(
-            "".join(sorted(f"{entry['path']}\0{entry['sha256']}\n" for entry in files)).encode("utf-8"),
+            "".join(sorted(f"{entry['path']}:{entry['sha256']}" for entry in files)).encode("utf-8"),
         ).hexdigest()
-        self.assertEqual(first["file_set_sha256"], expected)
+        self.assertEqual(first["package_digest"], expected)
 
     def test_agent_package_includes_task005_vitaclaw_adapter(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
