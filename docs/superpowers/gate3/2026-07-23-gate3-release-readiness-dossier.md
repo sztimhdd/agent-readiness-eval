@@ -224,5 +224,21 @@ After resolving both P0 blockers and verifying AC-15/16:
 
 All technical and process blockages are cleared. The following remain as separate gating items before official publication:
 - Third-party blind human review (recommended)
-- Q1-Q8 pilot execution and evidence collection
+- Q1-Q8 pilot execution and evidence collection (see `2026-07-23-v4-release-evidence.md`)
 - Publication approval per Addendum §17
+
+---
+
+## Release Metadata
+
+| Field | Value |
+|-------|-------|
+| Release tag | `v4.0.0` |
+| Base commit | `d2a866aa081c88833f3b0d27d09af8770c593c3c` |
+| Package digest | `9fd96915404b18d7f6f2dc677c05ee199d4131a09fb7b44e556b32c582459ce5` |
+| Agent package | 48 files |
+| Test results | 87 tests: 86 PASS, 1 SKIP (V3 without env var) |
+| V3 frozen manifest | `docs/v3-evidence/v3.0.0-package-manifest.json` (verified) |
+| GitHub Release | https://github.com/sztimhdd/agent-readiness-eval/releases/tag/v4.0.0 |
+| Pilot evidence | `docs/superpowers/gate3/2026-07-23-v4-release-evidence.md` |
+| Published at | 2026-07-23T~ (UTC) |
