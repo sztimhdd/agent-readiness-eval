@@ -100,16 +100,36 @@ class DistributionContractTests(unittest.TestCase):
 
     def test_task005_runtime_package_excludes_generated_runtime_state(self) -> None:
         runtime_state_root = ROOT / "tasks" / "task-005" / "environment" / "service" / "runtime-state"
-        runtime_state_root.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(prefix="contract-leak-check-", dir=runtime_state_root) as state_tmp:
-            state_dir = Path(state_tmp)
-            (state_dir / "state.db").write_text("generated", encoding="utf-8")
+        pre_existed = runtime_state_root.exists()
 
-            with tempfile.TemporaryDirectory() as tmpdir:
-                manifest = _build_package("runtime", Path(tmpdir) / "runtime", "task-005")
+        try:
+            runtime_state_root.mkdir(parents=True, exist_ok=True)
+            with tempfile.TemporaryDirectory(prefix="contract-leak-check-", dir=runtime_state_root) as state_tmp:
+                state_dir = Path(state_tmp)
+                (state_dir / "state.db").write_text("generated", encoding="utf-8")
 
-        for path in _manifest_paths(manifest):
-            self.assertNotIn("/runtime-state/", path)
+                with tempfile.TemporaryDirectory() as tmpdir:
+                    manifest = _build_package("runtime", Path(tmpdir) / "runtime", "task-005")
+
+            for path in _manifest_paths(manifest):
+                self.assertNotIn("/runtime-state/", path)
+        finally:
+            if not pre_existed:
+                import shutil
+                shutil.rmtree(runtime_state_root, ignore_errors=True)
+
+    def test_runtime_state_fixture_cleaned_after_distribution_test(self) -> None:
+        runtime_state_root = ROOT / "tasks" / "task-005" / "environment" / "service" / "runtime-state"
+        pre_existed = runtime_state_root.exists()
+
+        self.test_task005_runtime_package_excludes_generated_runtime_state()
+
+        if not pre_existed:
+            self.assertFalse(runtime_state_root.exists(),
+                f"{runtime_state_root} was not cleaned after test_task005_runtime_package_excludes_generated_runtime_state")
+        else:
+            self.assertTrue(runtime_state_root.exists(),
+                f"{runtime_state_root} was removed but pre-existed before the test")
 
 
 if __name__ == "__main__":
