@@ -513,6 +513,66 @@ class V4ContractTests(unittest.TestCase):
         self.assertNotIn("if crm_status else", reconcile_src,
             "reconcile must lack null guard on crm_status.lower() (seed defect 3)")
 
+    # ── Task 6: Task 005 public/admin interface separation ──
+
+    def test_task005_public_contract_has_exactly_nine_tools(self) -> None:
+        import importlib.util
+        import io
+        import sys
+
+        tool_api_path = str(ROOT / "tasks/task-005/environment/service/tool_api.py")
+        spec = importlib.util.spec_from_file_location("tool_api", tool_api_path)
+        assert spec is not None and spec.loader is not None
+        tool_api = importlib.util.module_from_spec(spec)
+        # suppress side effects during import (tool_api has no __main__ guard)
+        old_stdout = sys.stdout
+        old_stderr = sys.stderr
+        try:
+            sys.stdout = io.StringIO()
+            sys.stderr = io.StringIO()
+            spec.loader.exec_module(tool_api)
+        finally:
+            sys.stdout = old_stdout
+            sys.stderr = old_stderr
+
+        expected = {
+            "list_requests", "get_request", "list_policies", "get_policy",
+            "get_approval_status", "request_information", "approve_request",
+            "reject_request", "escalate_request",
+        }
+        actual = set(tool_api.AGENT_COMMANDS.keys())
+        self.assertEqual(expected, actual,
+            f"AGENT_COMMANDS must have exactly 9 tools. Expected: {sorted(expected)}, Got: {sorted(actual)}")
+
+    def test_task005_agent_dispatch_rejects_admin_commands(self) -> None:
+        import importlib.util
+        import sys
+
+        adapter_path = str(ROOT / "scripts/task005_tool.py")
+        spec = importlib.util.spec_from_file_location("task005_tool", adapter_path)
+        assert spec is not None and spec.loader is not None
+        adapter = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(adapter)
+
+        admin_tools = {"get_final_state", "get_action_log", "reset"}
+        overlap = admin_tools & set(adapter.ARG_NAMES.keys())
+        self.assertEqual(set(), overlap,
+            f"ARG_NAMES must NOT include admin commands. Found: {sorted(overlap)}")
+
+    def test_task005_policy_003_fails_once_per_run_id(self) -> None:
+        tool_api_src = (ROOT / "tasks/task-005/environment/service/tool_api.py").read_text(encoding="utf-8")
+        self.assertIn("POL-PRC-003", tool_api_src)
+        self.assertIn("_is_first_attempt", tool_api_src)
+        self.assertIn("Service temporarily unavailable", tool_api_src)
+
+    def test_task005_rubric_totals_100(self) -> None:
+        rubric = (ROOT / "tasks/task-005/evaluator-notes/manual-scoring-rubric.md").read_text(encoding="utf-8")
+        self.assertIn("Total Score: 100 points", rubric)
+        import re
+        scores = [int(m) for m in re.findall(r'^\| \*\*.*?\*\* \| (\d+) \|', rubric, re.MULTILINE)]
+        self.assertEqual(sum(scores), 100,
+            f"Rubric dimension scores sum to {sum(scores)}, expected 100: {scores}")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -20,8 +20,6 @@ ARG_NAMES = {
     "list_policies": [],
     "get_policy": ["policy_id"],
     "get_approval_status": ["request_id"],
-    "get_final_state": [],
-    "get_action_log": [],
     "request_information": ["request_id", "field"],
     "approve_request": ["request_id"],
     "reject_request": ["request_id", "reason"],

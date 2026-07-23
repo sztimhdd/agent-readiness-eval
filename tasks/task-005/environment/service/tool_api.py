@@ -38,6 +38,25 @@ ALLOWED_TRANSITIONS: dict[str, set[str]] = {
 
 MUTATING_TOOLS = {"request_information", "approve_request", "reject_request", "escalate_request"}
 
+# Recoverable failure simulation: first call to get_policy for POL-PRC-003
+# returns a transient error to test agent retry behavior.
+# Uses the action_log table to persist attempt count across process invocations.
+
+
+def _is_first_attempt(conn: sqlite3.Connection, tool: str, identifier: str) -> bool:
+    """Return True if this is the first attempt for a given (tool, identifier).
+
+    Checks the action_log for previous attempts by matching the exact args
+    that the tool invocation produces. A first attempt has zero prior entries.
+    Used to simulate a transient service failure that succeeds on retry.
+    """
+    args_json = json.dumps({"policy_id": identifier})
+    count = conn.execute(
+        "SELECT COUNT(*) FROM action_log WHERE tool = ? AND args = ?",
+        (tool, args_json)
+    ).fetchone()[0]
+    return count == 0
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -284,7 +303,14 @@ def cmd_list_policies(conn: sqlite3.Connection) -> dict:
     }
 
 
-def cmd_get_policy(conn: sqlite3.Connection, policy_id: str) -> dict:
+def cmd_get_policy(conn: sqlite3.Connection, run_id: str, policy_id: str) -> dict:
+    # Simulate transient failure on first call for POL-PRC-003
+    # to test agent retry behavior.
+    if policy_id == "POL-PRC-003" and _is_first_attempt(conn, "get_policy", policy_id):
+        raise RuntimeError(
+            "Service temporarily unavailable. Please retry the request."
+        )
+
     row = conn.execute(
         "SELECT * FROM policies WHERE id = ?", (policy_id,)
     ).fetchone()
@@ -320,6 +346,7 @@ def cmd_get_approval_status(conn: sqlite3.Connection, request_id: str) -> dict:
 
 
 def cmd_get_final_state(conn: sqlite3.Connection) -> dict:
+    """Controller-only: export final state for evaluation."""
     rows = conn.execute("SELECT id, status FROM requests").fetchall()
     return {
         "final_state": [
@@ -329,6 +356,7 @@ def cmd_get_final_state(conn: sqlite3.Connection) -> dict:
 
 
 def cmd_get_action_log(conn: sqlite3.Connection, run_id: str) -> dict:
+    """Controller-only: export full audit log for evaluation."""
     log_path = _log_path(run_id)
     entries: list[dict] = []
     if log_path.exists():
@@ -441,7 +469,7 @@ COMMANDS: dict[str, dict] = {
     "list_requests":       {"mutating": False, "args": 0, "fn": lambda conn, rid: cmd_list_requests(conn)},
     "get_request":         {"mutating": False, "args": 1, "fn": lambda conn, rid, a1: cmd_get_request(conn, a1)},
     "list_policies":       {"mutating": False, "args": 0, "fn": lambda conn, rid: cmd_list_policies(conn)},
-    "get_policy":          {"mutating": False, "args": 1, "fn": lambda conn, rid, a1: cmd_get_policy(conn, a1)},
+    "get_policy":          {"mutating": False, "args": 1, "fn": lambda conn, rid, a1: cmd_get_policy(conn, rid, a1)},
     "get_approval_status": {"mutating": False, "args": 1, "fn": lambda conn, rid, a1: cmd_get_approval_status(conn, a1)},
     "get_final_state":     {"mutating": False, "args": 0, "fn": lambda conn, rid: cmd_get_final_state(conn)},
     "get_action_log":      {"mutating": False, "args": 0, "fn": lambda conn, rid: cmd_get_action_log(conn, rid)},
@@ -450,6 +478,20 @@ COMMANDS: dict[str, dict] = {
     "reject_request":      {"mutating": True,  "args": 2, "fn": lambda conn, rid, a1, a2: cmd_reject_request(conn, rid, a1, a2)},
     "escalate_request":    {"mutating": True,  "args": 2, "fn": lambda conn, rid, a1, a2: cmd_escalate_request(conn, rid, a1, a2)},
     "reset":               {"mutating": True,  "args": 0, "fn": lambda conn, rid: cmd_reset(conn)},
+}
+
+AGENT_COMMANDS = {
+    k: COMMANDS[k]
+    for k in (
+        "list_requests", "get_request", "list_policies", "get_policy",
+        "get_approval_status", "request_information", "approve_request",
+        "reject_request", "escalate_request",
+    )
+}
+
+ADMIN_COMMANDS = {
+    k: COMMANDS[k]
+    for k in ("get_final_state", "get_action_log", "reset")
 }
 
 
@@ -516,7 +558,7 @@ def main() -> None:
         elif command == "get_request":
             result = cmd_get_request(conn, parsed.args[0])
         elif command == "get_policy":
-            result = cmd_get_policy(conn, parsed.args[0])
+            result = cmd_get_policy(conn, run_id, parsed.args[0])
         elif command == "get_approval_status":
             result = cmd_get_approval_status(conn, parsed.args[0])
         elif command == "list_requests":
@@ -535,12 +577,12 @@ def main() -> None:
             result = cmd_reject_request(conn, run_id, parsed.args[0], parsed.args[1])
         elif command == "escalate_request":
             result = cmd_escalate_request(conn, run_id, parsed.args[0], parsed.args[1])
-    except ValueError as exc:
+    except (ValueError, RuntimeError) as exc:
         success = False
         error_msg = str(exc)
         result = {"error": error_msg}
 
-    # Log action (include reset in action log for audit trail)
+    # Log action (include reset and failed calls in action log for audit trail)
     _log_action(conn, run_id, command, request_id, tool_args, success, error_msg)
     conn.close()
 
