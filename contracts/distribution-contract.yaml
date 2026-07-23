@@ -76,4 +76,7 @@ evaluator_only:
     - docs/INSTALL-*.md
     - docs/PRD_core_v2.md
     - docs/TDD_core_v2.md
+    - docs/PRD_v4.md
+    - docs/TDD_v4.md
+    - docs/v4-failure-taxonomy.md
   exclude: []

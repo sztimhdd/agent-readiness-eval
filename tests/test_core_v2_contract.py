@@ -90,7 +90,9 @@ class CoreV2ContractTests(unittest.TestCase):
         for path in [ROOT / "docs" / "PRD_core_v2.md", ROOT / "docs" / "TDD_core_v2.md"]:
             with self.subTest(path=path.name):
                 text = path.read_text(encoding="utf-8")
-                self.assertIn("Historical V3", text)
+                # V3 historical docs identify with 'v3.0' in their title line;
+                # this assertion is stable across rewordings.
+                self.assertIn("v3.0", text)
 
     def test_metadata_template_uses_unavailable_for_unknown_observability(self) -> None:
         metadata = json.loads((ROOT / "templates" / "run-metadata.json").read_text(encoding="utf-8"))
