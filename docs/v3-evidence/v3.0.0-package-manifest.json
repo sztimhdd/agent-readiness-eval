@@ -1,0 +1,160 @@
+{
+  "build_target": "agent",
+  "source_commit": "b35a75ca8cfe4d7d21ab9bfed472ac76fd08c67f",
+  "file_set_sha256": "8ae1773411ca23953b3558c87c06ea50d589cdc2fe0e0f75dad4d72a09d2f724",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "ddffac30d14b0a150794c2114069b532b638bf06f6b38c252bb4f9974386f3ca"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "a821619313dceba20d9a5376027236599aaccaf90b6ce8dd53cf561ada80b6f8"
+    },
+    {
+      "path": "scripts/task005_tool.py",
+      "sha256": "f94f3bae5b6a1b01e278be5b044b30f44824b84faffe2f1e7f21f85959736185"
+    },
+    {
+      "path": "skill.json",
+      "sha256": "07797a5c1549cd6d9235a8879cd7eae2f5ba408c48090c2f382e19f204114d66"
+    },
+    {
+      "path": "tasks/task-001/capability-contract.yaml",
+      "sha256": "891189d78b9077a8d797aa26c2d2d01dae46c22400ca6e11646900431ad2130a"
+    },
+    {
+      "path": "tasks/task-001/inputs/data.json",
+      "sha256": "06c4f7ba28cbd0ff247a008db6518b9abe94d340dc02c33b8fde9bc2396a6851"
+    },
+    {
+      "path": "tasks/task-001/output-requirements.md",
+      "sha256": "e85c62145e308dd1f4022e121e5aeaaa096248c6b8a32d86c6d970a3c69a0819"
+    },
+    {
+      "path": "tasks/task-001/task.md",
+      "sha256": "48262f72bebe3a82cf8ed1ad1b6eaab335d68075b16687001881eb432435ed3e"
+    },
+    {
+      "path": "tasks/task-002/capability-contract.yaml",
+      "sha256": "ce5c0cd7cea82eb241b3ae072c77ec2f780bfa059fb6e9beb3cf9e0647e25689"
+    },
+    {
+      "path": "tasks/task-002/inputs/customer-email.txt",
+      "sha256": "30365882a5133530187deb23f7009ebf3f5b00ad0b1a404e5150d6c3affd8a7a"
+    },
+    {
+      "path": "tasks/task-002/inputs/deployment-log.md",
+      "sha256": "7386ce3f528e538e665a17d642857bddcc3b64f05abff26f40df17368928762a"
+    },
+    {
+      "path": "tasks/task-002/inputs/system-metrics.txt",
+      "sha256": "0d91dde5811aa92544095588aee34e03246fb1aced80049b1fda611beb3bcf55"
+    },
+    {
+      "path": "tasks/task-002/inputs/team-notes.md",
+      "sha256": "72131e83d1e28c85015432d588a5152f5d2baf749edb60e0201d73984690a2bb"
+    },
+    {
+      "path": "tasks/task-002/inputs/tickets.json",
+      "sha256": "6e680381f417ee89b9c051f1036b8f581c5dc65c12d05f4c14172d10c81ce817"
+    },
+    {
+      "path": "tasks/task-002/output-requirements.md",
+      "sha256": "665b78a4eee82cd0af867feab68117bd8521188687897df9276eb34cd44cbabc"
+    },
+    {
+      "path": "tasks/task-002/task.md",
+      "sha256": "8bc5a079547909f8a4ba6f480a3bb4e741b421969f4dd52ec58c7e584c2bbf3f"
+    },
+    {
+      "path": "tasks/task-003/capability-contract.yaml",
+      "sha256": "c6b85ab43e4702022d42f4e781ad764012df94ff84d8e572497b060ce29387af"
+    },
+    {
+      "path": "tasks/task-003/inputs/policy-data.md",
+      "sha256": "dca5d0efd417312ce83d248a2460efcdb357bb9b8815ebb12108967d1a90510a"
+    },
+    {
+      "path": "tasks/task-003/inputs/policy-procurement.md",
+      "sha256": "112d914a4056e9f602126e8e3d3bbc0493ae89c3be0413cdfc6735c62f85e5b4"
+    },
+    {
+      "path": "tasks/task-003/inputs/policy-travel.md",
+      "sha256": "5578f2cc388d0cf56d79c31337dc24b0b0633ad3a776105a64bd3f093d2b9de3"
+    },
+    {
+      "path": "tasks/task-003/inputs/request-data-export-001.md",
+      "sha256": "77474ac2caeadfc77332b5abb07ad53bc0fe34608cbb7a8e04447a79a400a63f"
+    },
+    {
+      "path": "tasks/task-003/inputs/request-data-export-002.md",
+      "sha256": "a2aeb19a2dfd639140107bab28e431c7116a973d4efd6742a697dbe789638442"
+    },
+    {
+      "path": "tasks/task-003/inputs/request-procurement-001.md",
+      "sha256": "cf882649afdc031d588c3b1feed7facb775c65ca68bdad26f063225dfe9f989c"
+    },
+    {
+      "path": "tasks/task-003/inputs/request-travel-001.md",
+      "sha256": "a219997c693a97012301e90afafb7d96c21b6bd79a2e23bf7504da2fb74e13ca"
+    },
+    {
+      "path": "tasks/task-003/output-requirements.md",
+      "sha256": "2b64849a35175c3d67cf1b4bb335da0cf1aecdbdc1cafdbb94318d41fec07aad"
+    },
+    {
+      "path": "tasks/task-003/task.md",
+      "sha256": "80d5ed0ff0823e23f54a4b6a38fefa78b22499d18340ee91daeb7e85cc68b85d"
+    },
+    {
+      "path": "tasks/task-004/capability-contract.yaml",
+      "sha256": "a39848a9e78d41d097d156318484898dab8f400431fcc6de517e6b831dc6fb6f"
+    },
+    {
+      "path": "tasks/task-004/environment-contract.yaml",
+      "sha256": "02fd5ad0ec3626c36fb4bd7537540c616e0fbcb034d75e75c1894bf4f64dbc20"
+    },
+    {
+      "path": "tasks/task-004/environment/base-project/README.md",
+      "sha256": "c6f7dd5670fbad436a57a3d7da792ac336a783f622abfdc45514ec9291cfcb5c"
+    },
+    {
+      "path": "tasks/task-004/output-requirements.md",
+      "sha256": "2841e3711a536472e0008d980e1f46e737f6551c71b69246f671c81c0a581444"
+    },
+    {
+      "path": "tasks/task-004/task.md",
+      "sha256": "b184be9f86b2f120d7fb78e46e32c02bd2360be99762429e320664925f1384f6"
+    },
+    {
+      "path": "tasks/task-005/capability-contract.yaml",
+      "sha256": "46d58653ddb92f108aad068d0e3189a66beeb3430922f472b8e279bc0eaf384b"
+    },
+    {
+      "path": "tasks/task-005/environment-contract.yaml",
+      "sha256": "84ef840061284b6d554237ac7da003f08d7f54ca1b6356b38a71858d06d61159"
+    },
+    {
+      "path": "tasks/task-005/environment/public/tool-contract.yaml",
+      "sha256": "ffca51a9eaedb6313708a8c29616920eb31138380ff5ab0b8c2645c06e133c7a"
+    },
+    {
+      "path": "tasks/task-005/output-requirements.md",
+      "sha256": "95cbf087a4955aa88279d99f7f8eeb10cd33eb9a4ce3c547840027bca882f571"
+    },
+    {
+      "path": "tasks/task-005/task.md",
+      "sha256": "c9a53fd7d19c9e85d8fb0ac4f42de3c77bbb1670fb5ed99aa64086167d20face"
+    },
+    {
+      "path": "templates/completion-summary.md",
+      "sha256": "0e7706a8e7ac79871470b7208aa42adf42041fa1d0207770a61b14d36db8baaa"
+    },
+    {
+      "path": "templates/run-metadata.json",
+      "sha256": "2f6c8b699a69fa56263c625ae9c488a2ded5f3a45ee064bb027ed39bfc3d9d22"
+    }
+  ],
+  "generated_at": "2026-07-23T19:21:43.411017+00:00"
+}
