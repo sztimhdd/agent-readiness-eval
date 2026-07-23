@@ -1,7 +1,7 @@
 account_id,company_name,account_status,plan,monthly_revenue,primary_contact
 ACC-2001,Alpha Logistics,active,enterprise,92000,zhang.wei@alphalog.com
 ACC-2002,Beta Finance,active,basic,8500,wang.li@betafin.com
-ACC-2003,Gamma Healthcare,suspended,professional,15000,liu.jie@gammahealth.com
+ACC-2003,Gamma Healthcare,suspended,professional,0,liu.jie@gammahealth.com
 ACC-2500,Delta Manufacturing,active,enterprise,130000,chen.yun@deltamfg.com
 ACC-2005,Epsilon Retail,,professional,31000,huang.mei@epsilonretail.com
 ACC-2006,Zeta Services,active,enterprise,22000,zhao.ping@zetasvc.com
