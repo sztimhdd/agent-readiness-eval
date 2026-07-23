@@ -43,12 +43,15 @@ MUTATING_TOOLS = {"request_information", "approve_request", "reject_request", "e
 # Uses the action_log table to persist attempt count across process invocations.
 
 
-def _is_first_attempt(conn: sqlite3.Connection, tool: str, identifier: str) -> bool:
-    """Return True if this is the first attempt for a given (tool, identifier).
+def _is_first_attempt(conn: sqlite3.Connection, tool: str, identifier: str, run_id: str) -> bool:
+    """Return True if this is the first attempt for a given (tool, identifier) in this run_id.
 
     Checks the action_log for previous attempts by matching the exact args
     that the tool invocation produces. A first attempt has zero prior entries.
-    Used to simulate a transient service failure that succeeds on retry.
+    run_id is part of the retry identity — each run_id independently experiences
+    one transient failure per (tool, identifier). The conn already scopes to
+    run_id via the per-run_id database path; run_id is an explicit parameter
+    to document this contract.
     """
     args_json = json.dumps({"policy_id": identifier})
     count = conn.execute(
@@ -306,7 +309,7 @@ def cmd_list_policies(conn: sqlite3.Connection) -> dict:
 def cmd_get_policy(conn: sqlite3.Connection, run_id: str, policy_id: str) -> dict:
     # Simulate transient failure on first call for POL-PRC-003
     # to test agent retry behavior.
-    if policy_id == "POL-PRC-003" and _is_first_attempt(conn, "get_policy", policy_id):
+    if policy_id == "POL-PRC-003" and _is_first_attempt(conn, "get_policy", policy_id, run_id):
         raise RuntimeError(
             "Service temporarily unavailable. Please retry the request."
         )

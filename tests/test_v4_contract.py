@@ -564,6 +564,10 @@ class V4ContractTests(unittest.TestCase):
         self.assertIn("POL-PRC-003", tool_api_src)
         self.assertIn("_is_first_attempt", tool_api_src)
         self.assertIn("Service temporarily unavailable", tool_api_src)
+        # run_id must be part of the retry identity: different run_ids each
+        # independently experience one transient failure.
+        self.assertIn("run_id", tool_api_src.split("_is_first_attempt")[1].split("\n")[0],
+            "run_id must be an explicit parameter of _is_first_attempt")
 
     def test_task005_rubric_totals_100(self) -> None:
         rubric = (ROOT / "tasks/task-005/evaluator-notes/manual-scoring-rubric.md").read_text(encoding="utf-8")
