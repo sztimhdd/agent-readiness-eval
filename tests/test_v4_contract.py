@@ -578,5 +578,25 @@ class V4ContractTests(unittest.TestCase):
             f"Rubric dimension scores sum to {sum(scores)}, expected 100: {scores}")
 
 
+    # ── Task 7: failure taxonomy, core contract regression, V3 preservation closure ──
+
+    def test_failure_taxonomy_names_all_released_tasks(self) -> None:
+        taxonomy_path = ROOT / "docs" / "v4-failure-taxonomy.md"
+        self.assertTrue(taxonomy_path.is_file(),
+            "docs/v4-failure-taxonomy.md does not exist")
+        text = taxonomy_path.read_text(encoding="utf-8")
+        text_lower = text.lower()
+
+        for task_id in ["task-001", "task-002", "task-003", "task-004", "task-005"]:
+            with self.subTest(task=task_id):
+                self.assertIn(task_id, text_lower,
+                    f"taxonomy missing section for {task_id}")
+                section = text_lower.split(task_id, 1)[1] if task_id in text_lower else ""
+                for category in ["outcome mistakes", "process mistakes",
+                                 "profile violations", "adapter failures"]:
+                    self.assertIn(category, section,
+                        f"taxonomy {task_id} missing category: {category}")
+
+
 if __name__ == "__main__":
     unittest.main()

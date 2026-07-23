@@ -29,7 +29,7 @@ FORBIDDEN_TERMS = [
 
 
 class CoreV2ContractTests(unittest.TestCase):
-    def test_package_has_only_portable_v3_top_level_shape(self) -> None:
+    def test_package_has_only_portable_v4_top_level_shape(self) -> None:
         existing = {path.name for path in ROOT.iterdir()}
         self.assertTrue({"SKILL.md", "README.md", "skill.json", "tasks", "templates", "docs", "tests", "contracts", "archive", "scripts"}.issubset(existing))
         for forbidden in FORBIDDEN_PATHS:
@@ -69,9 +69,9 @@ class CoreV2ContractTests(unittest.TestCase):
         self.assertTrue(len(extra_in_manifest) == 0,
             f"Tasks in skill.json not on disk: {extra_in_manifest}")
 
-    def test_public_entry_points_share_v3_release_identity(self) -> None:
+    def test_public_entry_points_share_v4_release_identity(self) -> None:
         manifest = json.loads((ROOT / "skill.json").read_text(encoding="utf-8"))
-        self.assertEqual(manifest["suite_version"], "3.0.0")
+        self.assertEqual(manifest["suite_version"], "4.0.0")
         self.assertEqual([task["id"] for task in manifest["tasks"]], [
             "task-001",
             "task-002",
@@ -83,16 +83,14 @@ class CoreV2ContractTests(unittest.TestCase):
         for path in [ROOT / "SKILL.md", ROOT / "README.md"]:
             with self.subTest(path=path.name):
                 text = path.read_text(encoding="utf-8")
-                self.assertIn("Agent Readiness Eval Core v3.0", text)
+                self.assertIn("Agent Readiness Eval Core v4.0.0", text)
                 self.assertIn("task-006", text)
                 self.assertIn("backlog", text.lower())
 
         for path in [ROOT / "docs" / "PRD_core_v2.md", ROOT / "docs" / "TDD_core_v2.md"]:
             with self.subTest(path=path.name):
-                self.assertTrue(
-                    path.read_text(encoding="utf-8").startswith("# Agent Readiness Eval Core v3.0"),
-                    f"{path.name} must use the canonical V3 title",
-                )
+                text = path.read_text(encoding="utf-8")
+                self.assertIn("Historical V3", text)
 
     def test_metadata_template_uses_unavailable_for_unknown_observability(self) -> None:
         metadata = json.loads((ROOT / "templates" / "run-metadata.json").read_text(encoding="utf-8"))
@@ -100,7 +98,7 @@ class CoreV2ContractTests(unittest.TestCase):
         self.assertEqual(metadata["output_tokens"], "UNAVAILABLE")
         self.assertEqual(metadata["total_tokens"], "UNAVAILABLE")
         self.assertEqual(metadata["tool_calls"], "UNAVAILABLE")
-        self.assertIn("run_status", metadata)
+        self.assertIn("agent_reported_phase", metadata)
         self.assertIn("web_activity_evidence", metadata)
 
     def test_active_docs_do_not_reference_legacy_execution_architecture(self) -> None:
