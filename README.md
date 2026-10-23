@@ -1,3 +1,11 @@
+## V6 固定题目下载
+
+[V6.0.0 Release（五题完整初态包）](https://github.com/sztimhdd/agent-readiness-eval/releases/tag/v6.0.0) · [CTO运行手册](docs/v6/RUNBOOK.md) · [题目与版本](docs/v6/README.md)
+
+Pipeline、采购409、财务SA-CCR、Ansible、库存408。下载ZIP后按SHA256校验，使用各Harness原生执行。每题1800秒，业务50＋过程50；原通过判定另列。该版本为固定五题选集，不覆盖下方历史标准，亦非官方榜单复现。私有判分器与历史答卷不在受测题包。
+
+---
+
 # Agent Readiness Eval Core v4.0.0
 
 `agent-readiness-eval` is a portable agent evaluation suite. The V4 release includes task-001 through task-005 across five capability tracks. task-006 is retained on disk as backlog-only material and is not installable or distributable. The suite defines task content and answer formats; execution, scoring, and packaging belong to each harness or a separate offline review layer. V4 adds controller/evidence write boundary, harness preflight, normalized trajectory contract, and 50/50 outcome/process scoring.

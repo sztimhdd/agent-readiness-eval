@@ -1,0 +1,138 @@
+{
+  "version": "6.0.0",
+  "released_at": "2026-10-22",
+  "status": "frozen-five-task-selection",
+  "content_only": true,
+  "agent_entry": [
+    "tasks/<id>/TASK.md",
+    "tasks/<id>/EXECUTION.md",
+    "tasks/<id>/workspace/"
+  ],
+  "administrator_only": [
+    "RUNBOOK.md",
+    "SCORING.md",
+    "tasks/<id>/RUN.md"
+  ],
+  "scoring": {
+    "business": 50,
+    "process": 50,
+    "original_boolean_retained": true
+  },
+  "tasks": [
+    {
+      "id": "pipeline",
+      "title": "Pipeline",
+      "source": "FeatureBench",
+      "task_id": "pydantic__pydantic.e1dcaf9e.test_pipeline.c9b08962.lv1",
+      "revision": "76b4a4566e04f4bcc13c35125d4f301791efa736",
+      "url": "https://huggingface.co/datasets/LiberCoders/FeatureBench/tree/76b4a4566e04f4bcc13c35125d4f301791efa736",
+      "budget_seconds": 1800,
+      "source_budget_seconds": "project-frozen",
+      "question_sha256": "86d954703a5da7abb242cf06ea377a9e4d1060c95ed4310d8b7552e2b84ef7d9",
+      "source_initial_archive_sha256": "79d4df65e56873dc048b3fe13d17f1ef7e91dbd3a84244d7b8146b6b6906b13b",
+      "environment_note": "原题与已测公开初态，Python3.12。原目标tests/test_pipeline.py不在公开包内。",
+      "workspace_git_history": "excluded",
+      "symlinks": "materialized from archive targets",
+      "hidden_verifier": "not distributed; administrator-only upstream reference",
+      "status": "frozen-five-task-selection"
+    },
+    {
+      "id": "ansible",
+      "title": "Ansible mount_facts",
+      "source": "SWE-bench Pro V2",
+      "task_id": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+      "revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "url": "https://github.com/scaleapi/SWE-bench_Pro-os/tree/66f92766bba642462d4bbe5479e83f91f9211862/v2/tasks/instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+      "budget_seconds": 1800,
+      "source_budget_seconds": 3000,
+      "question_sha256": "b29415050a1a07795fb0c1440322e6c641c36176b53d339ad47578f06c3b5ebe",
+      "source_initial_archive_sha256": "82b4d34a25b119a8c0fcb45ad19f7738bb3aaefa6ba9328fb37da3444cc4e0b7",
+      "environment_note": "公开app来自已测pristine teacher。taskBase40ade1与实际appHead9ab63986分别保留，未宣称原上游Git树等同。",
+      "workspace_git_history": "excluded",
+      "symlinks": "materialized from archive targets",
+      "hidden_verifier": "not distributed; administrator-only upstream reference",
+      "status": "frozen-five-task-selection"
+    },
+    {
+      "id": "inventory408",
+      "title": "库存408",
+      "source": "harness-bench-fast",
+      "task_id": "task_408_legacy_feature",
+      "revision": "3796b9084093e5f9383077d7bde8f1ce1f0d57b5",
+      "url": "https://github.com/ai-forever/harness-bench-fast/blob/3796b9084093e5f9383077d7bde8f1ce1f0d57b5/harness_bench/long_tasks/t17_legacy_feature.py",
+      "budget_seconds": 1800,
+      "source_budget_seconds": 7200,
+      "question_sha256": "7d70dbf4ab4b51bfd5ce7404fc1323025a0124f12a437aac8128cd21b0387f23",
+      "source_initial_archive_sha256": "2d15bb91982a920f48ef422d99256b4e2b40b1e16adfa5b978396df34ed61d6a",
+      "environment_note": "Python标准库业务。原可见unittest保留。",
+      "workspace_git_history": "excluded",
+      "symlinks": "materialized from archive targets",
+      "hidden_verifier": "not distributed; administrator-only upstream reference",
+      "status": "frozen-five-task-selection"
+    },
+    {
+      "id": "purchase409",
+      "title": "采购409",
+      "source": "harness-bench-fast",
+      "task_id": "task_409_procurement_datasheets",
+      "revision": "3796b9084093e5f9383077d7bde8f1ce1f0d57b5",
+      "url": "https://github.com/ai-forever/harness-bench-fast/blob/3796b9084093e5f9383077d7bde8f1ce1f0d57b5/harness_bench/long_tasks/t18_procurement_datasheets.py",
+      "budget_seconds": 1800,
+      "source_budget_seconds": 7200,
+      "question_sha256": "4abbe373782d4a66f4a403a05f527e42017a693f885d4afcb95e6cc0c8813ec0",
+      "source_initial_archive_sha256": "57a1ff21027b5c4c486532d2672782b5e29dfd3cd71f4284c76e2bcec8f3361d",
+      "environment_note": "183个公开材料逐字节保留。无需数据库或Office。",
+      "workspace_git_history": "excluded",
+      "symlinks": "materialized from archive targets",
+      "hidden_verifier": "not distributed; administrator-only upstream reference",
+      "status": "frozen-five-task-selection"
+    },
+    {
+      "id": "finance",
+      "title": "财务SA-CCR",
+      "source": "Terminal-Bench",
+      "task_id": "fin-saccr-rwa",
+      "revision": "506b75e2f5a685417e9d2642de0221f37c3c2bc5",
+      "url": "https://huggingface.co/datasets/harborframework/terminal-bench/tree/506b75e2f5a685417e9d2642de0221f37c3c2bc5/tasks/fin-saccr-rwa",
+      "budget_seconds": 1800,
+      "source_budget_seconds": 9000,
+      "question_sha256": "e248fdd5201c4d6a8e06abdcb2e5587561a58d05c19c9c50a336d2ec8342aa01",
+      "source_initial_archive_sha256": "c20662e77897f74478a5dc393b629addd8e918d7762f77bb2ae41d211708390b",
+      "environment_note": "13个公开CSV逐字节保留，openpyxl写工作簿；无需指定Office服务。",
+      "workspace_git_history": "excluded",
+      "symlinks": "materialized from archive targets",
+      "hidden_verifier": "not distributed; administrator-only upstream reference",
+      "status": "frozen-five-task-selection"
+    }
+  ],
+  "license_sources": [
+    {
+      "file": "licenses/harness-bench-fast-MIT.txt",
+      "url": "https://raw.githubusercontent.com/ai-forever/harness-bench-fast/3796b9084093e5f9383077d7bde8f1ce1f0d57b5/LICENSE",
+      "sha256": "b2b2e6b4232e3d6050e3309d174e7734e977eb3d1264ffbb992ce59540f1e284"
+    },
+    {
+      "file": "licenses/FeatureBench-MIT.txt",
+      "url": "https://raw.githubusercontent.com/LiberCoders/FeatureBench/8d4e347ec57546685c5a87e8676bf575db022ea6/LICENSE",
+      "sha256": "7aa12a2f72652dce526236807be821878b94f9f1d1986a5423665b8713d31afd"
+    },
+    {
+      "file": "licenses/terminal-bench-Apache-2.0.txt",
+      "url": "https://huggingface.co/datasets/harborframework/terminal-bench/resolve/506b75e2f5a685417e9d2642de0221f37c3c2bc5/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "file": "licenses/fin-saccr-rwa-LICENSE.md",
+      "url": "https://huggingface.co/datasets/harborframework/terminal-bench/resolve/506b75e2f5a685417e9d2642de0221f37c3c2bc5/tasks/fin-saccr-rwa/LICENSE.md",
+      "sha256": "2e9c38a07f8dfa1a43080a6eaf905dcf53665b0776a8d7e07a2931fb3f9f07f7"
+    }
+  ],
+  "original_answers_included": false,
+  "private_verifiers_included": false,
+  "download": {
+    "release": "https://github.com/sztimhdd/agent-readiness-eval/releases/tag/v6.0.0",
+    "asset": "agent-readiness-eval-v6.0.0.zip",
+    "sha256": "deca89010248b9e108d0ca24ce60c690821fefe163d01a95dd784d46c8dea777",
+    "regular_files": 6342
+  }
+}
